@@ -1,0 +1,92 @@
+/* XYNTAX in the browser — the few things only the web build draws (src/web-shell.js, src/web-bridge.js). Monochrome, the suite's own
+   tokens; loaded only by web/build.js's page. Nothing here restyles the suite. */
+iframe.xw-print { position: fixed; left: -10000px; top: 0; width: 794px; height: 1123px; border: 0; visibility: hidden; }
+#xwprev { position: fixed; inset: 0; z-index: 90; display: flex; flex-direction: column; background: rgba(0, 0, 0, .72); }
+#xwprev .xw-prevbar { display: flex; align-items: center; gap: 10px; padding: 10px 16px; background: var(--tip, #16181c); border-bottom: 1px solid var(--line3, rgba(255, 255, 255, .14)); }
+#xwprev .xw-prevtitle { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--text2, #b9bec6); }
+#xwprev .xw-prevframe { flex: 1; width: min(900px, 100%); margin: 18px auto; border: 0; background: #fff; box-shadow: 0 18px 60px rgba(0, 0, 0, .6); }
+#xwgate, #xwask { position: fixed; inset: 0; z-index: 78; display: flex; align-items: center; justify-content: center; padding: 20px; background: var(--bg, #0a0b0c); }
+#xwout { position: fixed; inset: 0; z-index: 77; display: flex; align-items: center; justify-content: center; padding: 20px; background: var(--bg, #0a0b0c); }
+#xwout .sh-dcard { max-width: 520px; width: 100%; } #xwout .xw-outmark { font-size: 11px; letter-spacing: .42em; color: var(--faint, #7d838c); margin-bottom: 10px; }
+#xwout .xw-outrow { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; } #xwout .xw-outrow input { flex: 1 1 180px; min-width: 0; }
+body.xw-out { overflow: hidden; }
+#xwask { z-index: 96; background: rgba(0, 0, 0, .55); }
+#xwgate .sh-dcard, #xwask .sh-dcard { max-width: 460px; }
+#xwwarn, #xwver, #xwnotify { z-index: 95; max-width: min(560px, calc(100vw - 36px)); flex-wrap: wrap; }
+#xwver { bottom: 18px; } #xwnotify { bottom: 74px; } #xwwarn { bottom: 130px; }
+.xw-note { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line, rgba(255, 255, 255, .08)); font-size: 12px; color: var(--text2, #b9bec6); text-align: center; }
+.xw-local { margin: 18px auto 0; max-width: 620px; padding: 0 20px; font-size: 12px; line-height: 1.6; color: var(--faint, #7d838c); text-align: center; }
+#xwedits { position: fixed; left: 18px; bottom: 18px; z-index: 69; width: min(420px, calc(100vw - 36px)); background: var(--tip, #16181c); border: 1px solid var(--line3, rgba(255, 255, 255, .14)); border-radius: 6px; box-shadow: 0 10px 30px rgba(0, 0, 0, .6); padding: 10px 12px; font-size: 12px; }
+#xwedits .xw-eh { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint, #7d838c); margin-bottom: 6px; }
+#xwedits .xw-er { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-top: 1px solid var(--line, rgba(255, 255, 255, .08)); }
+#xwedits .xw-en { flex: 1; min-width: 0; display: flex; flex-direction: column; } #xwedits .xw-en b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } #xwedits .xw-en span { color: var(--text2, #b9bec6); }
+#xwedits .xw-eq { margin-top: 6px; color: var(--faint, #7d838c); font-size: 11px; line-height: 1.5; }
+.xw-policy .xw-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line, rgba(255, 255, 255, .08)); } .xw-policy .xw-row span { flex: 1 1 auto; min-width: 0; } .xw-policy .xw-row small { display: block; color: var(--faint, #7d838c); font-size: 11px; margin-top: 2px; }
+.xw-policy .xw-row input[type="checkbox"] { flex: 0 0 auto; width: 16px; height: 16px; margin: 0; } .xw-policy .xw-row select { flex: 0 0 auto; width: auto; min-width: 150px; }
+@media (max-width: 760px) { #xwedits { left: 12px; right: 12px; width: auto; bottom: calc(68px + env(safe-area-inset-bottom, 0px)); } #xwver, #xwnotify, #xwwarn { bottom: calc(68px + env(safe-area-inset-bottom, 0px)); } #xwprev .xw-prevframe { margin: 0; } }
+@media print { #xwprev, #xwedits, #xwver, #xwnotify, #xwwarn { display: none !important; } }
+
+/* ---------- 4.34.7 · the suite in a phone's browser.
+   Below 760 px the suite uses the phone layout the Android app was drawn for (vertu.css: nine tiles three across filling a
+   full-screen app, small caps, 40 px fields). In a browser there are eleven tiles, the browser's own bars take a fifth of the
+   height, and fingers land on a page, not on an installed app — it read as cramped. These rules are the web build's own (this
+   file is loaded by nothing else): the Android app and the desktop-width suite are not touched. :root:root only outweighs the
+   shared rules whatever the order of the stylesheets. */
+@media (max-width: 760px) {
+  /* the browser's toolbar comes and goes: as tall as what is visible, not as the tallest the window can get */
+  :root:root #app { height: 100dvh; }
+  :root:root .preview-frame, :root:root .preview-pdf, :root:root .finframe { height: calc(100dvh - 220px); } :root:root .vt-prev { height: calc(100dvh - 230px); }
+  /* the home: two across, the name and a summary that can be read, and it scrolls; the bar under it only repeated the tiles and
+     the account menu in the header (Settings is a tile; Lock, Switch company and Sign out are under the person) */
+  :root:root body[data-app="home"] .sh-hometabs { display: none; }
+  :root:root body[data-app="home"] .sh-homebody { justify-content: flex-start; overflow-y: auto; overflow-x: hidden; padding: 16px 16px calc(28px + env(safe-area-inset-bottom, 0px)); }
+  :root:root body[data-app="home"] .sh-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  :root:root body[data-app="home"] .sh-tile { aspect-ratio: auto; min-height: 116px; padding: 16px 14px 14px; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 0; }
+  :root:root body[data-app="home"] .sh-tile .sh-i { width: 28px; height: 28px; margin-bottom: 14px; }
+  :root:root body[data-app="home"] .sh-tile .sh-name { font-size: 12px; letter-spacing: .16em; margin-bottom: 6px; white-space: nowrap; }
+  :root:root body[data-app="home"] .sh-tile .sh-sum { font-size: 14px; line-height: 1.35; max-height: none; min-height: 0; text-align: left; white-space: normal; overflow-wrap: break-word; word-break: normal; hyphens: manual; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  :root:root body[data-app="home"] .sh-tile[data-app="settings"] { min-height: 60px; align-items: center; padding: 12px 16px; gap: 14px; }
+  :root:root body[data-app="home"] .sh-tile[data-app="settings"] .sh-sum { -webkit-line-clamp: 1; flex: 1 1 auto; min-width: 0; text-align: right; }
+  :root:root body[data-app="home"] .sh-tile[data-app="settings"] .sh-i { margin-bottom: 0; }
+  :root:root body[data-app="home"] .sh-tile[data-app="settings"] .sh-name { margin-bottom: 0; }
+  :root:root .xw-local { font-size: 14px; line-height: 1.45; margin: 16px 0 0; }
+  /* typing: 16 px (a smaller field makes iOS zoom the page on focus), fields and buttons a finger hits: 44 px at least */
+  :root:root input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]), :root:root select, :root:root textarea { font-size: 16px; min-height: 46px; }
+  :root:root textarea { min-height: 92px; }
+  :root:root button, :root:root [role="button"], :root:root .sh-fchip, :root:root summary { min-height: 44px; }
+  :root:root button { min-width: 44px; }
+  :root:root .sh-tabs button { min-height: 52px; }
+  :root:root .seg button, :root:root .sh-seg button { min-width: 44px; padding-left: 12px; padding-right: 12px; }
+  /* words: what is read at 14 px, small caps labels at 11–12 px (they were 8.5–9.5) */
+  :root:root .sh-tabs button span, :root:root #tabbar button span { font-size: 10px !important; letter-spacing: 0 !important; overflow: visible; text-overflow: clip; max-width: none; }
+  :root:root .sh-tabs button { padding-left: 0; padding-right: 0; }
+  :root:root .nt-row .p, :root:root .vt-note span, :root:root .hd .sub, :root:root .sh-panel .sh-dim { font-size: 14px !important; line-height: 1.4; }
+  :root:root .sh-panel .sh-faint, :root:root .st-l .sh-faint, :root:root .f .hint, :root:root #sheet .hint { font-size: 13px !important; line-height: 1.4; }
+  :root:root .nt-when, :root:root .sh-flabel { font-size: 11px !important; }
+  :root:root .sh-panel h3, :root:root h2.sec { font-size: 10.5px !important; }
+  :root:root .vt-crumbs button, :root:root .vt-viewbtn, :root:root .sh-toolbar button, :root:root #sapp button.primary, :root:root #app button.primary { font-size: 12px !important; }
+  :root:root .sh-fchip, :root:root .pn-chips button, :root:root .sh-seg button, :root:root .seg button, :root:root .nt-tools button, :root:root .ps-acts button, :root:root .sh-fchip .n { font-size: 12px !important; }
+  :root:root .nt-kind { font-size: 11px !important; }
+  :root:root #login a.faint, :root:root .sh-dcard a { display: inline-flex; align-items: center; min-height: 44px; }
+  :root:root .ct-index span, :root:root .cal-grid .day > span, :root:root .day > span { font-size: 11px !important; }
+  :root:root .sh-kpi .l, :root:root .kpi .l, :root:root .cm-tile .l, :root:root .f > label, :root:root #sheet label, :root:root .sh-nav .grp, :root:root .ct-letter, :root:root .ps-today-h h3 { font-size: 11.5px; }
+  :root:root .nt-hd .nt-sub, :root:root .nt-hd .pn-gline { font-size: 14px !important; }
+  :root:root .sh-kpi .d, :root:root .kpi .d, :root:root .nt-sub, :root:root .pn-gline, :root:root .ct-main .p, :root:root .sh-faint, :root:root .hd .sub, :root:root .hint, :root:root .vn-t, :root:root .sh-dim { font-size: 14px; line-height: 1.4; }
+  :root:root .sh-kpi .v, :root:root .kpi .v { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; font-size: 19px; line-height: 1.2; }
+  :root:root .v .ccy { font-size: 11px; }
+  :root:root #sheet .sfoot button, :root:root .sh-dbtns button { font-size: 13px !important; min-height: 46px; padding-left: 18px; padding-right: 18px; }
+  :root:root #sheet .shead .close { min-width: 44px; font-size: 12px !important; }
+  /* ACCOUNTING's band: the app's name in full; the entity picker gives way first */
+  :root:root header.cmd .brand, :root:root header.cmd .sh-lockup { flex: none; } :root:root header.cmd #entityPick { min-width: 0; flex: 0 1 auto; overflow: hidden; } :root:root header.cmd #entityPick .epick { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  /* a table keeps to its own box and is pushed sideways there, never the page */
+  :root:root .tblwrap, :root:root .sh-tablewrap, :root:root .sh-panel { max-width: 100%; }
+  :root:root table { max-width: 100%; }
+  /* forms: one column, the field as wide as the sheet */
+  :root:root #sheet form, :root:root #sheet .form { grid-template-columns: minmax(0, 1fr); }
+  :root:root #sheet .f, :root:root #sheet .f.wide { grid-column: 1 / -1; min-width: 0; }
+  :root:root #sheet .ps-ratestep { grid-template-columns: minmax(0, 1fr) auto minmax(0, 96px) auto 44px; }
+  :root:root #sheet .ps-broker { grid-template-columns: minmax(0, 1fr) 84px auto 44px; }
+  /* the sign-in card, the two-step card, the question cards: 16 px from the edge */
+  :root:root #login .card, :root:root .sh-dcard { width: calc(100vw - 32px); max-width: 440px; box-sizing: border-box; }
+  :root:root #xwgate, :root:root #xwask, :root:root #xwout { padding: 16px; }
+}

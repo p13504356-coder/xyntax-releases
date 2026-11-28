@@ -1,0 +1,63 @@
+/* XYNTAX WEALTH · 4.20 W — the refined overview: allocation donut, account cards, liabilities, runway, budgets, planned, FX.
+ * Monochrome: every shade is the ink at falling opacity, so it reads the same in the dark and the light theme. */
+body[data-app="wealth"] .wl-allocp .wl-allocbody { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 8px 26px; align-items: start; }
+body[data-app="wealth"] .wl-donutwrap { color: var(--pt-ink); padding-top: 4px; }
+body[data-app="wealth"] .wl-donut { width: 150px; height: 150px; display: block; }
+body[data-app="wealth"] .wl-donut-v { font: 300 13px var(--font); fill: var(--pt-ink); }
+body[data-app="wealth"] .wl-donut-l { font: 500 8px var(--font-caps); letter-spacing: .18em; fill: var(--pt-faint); }
+body[data-app="wealth"] .wl-alloclist { min-width: 0; }
+body[data-app="wealth"] .wl-allocseg button { padding: 4px 9px; }
+body[data-app="wealth"] .wl-alloc { display: flex; height: 3px; background: var(--pt-hair); margin: 4px 0 12px; overflow: hidden; }
+body[data-app="wealth"] .wl-alloc i { display: block; height: 100%; }
+
+/* the five tiles in one row on a wide screen */
+@media (min-width: 1180px) { body[data-app="wealth"] .sh-kpis.wl-kpis5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+@media (min-width: 761px) and (max-width: 1179px) { body[data-app="wealth"] .sh-kpis.wl-kpis5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* account cards */
+body[data-app="wealth"] .wl-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(228px, 1fr)); gap: 12px; }
+body[data-app="wealth"] .sh-app .wl-card, body[data-app="wealth"] .wl-card { text-transform: none; letter-spacing: 0; font-family: var(--font); font-size: 12.5px; line-height: 1.4; border-radius: 0; }
+body[data-app="wealth"] .wl-card { display: flex; flex-direction: column; gap: 3px; text-align: left; padding: 14px 16px 12px; border: 1px solid var(--pt-hair); background: var(--pt-panel, transparent); color: var(--pt-ink); font: inherit; cursor: pointer; min-width: 0; transition: border-color .15s; }
+body[data-app="wealth"] .wl-card:hover, body[data-app="wealth"] .wl-card:focus-visible { border-color: var(--pt-ink2); outline: none; }
+body[data-app="wealth"] .wl-card-hd { display: flex; justify-content: space-between; gap: 10px; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--pt-faint); }
+body[data-app="wealth"] .wl-card-hd span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body[data-app="wealth"] .wl-card-name { font-size: 14px; font-weight: 400; color: var(--pt-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body[data-app="wealth"] .wl-card-bal { font: 300 22px/1.15 var(--font); letter-spacing: -.01em; color: var(--pt-ink); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body[data-app="wealth"] .wl-card-bal .ccy { font-family: var(--font-caps); font-size: 10px; letter-spacing: .18em; color: var(--pt-faint); margin-right: 7px; vertical-align: 3px; }
+body[data-app="wealth"] .wl-card.debt .wl-card-bal { color: var(--pt-ink2); }
+body[data-app="wealth"] .wl-card-base { font-size: 11.5px; color: var(--pt-dim); font-weight: 300; }
+body[data-app="wealth"] .wl-card-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 6px; }
+body[data-app="wealth"] .wl-card-row .sh-spark { width: 90px; height: 22px; color: var(--pt-ink2); flex: 0 0 auto; }
+body[data-app="wealth"] .wl-card-ch { font-size: 11.5px; color: var(--pt-dim); font-weight: 300; min-width: 0; }
+body[data-app="wealth"] .wl-card-ch.neg { color: var(--pt-ink); } body[data-app="wealth"] .wl-card-ch.neg::before { content: "▾ "; color: var(--pt-faint); }
+body[data-app="wealth"] .wl-card-ch.pos::before { content: "▴ "; color: var(--pt-faint); }
+body[data-app="wealth"] .wl-card-last { font-size: 11px; color: var(--pt-faint); font-weight: 300; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+body[data-app="wealth"] .wl-liab .wl-card { border-style: dashed; }
+
+/* budgets in the overview */
+body[data-app="wealth"] .wl-blist { display: flex; flex-direction: column; gap: 6px; }
+body[data-app="wealth"] .wl-brow { display: grid; grid-template-columns: minmax(90px, 1fr) minmax(0, 2fr) auto; gap: 12px; align-items: center; padding: 6px 0; border: 0; border-bottom: 1px dotted var(--pt-hair); background: none; color: var(--pt-ink); font: inherit; font-size: 12.5px; text-align: left; cursor: pointer; }
+body[data-app="wealth"] .wl-brow:last-child { border-bottom: 0; }
+body[data-app="wealth"] .wl-brow .wl-budget { position: relative; height: 3px; background: var(--pt-hair); display: block; }
+body[data-app="wealth"] .wl-brow .wl-budget i { display: block; height: 100%; background: var(--pt-ink2); }
+body[data-app="wealth"] .wl-brow .wl-budget.pace i { background: var(--pt-ink); }
+body[data-app="wealth"] .wl-brow .wl-budget.over i { background: var(--pt-ink); } body[data-app="wealth"] .wl-brow .wl-budget.over::after { content: ""; position: absolute; inset: -2px 0; border: 1px solid var(--pt-ink); }
+body[data-app="wealth"] .wl-bnum { font-size: 11.5px; color: var(--pt-dim); white-space: nowrap; }
+body[data-app="wealth"] .wl-late td:first-child { color: var(--pt-ink); }
+body[data-app="wealth"] .wl-grid > .sh-panel { min-width: 0; }
+body[data-app="wealth"] .wl-grid .sh-kpis { margin: 0; }
+
+/* enlarge control when the suite offers SUITE.enlarge but not the shared helper */
+body[data-app="wealth"] .wl-enl { position: relative; }
+body[data-app="wealth"] .wl-enlbtn { position: absolute; top: 10px; right: 10px; padding: 4px 8px; font-size: 13px; opacity: 0; transition: opacity .15s; }
+body[data-app="wealth"] .wl-enl:hover .wl-enlbtn, body[data-app="wealth"] .wl-enlbtn:focus-visible { opacity: 1; }
+
+@media (max-width: 760px) {
+  body[data-app="wealth"] .wl-allocp .wl-allocbody { grid-template-columns: 1fr; }
+  body[data-app="wealth"] .wl-donutwrap { display: flex; justify-content: center; }
+  body[data-app="wealth"] .wl-allocp h3 { flex-wrap: wrap; } body[data-app="wealth"] .wl-allocseg { flex-wrap: wrap; }
+  body[data-app="wealth"] .wl-cards { grid-template-columns: 1fr; }
+  body[data-app="wealth"] .wl-brow { grid-template-columns: minmax(70px, 1fr) minmax(0, 1.4fr) auto; gap: 8px; }
+  body[data-app="wealth"] .wl-enlbtn { opacity: 1; }
+  body[data-app="wealth"] .wl-hero .d .x { display: none; }
+}

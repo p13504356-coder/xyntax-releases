@@ -1,0 +1,149 @@
+/* XYNTAX PROSHIP — NAVIGATION (4.32): the header (places · search · + New · gear), the section list, her page, the phone's bar,
+ * chip rows and floating + New. Monochrome controls: the accent stays on the vessel icons and tracks. No backdrop blur here —
+ * the result list and the chip rows sit on the near-opaque veil (--pt-veil2), so scrolling stays on the compositor. */
+
+/* ---------- header: the places after the lockup */
+body[data-app="proship"] .sh-apptop.pn-top .pn-places { display: flex; align-items: stretch; gap: 0; margin-left: 40px; height: 60px; }
+body[data-app="proship"] .sh-apptop.pn-top .pn-places button { position: relative; background: none; border: 0; box-shadow: none; padding: 0; margin-right: 28px; font-family: var(--font-caps); font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--pt-dim); cursor: pointer; }
+body[data-app="proship"] .sh-apptop.pn-top .pn-places button:hover { color: var(--pt-ink); }
+body[data-app="proship"] .sh-apptop.pn-top .pn-places button.on { color: var(--pt-ink); }
+body[data-app="proship"] .sh-apptop.pn-top .pn-places button.on::after { content: ""; position: absolute; left: 0; right: .24em; bottom: -1px; height: 1px; background: var(--pt-ink); }
+body[data-app="proship"] .sh-apptop.pn-top .sh-acts { gap: 18px; align-items: center; }
+
+/* the search field */
+body[data-app="proship"] .sh-apptop .pn-search { position: relative; display: flex; align-items: center; width: clamp(200px, 24vw, 360px); height: 34px; border: 1px solid var(--pt-hair2); background: var(--pt-field); padding: 0 8px 0 0; }
+body[data-app="proship"] .sh-apptop .pn-search:focus-within { border-color: var(--pt-dim); }
+body[data-app="proship"] .sh-apptop .pn-search .pn-sbtn { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 32px; padding: 0; color: var(--pt-dim); }
+body[data-app="proship"] .sh-apptop .pn-search .pn-sbtn .pt-ic { width: 16px; height: 16px; }
+body[data-app="proship"] .sh-apptop .pn-search input { flex: 1; min-width: 0; height: 32px; border: 0; outline: 0; background: transparent; box-shadow: none; padding: 0; color: var(--pt-ink); font-family: var(--font); font-size: 13px; letter-spacing: 0; }
+body[data-app="proship"] .sh-apptop .pn-search input::placeholder { color: var(--pt-faint); }
+body[data-app="proship"] .sh-apptop .pn-search input { text-overflow: ellipsis; } /* a narrow window shortens the placeholder instead of cutting it */
+body[data-app="proship"] .sh-apptop .pn-search input::-webkit-search-cancel-button { display: none; }
+body[data-app="proship"] .sh-apptop .pn-search kbd { flex: none; font-family: var(--font); font-size: 10.5px; color: var(--pt-faint); border: 1px solid var(--pt-hair2); padding: 0 5px; line-height: 16px; }
+body[data-app="proship"] .sh-apptop .pn-search:focus-within kbd { visibility: hidden; }
+body[data-app="proship"] .pn-res { position: fixed; width: min(480px, 92vw); max-height: min(62vh, 560px); overflow: auto; overscroll-behavior: contain; background: var(--pt-veil2); border: 1px solid var(--pt-hair2); box-shadow: var(--pt-shadow); z-index: 95; padding: 6px 0; }
+body[data-app="proship"] .pn-res[hidden] { display: none; }
+body[data-app="proship"] .pn-res .pn-hg { font-family: var(--font-caps); font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--pt-faint); padding: 10px 14px 4px; }
+body[data-app="proship"] .pn-res button.pn-hit { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; text-align: left; padding: 7px 14px; margin: 0; border: 0; background: none; font-family: var(--font); font-size: 13.5px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--pt-ink2); white-space: normal; }
+body[data-app="proship"] .pn-res button.pn-hit .d { font-size: 11.5px; color: var(--pt-dim); }
+body[data-app="proship"] .pn-res button.pn-hit:hover, body[data-app="proship"] .pn-res button.pn-hit.on { background: var(--pt-sel); color: var(--pt-ink); }
+body[data-app="proship"] .pn-res .pn-none { padding: 10px 14px; font-size: 12.5px; color: var(--pt-dim); }
+
+/* + New and the gear */
+body[data-app="proship"] .sh-apptop .sh-acts button.pn-new { font-family: var(--font-caps); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-ink); border: 1px solid var(--pt-hair2); padding: 0 14px; height: 34px; background: none; display: inline-flex; align-items: center; gap: 6px; }
+body[data-app="proship"] .sh-apptop .sh-acts button.pn-new .pl { font-family: var(--font); font-size: 15px; letter-spacing: 0; line-height: 1; }
+body[data-app="proship"] .sh-apptop .sh-acts button.pn-new:hover { border-color: var(--pt-dim); background: var(--pt-sel); }
+body[data-app="proship"] .sh-apptop .sh-acts button.pn-gear { width: 34px; height: 34px; padding: 0; display: inline-flex; align-items: center; justify-content: center; color: var(--pt-dim); }
+body[data-app="proship"] .sh-apptop .sh-acts button.pn-gear .pt-ic { width: 18px; height: 18px; }
+body[data-app="proship"] .sh-apptop .sh-acts button.pn-gear.on, body[data-app="proship"] .sh-apptop .sh-acts button.pn-gear:hover { color: var(--pt-ink); }
+
+/* the + New menu: one column per place, the current place first */
+body[data-app] #shmenu.pn-newmenu { padding: 0; min-width: 0; max-width: calc(100vw - 16px); }
+body[data-app] #shmenu.pn-newmenu .ps-qhd { padding: 12px 16px 10px; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--pt-dim); border-bottom: 1px solid var(--pt-hair); }
+body[data-app] #shmenu.pn-newmenu .pn-ncols { display: grid; grid-template-columns: repeat(4, minmax(150px, auto)); }
+body[data-app] #shmenu.pn-newmenu .pn-ncol { padding: 8px 4px 10px; border-left: 1px solid var(--pt-hair); display: flex; flex-direction: column; }
+body[data-app] #shmenu.pn-newmenu .pn-ncol:first-child { border-left: 0; }
+body[data-app] #shmenu.pn-newmenu .pn-mh { font-family: var(--font-caps); font-size: 9px; letter-spacing: .24em; text-transform: uppercase; color: var(--pt-faint); padding: 4px 12px 6px; }
+body[data-app] #shmenu.pn-newmenu button { padding: 7px 12px; font-size: 13.5px; white-space: nowrap; }
+body[data-app] #shmenu.pn-newmenu button.on { background: var(--pt-sel); color: var(--pt-ink); }
+body[data-app] #shmenu.pn-newmenu button.on::before { content: none; }
+
+/* ---------- the side: the place's sections (fill only for the one open), her page's index */
+body[data-app="proship"] .pn-secnav { display: flex; flex-direction: column; padding-bottom: 6px; }
+body[data-app="proship"] .pn-secnav .pn-sechd { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--pt-faint); padding: 0 14px 10px; }
+body[data-app="proship"] .pn-secnav.vp .pn-sechd { font-family: var(--font); font-size: 15px; letter-spacing: 0; text-transform: none; color: var(--pt-ink); padding: 4px 14px 12px; }
+body[data-app="proship"] .sh-app .sh-nav .pn-secnav button.on::before { display: none; }
+body[data-app="proship"] .sh-app .sh-nav .pn-secnav button.pn-back { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-dim); padding: 6px 14px 12px; background: none; text-align: left; }
+body[data-app="proship"] .sh-app .sh-nav .pn-secnav button.pn-back:hover { color: var(--pt-ink); }
+/* on her page the side is her index alone: the Showing line and the historic row belong to the places (the filter stays in the pane) */
+body[data-app="proship"] .ps-app.pn-vpage .sh-side .ps-sidelist, body[data-app="proship"] .ps-app.pn-vpage .sh-side .ps-showing { display: none; }
+
+/* ---------- one path to each thing (4.32 tightening)
+ * the Showing scope: the fleet filter in the pane (desktop), the first chip of the row on the phone — never a second block in the page */
+body[data-app="proship"] .ps-app.pn .sh-main .ps-pagehead .ps-scopebar { display: none; }
+/* the phone's group line under the title */
+body[data-app="proship"] .pn-gline { font-size: 12.5px; color: var(--pt-dim); margin-top: 4px; }
+body[data-app="proship"] .sh-app .pn-chips button.pn-scope { color: var(--pt-ink); border-color: var(--pt-hair2); display: inline-flex; gap: 6px; align-items: center; margin-right: 6px; }
+body[data-app="proship"] .sh-app .pn-chips button.pn-scope .n { color: var(--pt-dim); } body[data-app="proship"] .sh-app .pn-chips button.pn-scope .car { font-size: 8px; color: var(--pt-dim); }
+/* the map's vessel box sits under the map toolbar, never across it */
+body[data-app="proship"] .ps-mapbox:has(.ps-mapctl) .ps-mapinfo { top: 46px; max-width: min(420px, calc(100% - 24px)); }
+@media (max-width: 760px) { body[data-app="proship"] .ps-mapbox:has(.ps-mapctl) .ps-mapinfo { top: 40px; } }
+/* 4.32.2 · a narrow map (her page beside the filter pane): the toolbar wraps inside the map and the vessel box moves under its two rows */
+body[data-app="proship"] .ps-mapbox { container-type: inline-size; }
+@container (max-width: 480px) { body[data-app="proship"] .ps-mapctl { flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 24px); } body[data-app="proship"] .ps-mapbox:has(.ps-mapctl > button:nth-child(4)) .ps-mapinfo { top: 74px; } }
+body[data-app="proship"] .pn-vsec { scroll-margin-top: 8px; }
+body[data-app="proship"] .pn-vsec + .pn-vsec { margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--pt-hair); }
+body[data-app="proship"] .pn-vsec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; font-family: var(--font); font-size: 22px; font-weight: 300; letter-spacing: -.01em; color: var(--pt-ink); margin: 0 0 6px; }
+/* the section's actions sit on its title row (lifted out of the renderer's head); the head keeps only its one-line description */
+body[data-app="proship"] .pn-vsec-h > .ps-acts { margin-left: auto; padding-top: 0; font-size: 13px; }
+body[data-app="proship"] .pn-vsec .ps-titlerow.pn-lifted { min-height: 0; }
+body[data-app="proship"] .pn-vsec[data-sec="employment"] .ps-pagehead .nt-hd h2 { display: none; }
+body[data-app="proship"] .pn-vsec[data-sec="employment"] .ps-pagehead .nt-sub { margin-top: 0; }
+body[data-app="proship"] .pn-vsec:not([data-sec="summary"]) .ps-pagehead:not(:has(.nt-sub:not(:empty), .ps-tools:not(.empty))) { margin-bottom: 8px; }
+body[data-app="proship"] .pn-vsec .ps-pagehead .vt-head .vt-crumbs, body[data-app="proship"] .pn-vsec .vt-crumbs, body[data-app="proship"] .pn-vsec .ps-scopebar { display: none; }
+body[data-app="proship"] .pn-vsec:not([data-sec="summary"]):not([data-sec="employment"]) .ps-pagehead .nt-hd, body[data-app="proship"] .pn-vsec[data-sec="notes"] .vt-head .nt-hd { display: none; }
+body[data-app="proship"] .pn-vsec .pn-more { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 14px; }
+body[data-app="proship"] .sh-app .pn-vsec .pn-more button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-dim); background: none; border: 0; padding: 6px 0; }
+body[data-app="proship"] .sh-app .pn-vsec .pn-more button:hover { color: var(--pt-ink); }
+body[data-app="proship"] .pn-desk > div { display: grid; grid-template-columns: minmax(120px, 220px) 1fr; gap: 12px; padding: 7px 0; border-top: 1px solid var(--pt-hair); font-size: 13px; }
+body[data-app="proship"] .pn-desk > div:first-child { border-top: 0; }
+body[data-app="proship"] .pn-desk .k { color: var(--pt-dim); } body[data-app="proship"] .pn-desk .v { color: var(--pt-ink2); white-space: pre-wrap; }
+body[data-app="proship"] .pn-people { display: flex; flex-direction: column; }
+body[data-app="proship"] .sh-app .pn-people button.pn-person { display: grid; grid-template-columns: 70px minmax(0, 1fr); column-gap: 12px; text-align: left; padding: 7px 0; background: none; border: 0; border-top: 1px solid var(--pt-hair); font-family: var(--font); font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--pt-ink2); }
+body[data-app="proship"] .sh-app .pn-people button.pn-person:first-child { border-top: 0; }
+body[data-app="proship"] .pn-people .pn-person .k { grid-row: span 2; font-family: var(--font-caps); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); padding-top: 3px; }
+body[data-app="proship"] .pn-people .pn-person .d { grid-column: 2; font-size: 11.5px; color: var(--pt-dim); }
+body[data-app="proship"] .sh-app .pn-people button.pn-person:hover b { color: var(--pt-ink); }
+
+/* monochrome controls (4.32): the primary action's underline, the segment and chip marks and the menu's dot are ink, not the suite's blue;
+ * the accent stays on vessel icons and tracks */
+body[data-app="proship"] .sh-app .ps-acts > button.primary::after, body[data-app="proship"] .ps-tools-r button.primary::after, body[data-app="proship"] .psf-actions > button.primary::after, body[data-app="proship"] .sh-h1 .acts button.primary::after, body[data-app="proship"] .sh-acts button.primary::after { background: linear-gradient(90deg, var(--pt-ink), rgba(255, 255, 255, 0)); }
+body[data-app="proship"] .sh-seg button.on::after, body[data-app="proship"] .ps-tools-r .sh-seg button.on::after, body[data-app="proship"] .sh-chip.on::after, body[data-app="proship"] .sh-filters .sh-fchip.on::after { background: linear-gradient(90deg, var(--pt-ink), rgba(255, 255, 255, 0)); }
+:root[data-theme="light"] body[data-app="proship"] .sh-app .ps-acts > button.primary::after, :root[data-theme="light"] body[data-app="proship"] .ps-tools-r button.primary::after, :root[data-theme="light"] body[data-app="proship"] .psf-actions > button.primary::after, :root[data-theme="light"] body[data-app="proship"] .sh-h1 .acts button.primary::after, :root[data-theme="light"] body[data-app="proship"] .sh-acts button.primary::after, :root[data-theme="light"] body[data-app="proship"] .sh-seg button.on::after, :root[data-theme="light"] body[data-app="proship"] .ps-tools-r .sh-seg button.on::after, :root[data-theme="light"] body[data-app="proship"] .sh-chip.on::after, :root[data-theme="light"] body[data-app="proship"] .sh-filters .sh-fchip.on::after { background: linear-gradient(90deg, var(--pt-ink), rgba(0, 0, 0, 0)); }
+body[data-app="proship"] #shmenu button.on::before { color: var(--pt-ink); }
+body[data-app="proship"] .ps-tl-today { background: var(--pt-ink2); } body[data-app="proship"] .ps-pc.inport { border-left-color: var(--pt-ink2); }
+
+/* the vessel header on a place page: her page instead of the old row of pages and the day buttons (+ New holds those) */
+body[data-app="proship"] .ps-app.pn .ps-vhead .ps-vhead-nav { display: none; }
+
+/* the Settings page's Reload from cloud is the gear's now */
+body[data-app="proship"] .ps-app.pn .sh-main .sh-panel:has(> .st-row [data-act="ps-reload"]) { display: none; }
+
+/* ---------- chip rows (phone): the place's sections, her page's sections — sticky, on the opaque veil */
+body[data-app="proship"] .pn-chips { display: flex; gap: 6px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding: 10px 0; margin: 0 0 10px; position: sticky; top: 0; z-index: 4; background: var(--pt-veil2); border-bottom: 1px solid var(--pt-hair); }
+body[data-app="proship"] .pn-chips::-webkit-scrollbar { display: none; }
+body[data-app="proship"] .sh-app .pn-chips button { flex: none; white-space: nowrap; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-dim); background: none; border: 1px solid var(--pt-hair); padding: 8px 12px; border-radius: 0; }
+body[data-app="proship"] .sh-app .pn-chips button.on { color: var(--pt-ink); background: var(--pt-sel); border-color: var(--pt-hair2); }
+
+/* ---------- the floating + New (phone only) */
+body[data-app="proship"] #sapp > .pn-fab { display: none; }
+
+@media (max-width: 760px) {
+  body[data-app="proship"] .sh-apptop.pn-top .pn-places, body[data-app="proship"] .sh-apptop .sh-acts button.pn-new { display: none; }
+  body[data-app="proship"] .sh-apptop.pn-top .sh-acts { display: flex; margin-left: auto; gap: 4px; overflow: visible; }
+  body[data-app="proship"] .sh-apptop .pn-search { width: auto; border: 0; background: none; height: 40px; padding: 0; position: static; }
+  body[data-app="proship"] .sh-apptop .pn-search input, body[data-app="proship"] .sh-apptop .pn-search kbd { display: none; }
+  body[data-app="proship"] .sh-apptop .pn-search .pn-sbtn { width: 40px; height: 40px; }
+  body[data-app="proship"] .sh-apptop .pn-search .pn-sbtn .pt-ic { width: 20px; height: 20px; }
+  body[data-app="proship"] .sh-apptop .pn-search.open { position: fixed; left: 12px; right: 12px; top: calc(env(safe-area-inset-top, 0px) + 62px); height: 44px; z-index: 96; border: 1px solid var(--pt-hair2); background: var(--pt-veil2); padding-right: 10px; box-shadow: var(--pt-shadow); }
+  body[data-app="proship"] .sh-apptop .pn-search.open input { display: block; font-size: 15px; height: 42px; }
+  body[data-app="proship"] .pn-res { max-height: 60vh; }
+  body[data-app="proship"] .sh-apptop .sh-acts button.pn-gear { width: 40px; height: 40px; }
+  body[data-app="proship"] .sh-apptop .sh-acts button.pn-gear .pt-ic { width: 20px; height: 20px; }
+  body[data-app="proship"] #sapp > .pn-fab { display: inline-flex; align-items: center; justify-content: center; position: fixed; right: 18px; bottom: calc(env(safe-area-inset-bottom, 0px) + 92px); width: 54px; height: 54px; z-index: 60; border: 1px solid var(--pt-hair2); border-radius: 0; background: var(--pt-lid); color: var(--pt-ink); box-shadow: var(--pt-shadow); padding: 0; }
+  body[data-app="proship"] #sapp > .pn-fab .pt-ic { width: 24px; height: 24px; }
+  body[data-app="proship"] #sapp > .pn-fab .pt-ic svg { fill: none; stroke: currentColor; }
+  body[data-app] .sh-tabs.pn-bar button.on::before { background: linear-gradient(90deg, rgba(255, 255, 255, 0), var(--pt-ink), rgba(255, 255, 255, 0)); }
+  body[data-app] #shmenu.pn-newmenu.pn-sheetmenu { left: 0 !important; right: 0; top: auto !important; bottom: 0; width: 100%; max-width: none; max-height: 78vh; overflow: auto; overscroll-behavior: contain; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); background: var(--pt-ground); backdrop-filter: none; -webkit-backdrop-filter: none; border-width: 1px 0 0; z-index: 97; }
+  body[data-app] #shmenu.pn-newmenu.pn-sheetmenu .pn-ncols { grid-template-columns: 1fr 1fr; }
+  body[data-app] #shmenu.pn-newmenu.pn-sheetmenu .pn-ncol:nth-child(odd) { border-left: 0; }
+  body[data-app] #shmenu.pn-newmenu.pn-sheetmenu .pn-ncol:nth-child(n+3) { border-top: 1px solid var(--pt-hair); }
+  body[data-app] #shmenu.pn-newmenu.pn-sheetmenu button { white-space: normal; padding: 10px 12px; font-size: 14px; }
+  body[data-app="proship"] .pn-vchips { margin-top: -6px; }
+}
+:root[data-theme="light"] body[data-app] .sh-tabs.pn-bar button.on::before { background: linear-gradient(90deg, rgba(0, 0, 0, 0), var(--pt-ink), rgba(0, 0, 0, 0)); }
+
+/* ---------- monochrome search fields (4.32): every search / quick-find line rests on an ink hairline, both themes, desktop and phone —
+ * the accent stays on vessel icons and tracks. (The header search above is already a hairline box: --pt-hair2, --pt-dim on focus.) */
+html body[data-app] .nt-quick::after, html body[data-app] .nt-find::after, html body[data-app] .nt-search::after { background: var(--pt-hair2); opacity: 1; height: 1px; }
+html body[data-app] .nt-quick:focus-within::after, html body[data-app] .nt-find:focus-within::after, html body[data-app] .nt-search:focus-within::after { background: var(--fx-hair, var(--pt-dim)); height: 1px; }

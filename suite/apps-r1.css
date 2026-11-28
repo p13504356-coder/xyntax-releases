@@ -1,0 +1,75 @@
+/* XYNTAX — suite review R1: Notes, Calendar, Documents, Wealth refinements (overrides after vertu.css) */
+
+/* ---------- NOTES · tags, page links, backlinks, find bar */
+body[data-app="notes"] .nt-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 2px 0 12px; min-height: 26px; }
+body[data-app="notes"] .nt-tag { display: inline-flex; align-items: center; gap: 2px; font-size: 11.5px; color: var(--pt-ink2, var(--pt-ink)); border: 1px solid var(--pt-hair2); padding: 2px 4px 2px 8px; letter-spacing: .01em; font-variant-numeric: tabular-nums; }
+body[data-app="notes"] .nt-tag button { padding: 0 4px; min-height: 0; line-height: 1; color: var(--pt-faint); font-size: 13px; background: none; border: 0; }
+body[data-app="notes"] .nt-tag button:hover { color: var(--pt-ink); }
+body[data-app="notes"] .nt-tagin { width: 120px; border: 0; border-bottom: 1px solid transparent; background: none; padding: 3px 2px; font-size: 12px; color: var(--pt-ink); box-shadow: none; }
+body[data-app="notes"] .nt-tagin:focus { border-bottom-color: var(--pt-hair2); outline: none; }
+body[data-app="notes"] .nt-tagline { font-size: 10.5px; color: var(--pt-faint); letter-spacing: .02em; margin-left: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 40%; }
+body[data-app="notes"] .nt-ed a.nt-link { color: var(--pt-ink); text-decoration: none; border-bottom: 1px solid rgba(var(--pt-blue-rgb), .65); padding: 0 1px; cursor: pointer; user-select: all; }
+body[data-app="notes"] .nt-ed a.nt-link::before { content: "↗ "; font-size: .8em; color: var(--pt-faint); }
+body[data-app="notes"] .nt-backlinks { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--pt-hair); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
+body[data-app="notes"] .nt-bl-h { flex-basis: 100%; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); margin-bottom: 2px; }
+body[data-app="notes"] .nt-backlinks button { padding: 2px 0; font-size: 13px; color: var(--pt-ink2, var(--pt-ink)); border-bottom: 1px solid var(--pt-hair2); border-radius: 0; background: none; }
+body[data-app="notes"] .nt-findbar { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin: 0 0 10px; background: var(--pt-glass2, var(--pt-field)); border: 1px solid var(--pt-hair2); backdrop-filter: blur(10px); }
+body[data-app="notes"] .nt-findbar input { flex: 1; min-width: 0; border: 0; background: none; font-size: 13px; box-shadow: none; }
+body[data-app="notes"] .nt-findbar .sh-dim { font-size: 11px; white-space: nowrap; }
+body[data-app="notes"] .nt-findbar button { padding: 2px 8px; min-height: 0; }
+
+/* ---------- DOCUMENTS · content matches, tags from notes, other versions */
+body[data-app="documents"] .vt-snip.content { color: var(--pt-dim); }
+body[data-app="documents"] .vt-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+body[data-app="documents"] .vt-tag { font-size: 11.5px; padding: 2px 8px; border: 1px solid var(--pt-hair2); background: none; color: var(--pt-ink2, var(--pt-ink)); border-radius: 0; min-height: 0; text-transform: none; letter-spacing: .01em; font-family: var(--font); }
+body[data-app="documents"] .vt-tag:hover { border-color: var(--pt-ink); }
+body[data-app="documents"] .vt-taghint { font-size: 11px; margin-top: 6px; }
+body[data-app="documents"] .vt-versions { display: grid; gap: 2px; }
+body[data-app="documents"] .vt-versions button { display: flex; justify-content: space-between; gap: 12px; text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--pt-hair); border-radius: 0; font-size: 12.5px; text-transform: none; letter-spacing: 0; font-family: var(--font); }
+body[data-app="documents"] .vt-versions button span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- WEALTH · budget bars */
+body[data-app="wealth"] .wl-budget { position: relative; height: 6px; min-width: 120px; background: var(--pt-hair); overflow: visible; }
+body[data-app="wealth"] .wl-budget i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--pt-ink); opacity: .8; }
+body[data-app="wealth"] .wl-budget.pace i { background: repeating-linear-gradient(45deg, var(--pt-ink) 0 3px, transparent 3px 6px); opacity: .9; }
+body[data-app="wealth"] .wl-budget.over i { background: #d06a6a; opacity: .9; }
+body[data-app="wealth"] .wl-budget b { position: absolute; top: -4px; bottom: -4px; width: 1px; background: var(--pt-dim); }
+
+/* ---------- CALENDAR · second time zone, agenda tools */
+body[data-app="calendar"] .cal-tz2 { font-variant-numeric: tabular-nums; }
+body[data-app="calendar"] .cal-agtools { display: flex; justify-content: flex-end; margin: -4px 0 8px; }
+body[data-app="calendar"] .cal-agtools button { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-dim); }
+body[data-app="calendar"] .cal-agtools button svg { width: 14px; height: 14px; }
+
+/* ---------- phone layout */
+@media (max-width: 760px) {
+  /* event form: the reminders and repeat-day check boxes in two tidy columns instead of wrapping words */
+  body[data-app="calendar"] #sheet .multi { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  body[data-app="calendar"] #sheet .multi .mitem { display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 1.3; min-width: 0; }
+  body[data-app="calendar"] #sheet .multi .mitem input { flex: 0 0 auto; width: 16px; height: 16px; margin: 0; }
+  body[data-app="calendar"] #sheet .multi .mitem span { flex: 1; min-width: 0; white-space: normal; text-transform: none; letter-spacing: 0; font-family: var(--font); color: var(--pt-ink2, var(--pt-ink)); }
+  body[data-app="calendar"] #sheet input[type="datetime-local"], body[data-app="calendar"] #sheet input[type="date"] { font-size: 14px; min-width: 0; }
+  body[data-app="notes"] .nt-tagline { display: none; }
+  body[data-app="notes"] .nt-tagin { width: 100px; }
+  body[data-app="wealth"] .wl-budget { min-width: 70px; }
+}
+:root[data-theme="light"] body[data-app="wealth"] .wl-budget.over i { background: #b4473f; }
+:root[data-theme="light"] body[data-app="notes"] .nt-findbar { background: rgba(255,255,255,.9); }
+/* a single check box in a sheet field sits at the start of the line under its label, not centred */
+body[data-app="calendar"] #sheet .form .f > input[type="checkbox"], body[data-app="wealth"] #sheet .form .f > input[type="checkbox"], body[data-app="notes"] #sheet .form .f > input[type="checkbox"], body[data-app="documents"] #sheet .form .f > input[type="checkbox"] { align-self: flex-start; margin: 6px 0 0; }
+
+/* ---------- 4.17 G · NOTES' search field at the same height as DOCUMENTS on the desktop (127 px from the top; it sat at 107 px) */
+@media (min-width: 761px) { body[data-app="notes"] .sh-app .nt-quick.nt-find { margin-top: 50px; } }
+
+/* ---------- 4.17 G · the mini month inherited the caps letter-spacing (.18em) meant for text buttons, so the day numbers sat off-centre */
+body[data-app="calendar"] .cal-mini button { letter-spacing: 0; text-transform: none; }
+
+/* ---------- 4.17 G · filter strips wrap on desktop as DOCUMENTS' do, instead of clipping the last chip at the panel edge
+   ("Repeatin" in CALENDAR once a linked calendar adds its name); on the phone they keep scrolling sideways */
+@media (min-width: 761px) {
+  body[data-app="calendar"] .sh-filters, body[data-app="notes"] .sh-filters, body[data-app="documents"] .sh-filters, body[data-app="wealth"] .sh-filters { flex-wrap: wrap; row-gap: 2px; overflow: visible; white-space: normal; }
+  /* and line up with the search bar above them, as CONTACTS, MESSAGES and MAIL already do (they sat 8 px out in NOTES, 36 px in CALENDAR) */
+  body[data-app="notes"] .sh-app .nt-quick ~ .sh-filters { margin-left: 30px; margin-right: 30px; }
+  body[data-app="calendar"] .sh-app .cal-quick ~ .sh-filters { margin-left: -14px; margin-right: -14px; }
+}
+@media (max-width: 760px) { body[data-app="calendar"] .sh-app .cal-quick ~ .sh-filters { margin-left: -4px; margin-right: -4px; } }

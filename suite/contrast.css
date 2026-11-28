@@ -1,0 +1,37 @@
+/* XYNTAX 4.20 · readable text. Loaded after every other stylesheet. The secondary text tokens of the dark theme were too dark
+   on the dark glass (the faint tone measured 3.6:1 on panels at 12 px): they are raised so body text reaches WCAG AA 4.5:1 and
+   small caps labels at least 3:1 — the hierarchy stays (ink > ink2 > dim > faint), nothing becomes pure white. The light theme
+   gets the same treatment for its faintest tone and the KPI labels. Measured by the u420_contrast suite before and after. */
+
+body[data-app] {
+  --pt-ink2: #dfe3e8;      /* was #cfd3d8 · 11.9:1 on the panel */
+  --pt-dim: #aab1b9;       /* was #959ba3 ·  7.3:1 */
+  --pt-faint: #8b929b;     /* was #6d737b ·  5.1:1 on panels, 5.6:1 on the ground */
+  --text2: var(--pt-ink2); --dim: var(--pt-dim); --faint: var(--pt-faint);
+}
+/* the faintest words that still carry meaning (KPI sub-lines, notes under fields, "nothing here yet") read at the dim tone */
+body[data-app] .sh-kpi .d, body[data-app] .kpi .d, body[data-app] .ps-kpis .d, body[data-app] .psf-kpis .d { color: var(--pt-dim); }
+body[data-app] .sh-dim, body[data-app] .dim { color: var(--pt-dim); }
+body[data-app] .sh-faint, body[data-app] .faint { color: var(--pt-faint); }
+body[data-app] .hint, body[data-app] .f .hint { color: var(--pt-dim); }
+body[data-app] .sh-nav button .n, body[data-app] .sh-nav .n { color: var(--pt-dim); }
+body[data-app] table.sh-t th, body[data-app] table.t th, body[data-app] table.psu-t th .lbl { color: var(--pt-dim); }
+body[data-app] .sh-panel h3, body[data-app] .ps-pagehead .nt-sub, body[data-app] .ps-pagehead .sub, body[data-app] .vt-head .sub { color: var(--pt-dim); }
+body[data-app] .sh-kpi .l, body[data-app] .kpi .l { color: var(--pt-dim); }
+body[data-app] .ps-vhead .k, body[data-app] .ps-vhead .d, body[data-app] .ps-kv .k, body[data-app] .ps-pane .k { color: var(--pt-dim); }
+body[data-app] .psu-cardtools .sh-dim, body[data-app] .psu-cs i { color: var(--pt-dim); }
+body[data-app] .ps-pend, body[data-app] .ps-check { color: var(--pt-ink2); }
+body[data-app] input::placeholder, body[data-app] textarea::placeholder { color: var(--pt-dim); opacity: 1; }
+body[data-app] .sh-crumbs, body[data-app] .ps-crumbs, body[data-app] .sh-crumbs button { color: var(--pt-dim); }
+
+/* light theme: the faintest tone and the KPI labels were under 3:1 on white */
+:root[data-theme="light"] body[data-app] {
+  --pt-dim: #525b67;       /* was #5b6470 · 7.0:1 */
+  --pt-faint: #667080;     /* was #7a8290 · 5.0:1 */
+  --text2: var(--pt-ink2); --dim: var(--pt-dim); --faint: var(--pt-faint);
+}
+:root[data-theme="light"] body[data-app="accounting"] .kpi .l, :root[data-theme="light"] body[data-app] .sh-kpi .l { color: var(--pt-dim); }
+
+/* the home page (no app open) uses the suite's own tokens */
+body[data-app="home"] { --faint: #8b929b; --dim: #aab1b9; }
+:root[data-theme="light"] body[data-app="home"] { --faint: #667080; --dim: #525b67; }

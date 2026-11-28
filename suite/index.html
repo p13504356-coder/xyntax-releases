@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://tile.openstreetmap.org https://*.tile.openstreetmap.org; connect-src 'self' https://mdrqnwozpcvexeqyfyue.supabase.co wss://mdrqnwozpcvexeqyfyue.supabase.co https://marine-api.open-meteo.com https://api.open-meteo.com https://geocoding-api.open-meteo.com; frame-src 'self' blob:; media-src 'self' blob: data:; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0b0c0e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="XYNTAX">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>XYNTAX</title>
+<link rel="stylesheet" href="style.css?v=2a441e91c3">
+<link rel="stylesheet" href="suite.css?v=470d60cc60">
+<link rel="stylesheet" href="fonts.css?v=d6dba292d8">
+<link rel="stylesheet" href="graphite.css?v=d24d9184b0">
+<link rel="stylesheet" href="vertu.css?v=4f3cdef081">
+<link rel="stylesheet" href="leaflet/leaflet.css?v=a783710282">
+<link rel="stylesheet" href="proship.css?v=34b3230358">
+<link rel="stylesheet" href="proship-fin.css?v=0164494f28">
+<link rel="stylesheet" href="proship-portal.css?v=8039de6457">
+<link rel="stylesheet" href="proship-laytime.css?v=aefd2a2d1f">
+<link rel="stylesheet" href="proship-nav.css?v=77adf67363">
+<link rel="stylesheet" href="compliance.css?v=8f07d1fb56">
+<link rel="stylesheet" href="apps-r1.css?v=ff60015164">
+<link rel="stylesheet" href="apps-r2.css?v=ec7be00719">
+<link rel="stylesheet" href="accounting-r.css?v=ba7adad09b">
+<link rel="stylesheet" href="wealth-r.css?v=f9cd3d80dd">
+<link rel="stylesheet" href="enlarge.css?v=84c66d3bc0">
+<link rel="stylesheet" href="contrast.css?v=bf9d69fe05">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="web.css?v=e076ed2247">
+<script src="web-config.js?v=a25f6e8839"></script>
+<script src="web-bridge.js?v=0a3d972b40"></script>
+<script src="theme.js?v=c2f422267e"></script>
+</head>
+<body class="web">
+<div id="boot" aria-hidden="true"><style>
+#boot{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:radial-gradient(120% 70% at 28% 0%,rgba(255,255,255,.05),rgba(255,255,255,0) 62%),linear-gradient(180deg,#1c1e23 0%,#171920 22%,#121318 42%,#0d0e12 66%,#090a0c 100%) #08090b;color:#cfd3d8;font-family:"Jost","Avenir Next","Segoe UI","Helvetica Neue",Arial,sans-serif;opacity:1;transition:opacity 320ms ease}
+#boot.gone{opacity:0;pointer-events:none}
+#boot .w{font-size:15px;letter-spacing:.42em;padding-left:.42em;font-weight:500;color:#e6e9ed;animation:bootw 1.6s ease-out both}
+#boot .s{font-size:9.5px;letter-spacing:.3em;padding-left:.3em;color:#6d737b;margin-top:-16px;animation:bootw 1.6s .15s ease-out both}
+#boot .r{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.1);border-top-color:#93d2ea;animation:bootr .9s linear infinite}
+#boot .l{position:absolute;left:50%;bottom:18%;width:140px;height:1px;margin-left:-70px;background:linear-gradient(90deg,rgba(147,210,234,0),#93d2ea 50%,rgba(147,210,234,0));opacity:.7}
+@keyframes bootw{from{opacity:0;letter-spacing:.6em;transform:translateY(4px)}to{opacity:1}}
+@keyframes bootr{to{transform:rotate(360deg)}}
+</style><div class="w">XYNTAX</div><div class="s">SUITE</div><div class="r"></div><div class="l"></div></div>
+<svg id="aluDefs" width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="alu24" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="9" y2="24"><stop offset="0" class="a0"/><stop offset="1" class="a1"/></linearGradient>
+  <linearGradient id="alu24on" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="9" y2="24"><stop offset="0" class="b0"/><stop offset="1" class="b1"/></linearGradient>
+  <linearGradient id="alu24dim" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="9" y2="24"><stop offset="0" class="c0"/><stop offset="1" class="c1"/></linearGradient>
+  <linearGradient id="alu48" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="18" y2="48"><stop offset="0" class="a0"/><stop offset="1" class="a1"/></linearGradient>
+  <linearGradient id="alu48on" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="18" y2="48"><stop offset="0" class="b0"/><stop offset="1" class="b1"/></linearGradient>
+  <linearGradient id="ptFill" x1="0" y1="0" x2=".25" y2="1"><stop offset="0" class="v0"/><stop offset=".34" class="v1"/><stop offset=".5" class="v2"/><stop offset=".6" class="v3"/><stop offset="1" class="v4"/></linearGradient>
+  <linearGradient id="ptLine" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="7" y2="24"><stop offset="0" class="v0"/><stop offset=".4" class="v1"/><stop offset=".65" class="v2"/><stop offset="1" class="v4"/></linearGradient>
+  <linearGradient id="ptLineDim" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="7" y2="24"><stop offset="0" class="w0"/><stop offset=".4" class="w1"/><stop offset=".65" class="w2"/><stop offset="1" class="w4"/></linearGradient>
+  <linearGradient id="ptFillDim" x1="0" y1="0" x2=".25" y2="1"><stop offset="0" class="w0"/><stop offset=".34" class="w1"/><stop offset=".5" class="w2"/><stop offset=".6" class="w3"/><stop offset="1" class="w4"/></linearGradient>
+</defs></svg>
+<div id="app">
+  <header class="cmd">
+    <button class="brand" id="brandBtn" title="Back to the XYNTAX suite"><span class="sh-lockup"><span class="sh-wordmark">XYNTAX</span><span class="sh-divider" aria-hidden="true">|</span><span class="sh-appname">ACCOUNTING</span></span></button>
+    <div class="cmdwrap">
+      <input id="cmd" type="text" autocomplete="off" spellcheck="false" placeholder="Type a command or search — sell 1500 vlsfo to nordic at 569 · buy 5000 hsfo from frp at 441 · find meridian · ? for help">
+      <div id="palette"></div>
+    </div>
+    <div class="right">
+      <div id="entityPick" title="Entities"></div>
+      <button id="suiteBtn" class="quiet" title="All apps (Esc)"></button><span id="saveState"></span><span id="status"></span>
+    </div>
+  </header>
+  <nav class="rail" id="rail"></nav>
+  <main id="main"></main>
+  <aside id="inspector"><div class="empty">Select anything to see what the engine knows about it.</div></aside>
+</div>
+<div id="scrim"></div>
+<div id="sheet"></div>
+<div id="toast"></div>
+<div id="home"></div>
+<div id="sapp"></div>
+<div id="login"></div>
+<script defer src="engine.js?v=ec50fe2f16"></script>
+<script defer src="cloud-config.js?v=c9f2b7b465"></script>
+<script defer src="cloud.js?v=2a5ddff673"></script>
+<script defer src="cloud-book.js?v=efda24aa57"></script>
+<script defer src="book-store.js?v=84afee780d"></script>
+<script defer src="bankfeeds.js?v=66d10a5fb5"></script>
+<script defer src="xlsx-read.js?v=8dc47cb353"></script>
+<script defer src="ui.js?v=451529f1c1"></script>
+<script defer src="docs.js?v=bc98643672"></script>
+<script defer src="views.js?v=0b9591b60d"></script>
+<script defer src="crypto/keccak.js?v=b4bf8674df"></script>
+<script defer src="crypto/mlkem.js?v=00bed3733f"></script>
+<script defer src="crypto/hybrid.js?v=a410ca6d11"></script>
+<script defer src="crypto/chain.js?v=c4f9561056"></script>
+<script defer src="brand.js?v=4769c41cbc"></script>
+<script defer src="suite.js?v=86c1aff207"></script>
+<script defer src="sharing.js?v=737f579ca0"></script>
+<script defer src="notes.js?v=79ebaff94f"></script>
+<script defer src="wealth.js?v=87d382c481"></script>
+<script defer src="leaflet/leaflet.js?v=caddb8ebfa"></script>
+<script defer src="proship-ui.js?v=5aaa651534"></script>
+<script defer src="proship-store.js?v=16f30b4133"></script>
+<script defer src="owner-statement.js?v=02ddaa26b5"></script>
+<script defer src="fixture-status.js?v=aa19424590"></script>
+<script defer src="last-position.js?v=ef25794f53"></script>
+<script defer src="timeline.js?v=01e713a921"></script>
+<script defer src="proship-grades.js?v=1d9db2eec1"></script>
+<script defer src="searoute.js?v=1b8a750925"></script>
+<script defer src="proship-engine.js?v=206300005a"></script>
+<script defer src="proship-bunkers.js?v=8d35af30ce"></script>
+<script defer src="proship.js?v=8b234d0fd6"></script>
+<script defer src="proship-ops.js?v=a3c7ecd691"></script>
+<script defer src="proship-fin.js?v=9787be2c6f"></script>
+<script defer src="proship-portal.js?v=a72f898afe"></script>
+<script defer src="proship-reports.js?v=329f52e87c"></script>
+<script defer src="proship-laytime.js?v=56ac9ebb6c"></script>
+<script defer src="proship-nav.js?v=a26bf0393e"></script>
+<script defer src="kyc-schema.js?v=5204354f43"></script>
+<script defer src="compliance.js?v=36c838d5b0"></script>
+<script defer src="demo.js?v=f7c7e02042"></script>
+<script defer src="calendar.js?v=f564f20878"></script>
+<script defer src="vault.js?v=97fca4221b"></script>
+<script defer src="contacts.js?v=e671affa92"></script>
+<script defer src="messages.js?v=16901ee681"></script>
+<script defer src="mail.js?v=a253ce95e8"></script>
+<script defer src="workflow.js?v=f6a06a6383"></script>
+<script defer src="owner.js?v=a3bfdc50a1"></script>
+<script defer src="history.js?v=728fa35c51"></script>
+<script defer src="security.js?v=16499f5ceb"></script>
+<script defer src="notify.js?v=366ed5515f"></script>
+<script defer src="advanced.js?v=3b7f4b4f94"></script>
+<script defer src="settings.js?v=24fc2874cd"></script>
+<script defer src="update.js?v=158070b60e"></script>
+<script defer src="web-shell.js?v=3ae651e8c5"></script>
+<script defer src="app.js?v=21719c48c0"></script>
+</body>
+</html>

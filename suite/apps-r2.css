@@ -1,0 +1,152 @@
+/* XYNTAX — suite review R2 (4.16): Contacts, Messages, Mail, home, design polish. Loaded after vertu.css; overrides only. */
+
+/* ---------- design system: contrast. The faint text token measured 3.5–3.9:1 on its grounds; raised to ≥ 4.5:1 in both themes */
+:root:not([data-theme="light"]) { --pt-faint: #868c94; --faint: #868c94; }
+:root[data-theme="light"] { --pt-faint: #626a76; --faint: #626a76; }
+:root[data-theme="light"] body[data-app="accounting"] { --pt-faint: #626a76; --faint: #626a76; }
+:root[data-theme="light"] .sh-pal-k { color: #626a76; }
+.sh-pal-k { color: #868c94; }
+
+/* ---------- design system: keyboard focus. Mouse clicks stay quiet; Tab shows where you are, everywhere */
+/* 4.31.22 · the focus rings that were here (ink ring, a light-blue line on fields) live in style.css now, monochrome, in one place */
+.sh-tile:focus-visible { outline-offset: -2px; }
+
+/* ---------- density: compact tightens rows, tables and lists (set from the palette: Density) */
+:root[data-density="compact"] body[data-app] table.t td, :root[data-density="compact"] body[data-app] table.t th { padding-top: 5px; padding-bottom: 5px; }
+:root[data-density="compact"] body[data-app] .psu-row { min-height: 34px; }
+:root[data-density="compact"] body[data-app] .ct-row, :root[data-density="compact"] body[data-app] .ms-row, :root[data-density="compact"] body[data-app] .ml-row, :root[data-density="compact"] body[data-app] .nt-row { padding-top: 7px; padding-bottom: 7px; }
+:root[data-density="compact"] body[data-app] .sh-nav button { padding-top: 7px; padding-bottom: 7px; }
+:root[data-density="compact"] body[data-app] .sh-kpi { padding: 12px 14px 10px; }
+
+/* ---------- home on the phone: the SETTINGS strip shows its whole name; the summary takes what is left */
+@media (max-width: 760px) {
+  body[data-app="home"] .sh-tile[data-app="settings"] .sh-name { flex: 0 0 auto; max-width: none; overflow: visible; text-overflow: clip; white-space: nowrap; }
+  body[data-app="home"] .sh-tile[data-app="settings"] .sh-sum { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+/* ---------- the palette: section labels for Recent and app results */
+.sh-pal-h { font: 500 9px/1 var(--font-caps, system-ui); letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint, #868c94); padding: 12px 12px 6px; }
+.sh-pal-list .sh-pal-h:first-child { padding-top: 6px; }
+
+/* ---------- keyboard shortcuts */
+.sh-shortcuts { max-width: 560px; }
+.sh-shortcuts .sh-key-h { font: 500 9.5px/1 var(--font-caps, system-ui); letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); margin: 16px 0 6px; }
+.sh-keys-list { display: grid; gap: 0; border-top: 1px solid var(--pt-hair); }
+.sh-key-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--pt-hair); font-size: 12.5px; color: var(--pt-ink2); }
+.sh-key-row kbd { font: 400 11px/1.4 var(--font, system-ui); letter-spacing: .04em; color: var(--pt-ink); border: 1px solid var(--pt-hair2); padding: 2px 7px; justify-self: start; white-space: nowrap; background: var(--pt-glass2, transparent); }
+@media (max-width: 760px) { .sh-key-row { grid-template-columns: 1fr; gap: 4px; } }
+
+/* ---------- CONTACTS: groups in the side pane, the duplicates dialog */
+body[data-app="contacts"] .ct-grp-h { display: flex; align-items: center; justify-content: space-between; }
+body[data-app="contacts"] .ct-grp-add { padding: 0 4px; font-size: 15px; line-height: 1; color: var(--pt-dim); background: none; border: 0; letter-spacing: 0; }
+body[data-app="contacts"] .ct-grp-add:hover { color: var(--pt-ink); }
+body[data-app="contacts"] .ct-grp-empty .lbl { color: var(--pt-faint); font-style: normal; }
+body[data-app="contacts"] .ct-grp-edit { font: 500 9.5px/1 var(--font-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--pt-dim); padding: 4px 0; margin-left: 8px; background: none; border: 0; }
+body[data-app="contacts"] .ct-grp-edit:hover { color: var(--pt-ink); }
+.ct-dups { display: grid; gap: 10px; max-height: 56vh; overflow: auto; margin: 4px 0 2px; }
+.ct-dup { border: 1px solid var(--pt-hair); padding: 10px 12px; display: grid; gap: 6px; }
+.ct-dupw { font: 500 9.5px/1 var(--font-caps); letter-spacing: .2em; text-transform: uppercase; color: var(--pt-faint); }
+.ct-dupc { display: grid; grid-template-columns: 64px 1fr; gap: 2px 10px; align-items: baseline; }
+.ct-dupc b { font-weight: 400; color: var(--pt-ink); } .ct-dupc small { grid-column: 2; color: var(--pt-dim); font-size: 11.5px; }
+.ct-dupl { font: 500 9px/1 var(--font-caps); letter-spacing: .18em; text-transform: uppercase; color: var(--pt-faint); grid-row: span 2; padding-top: 3px; }
+.ct-dupb { display: flex; justify-content: flex-end; }
+
+/* ---------- MESSAGES: reactions, pins, receipts, find */
+body[data-app="messages"] .ms-rx { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 0; }
+body[data-app="messages"] .ms-b.mine .ms-rx { justify-content: flex-end; }
+body[data-app="messages"] .ms-rxb { display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px; border: 1px solid var(--pt-hair2); background: none; color: var(--pt-ink2); font: 400 11.5px/1.4 var(--font); border-radius: 999px; letter-spacing: 0; text-transform: none; }
+body[data-app="messages"] .ms-rxb span { font-size: 10.5px; color: var(--pt-dim); font-variant-numeric: tabular-nums; }
+body[data-app="messages"] .ms-rxb.on { border-color: var(--pt-ink2); color: var(--pt-ink); }
+body[data-app="messages"] .ms-pin { color: var(--pt-dim); }
+body[data-app="messages"] .ms-b.pinned .ms-body { box-shadow: inset 2px 0 0 var(--pt-ink2); }
+body[data-app="messages"] .ms-pinbar { display: flex; gap: 12px; align-items: baseline; width: 100%; text-align: left; background: var(--pt-glass2, rgba(255,255,255,.02)); border: 0; border-bottom: 1px solid var(--pt-hair); padding: 9px 22px; color: var(--pt-ink2); font: 300 12.5px/1.4 var(--font); letter-spacing: 0; text-transform: none; cursor: pointer; }
+body[data-app="messages"] .ms-pink { font: 500 9px/1 var(--font-caps); letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); flex: 0 0 auto; }
+body[data-app="messages"] .ms-pint { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+body[data-app="messages"] .ms-seen { text-align: right; font-size: 10.5px; color: var(--pt-faint); padding: 2px 4px 6px; letter-spacing: .02em; }
+body[data-app="messages"] .ms-find { display: flex; align-items: center; gap: 8px; padding: 8px 22px; border-bottom: 1px solid var(--pt-hair); }
+body[data-app="messages"] .ms-find input { flex: 1; min-width: 0; }
+body[data-app="messages"] .ms-findn { font-size: 11px; color: var(--pt-dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
+body[data-app="messages"] .ms-b.ms-dimmed { opacity: .32; }
+body[data-app="messages"] .ms-b.ms-cur .ms-body { outline: 1px solid var(--pt-ink2); outline-offset: 2px; }
+body[data-app="messages"] .ms-b.ms-flash .ms-body { animation: msflash 1.4s ease-out; }
+@keyframes msflash { 0% { box-shadow: 0 0 0 2px var(--pt-ink2); } 100% { box-shadow: 0 0 0 0 transparent; } }
+@media (max-width: 760px) { body[data-app="messages"] .ms-pinbar, body[data-app="messages"] .ms-find { padding-left: 16px; padding-right: 16px; } }
+
+/* ---------- MAIL: bridge health */
+body[data-app="mail"] .ml-hrow { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--pt-ink2); }
+body[data-app="mail"] .ml-hdot { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--pt-dim); flex: 0 0 auto; }
+body[data-app="mail"] .ml-health.ok .ml-hdot { background: var(--pt-ink2); border-color: var(--pt-ink2); }
+body[data-app="mail"] .ml-health.bad .ml-hdot { background: transparent; border-color: var(--pt-neg, #e07070); }
+body[data-app="mail"] .ml-health.bad .ml-htxt { color: var(--pt-neg, #e07070); }
+
+/* ---------- sheets suite-wide (R1 found these in its four apps; generalised here) */
+/* a single check-box field sits at the left edge under its label, not in the middle of the column */
+#sheet .form .f > input[type="checkbox"] { align-self: flex-start; margin: 4px 0 0; width: 16px; height: 16px; }
+/* multi-choice check boxes: a two-column grid on the phone instead of a cramped wrap */
+@media (max-width: 760px) {
+  #sheet .multi { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  #sheet .multi .mitem { display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 1.3; min-width: 0; }
+  #sheet .multi .mitem input { flex: 0 0 auto; width: 16px; height: 16px; margin: 0; }
+  #sheet .multi .mitem span { flex: 1; min-width: 0; white-space: normal; text-transform: none; letter-spacing: 0; }
+}
+
+/* ---------- 4.17 G · the first-run checklist on the home page (desktop: a quiet panel under the tiles; phone: one strip) */
+body[data-app="home"] .sh-setup { width: 100%; max-width: calc(5 * 196px + 4 * 20px); margin: 26px auto 0; border: 1px solid var(--pt-hair); background: var(--pt-glass, rgba(255,255,255,.02)); padding: 16px 20px 10px; box-sizing: border-box; }
+body[data-app="home"] .sh-setup .hd { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+.sh-setup .hd .t, .sh-setup-strip .t { font-family: var(--font-caps); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-ink2, var(--pt-ink)); }
+.sh-setup .hd .n, .sh-setup-strip .n { font-size: 12px; color: var(--pt-dim); font-variant-numeric: tabular-nums; }
+.sh-setup .bar, .sh-setup-strip .bar { flex: 1; height: 2px; background: var(--pt-hair); position: relative; max-width: 260px; }
+.sh-setup .bar i, .sh-setup-strip .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--pt-ink); }
+.sh-setup .sh-setup-x { margin-left: auto; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-faint); background: none; border: 0; padding: 6px 0; }
+.sh-setup .sh-setup-x:hover { color: var(--pt-ink); }
+.sh-setup ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); column-gap: 28px; }
+.sh-setup li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--pt-hair); min-width: 0; }
+.sh-setup li .ck { width: 16px; height: 16px; flex: none; border: 1px solid var(--pt-hair2); display: inline-flex; align-items: center; justify-content: center; }
+.sh-setup li .ck svg { width: 12px; height: 12px; stroke: var(--pt-ink); fill: none; stroke-width: 2; }
+.sh-setup li.done .ck { border-color: var(--pt-ink); }
+.sh-setup li .tx { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sh-setup li .l { font-size: 13px; color: var(--pt-ink); }
+.sh-setup li.done .l { color: var(--pt-dim); }
+.sh-setup li .d { font-size: 11.5px; color: var(--pt-faint); line-height: 1.4; overflow: hidden; text-overflow: ellipsis; }
+.sh-setup li button { flex: none; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; padding: 7px 12px; }
+.sh-setup li .st { flex: none; font-family: var(--font-caps); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-faint); }
+.sh-setup .ft { display: flex; align-items: center; gap: 12px; padding: 10px 0 4px; border-top: 1px solid var(--pt-hair); font-size: 12px; color: var(--pt-dim); }
+.sh-setup .ft button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; padding: 4px 0; background: none; border: 0; color: var(--pt-ink); }
+@media (min-width: 761px) and (max-height: 800px) { body[data-app="home"] .sh-setup { margin-top: 16px; padding-top: 12px; } body[data-app="home"] .sh-setup li { padding: 7px 0; } }
+/* phone: one strip under the tiles; the list opens in a dialog */
+body[data-app="home"] .sh-setup.mini { border: 0; background: none; padding: 0; margin: 12px 0 0; max-width: 100%; }
+.sh-setup-strip { width: 100%; display: flex; align-items: center; gap: 10px; padding: 11px 14px; border: 1px solid var(--pt-hair); background: var(--pt-glass, rgba(255,255,255,.02)); color: var(--pt-ink); text-align: left; border-radius: 0; }
+.sh-setup-strip svg { width: 14px; height: 14px; stroke: var(--pt-dim); flex: none; }
+.sh-setup-strip .bar { max-width: 80px; }
+#shdlg .sh-setup.in-dlg { border: 0; padding: 0; margin: 4px 0 0; background: none; max-width: none; }
+#shdlg .sh-setup.in-dlg ol { grid-template-columns: 1fr; }
+#shdlg .sh-setup.in-dlg li .d { white-space: normal; }
+:root[data-theme="light"] .sh-setup .bar i, :root[data-theme="light"] .sh-setup-strip .bar i { background: #14171c; }
+:root[data-theme="light"] .sh-setup li.done .ck { border-color: #14171c; } :root[data-theme="light"] .sh-setup li .ck svg { stroke: #14171c; }
+
+/* ---------- 4.17 G · one search-bar height in every app on the desktop. Measured (1480 px): DOCUMENTS, CALENDAR and WEALTH put the
+   field's top at 127 px (main column padding 30 + margin 20); CONTACTS, MESSAGES and MAIL sat 30 px higher (97 px), so the bar
+   jumped when switching apps. Their list columns have no top padding, hence the 50 px margin. Phone already matches (78 px). */
+@media (min-width: 761px) {
+  body[data-app="contacts"] .sh-app.ct .nt-quick.ct-quick, body[data-app="messages"] .sh-app .nt-quick.ms-quick, body[data-app="mail"] .sh-app .nt-quick.ml-quick { margin-top: 50px; }
+}
+
+/* ---------- 4.17 G · menus and dialogs above MAIL's composer: it is a modal at z-index 90, so its own Templates menu (85) and any dialog
+   (80) opened from it appeared behind it */
+#shdlg { z-index: 95; } #shmenu { z-index: 96; }
+
+/* ---------- 4.17 G · filter strips wrap on desktop (see apps-r1.css) */
+@media (min-width: 761px) {
+  body[data-app="contacts"] .sh-filters, body[data-app="messages"] .sh-filters, body[data-app="mail"] .sh-filters { flex-wrap: wrap; row-gap: 2px; overflow: visible; white-space: normal; }
+}
+
+/* ---------- 4.17 G · plain buttons in SETTINGS (Import a backup, Change password, Set a PIN, Lock XYNTAX, Sign out …) lost the
+   secondary-button rule in vertu.css: it sits in :where() (no specificity), so style.css's bare `button { font: inherit; padding }`
+   won and they rendered as 14px spaced capitals. Same zero-weight trick, one element-weight higher in the cascade: any class rule
+   (nav items, toggles, .quiet links) still wins. */
+:where(body[data-app="settings"] .sh-app) button:where(:not(.primary):not(.quiet):not(.sh-tile)) { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; padding: 8px 14px; line-height: 1.3; }
+
+/* ---------- 4.17 G · light theme: the home footer's shortcut hint took the phone key-bar's white band (vertu.css styles every .sh-keys
+   as that bar), and the closed side sheet, parked just off the right edge, still cast its shadow into every page */
+:root[data-theme="light"] body[data-app] .sh-foot .sh-keys { background: none; border-top: 0; box-shadow: none; }
+:root[data-theme="light"] body[data-app] #sheet:not(.open) { box-shadow: none; }

@@ -1,0 +1,58 @@
+/* XYNTAX COMPLIANCE · the counterparty's KYC page (4.33). The portal's own finish (app.css tokens): a graded ground, panes of
+   glass, names in tracked capitals, monochrome controls — no colour but the two status inks. One column; the section index on the
+   left from 900 px, a stepper above the form below that; 16 px gutters on a phone; nothing wider than the screen. */
+.kyc-top .who { gap: 20px; } .kyc-save { font-family: var(--caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); } .kyc-save.bad { color: var(--neg); }
+.kyc-wrap { display: grid; grid-template-columns: 250px minmax(0, 680px); gap: 56px; max-width: 1040px; align-items: start; } .kyc-wrap.one { grid-template-columns: minmax(0, 760px); justify-content: center; gap: 26px; }
+.kyc-index { position: sticky; top: 86px; display: flex; flex-direction: column; }
+.kyc-prog { font-size: 12.5px; color: var(--dim); } .kyc-bar { height: 1px; background: var(--hair2); margin: 10px 0 14px; } .kyc-bar i { display: block; height: 1px; background: var(--ink); width: 0; transition: width .25s; }
+.kyc-index button { display: grid; grid-template-columns: 22px 1fr 14px; align-items: center; gap: 8px; text-align: left; background: none; border: 0; border-left: 1px solid var(--hair); padding: 9px 0 9px 14px; color: var(--dim); font-size: 13.5px; }
+.kyc-index button:hover { color: var(--ink); } .kyc-index button.on { color: var(--ink); border-left-color: var(--ink); background: var(--sel); }
+.kyc-index .no { font-family: var(--caps); font-size: 10px; letter-spacing: .1em; color: var(--faint); }
+.kyc-index .mk { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--faint); justify-self: end; margin-right: 10px; } .kyc-index .done .mk { background: var(--ink2); border-color: var(--ink2); } .kyc-index .note .mk, .kyc-index .cm:not(.done) .mk { background: var(--neg); border-color: var(--neg); }
+.kyc-step { display: none; }
+.kyc-head h1 { margin-top: 6px; } .kyc-head .sub { margin-bottom: 14px; } .kyc-ctx { margin: 0 0 12px; font-size: 13px; color: var(--ink2); border-left: 1px solid var(--hair2); padding-left: 14px; }
+.kyc-sec { display: grid; gap: 22px; margin-top: 22px; }
+.kyc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; } .kyc-grid.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.kyc-f { display: grid; gap: 6px; align-content: start; min-width: 0; } .kyc-f.wide { grid-column: 1 / -1; }
+.kyc-f > label, .kyc-dd > span { font-family: var(--caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); line-height: 1.5; } .kyc-f .req { color: var(--ink2); }
+html.kyc input[type="text"], html.kyc input[type="email"], html.kyc input[type="tel"], html.kyc input[type="number"], html.kyc input[type="date"], html.kyc select, html.kyc textarea { width: 100%; min-width: 0; padding: 11px 12px; background: var(--field); border: 1px solid var(--hair); border-radius: 2px; color: var(--ink); font: 400 14px/1.4 var(--font); outline: 0; color-scheme: inherit; }
+html.kyc textarea { resize: vertical; min-height: 76px; } html.kyc select { appearance: none; -webkit-appearance: none; }
+html.kyc input:focus, html.kyc select:focus, html.kyc textarea:focus { border-color: var(--hair2); box-shadow: inset 0 -1px 0 var(--ink2); }
+html.kyc input[readonly], html.kyc textarea[readonly], html.kyc select[disabled] { color: var(--ink2); background: transparent; }
+html.kyc button:focus-visible, html.kyc .kyc-pick:focus-within { outline: 1px solid var(--ink2); outline-offset: 2px; }
+.kyc-e { font-size: 12px; color: var(--neg); min-height: 0; } .kyc-e:empty { display: none; } .kyc-f.bad input, .kyc-f.bad select, .kyc-f.bad textarea, .kyc-slot.bad, .kyc-q.bad { border-color: var(--neg); }
+.kyc-yn { display: inline-flex; border: 1px solid var(--hair2); border-radius: 2px; width: max-content; } .kyc-yn button { min-width: 74px; padding: 9px 16px; background: none; border: 0; color: var(--dim); font-family: var(--caps); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; } .kyc-yn button + button { border-left: 1px solid var(--hair2); }
+.kyc-yn button.on { background: var(--ink); color: var(--ground); } .kyc-yn button[disabled] { cursor: default; }
+.kyc-chk { display: grid; grid-template-columns: 18px 1fr; gap: 10px; align-items: start; font-size: 13.5px; color: var(--ink2); cursor: pointer; } .kyc-chk input { width: 16px; height: 16px; margin: 2px 0 0; accent-color: var(--ink2); } .kyc-chk .kyc-e { grid-column: 2; }
+.kyc-gh, .kyc-rh h3 { margin: 6px 0 0; font-family: var(--caps); font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); padding-bottom: 8px; border-bottom: 1px solid var(--hair); }
+.kyc-rows { display: grid; gap: 14px; } .kyc-row { border: 1px solid var(--hair); background: var(--glass); border-radius: 2px; padding: 14px 16px 16px; display: grid; gap: 12px; } .kyc-rt { display: flex; justify-content: space-between; align-items: center; } .kyc-rows > .btn { justify-self: start; }
+.kyc-slot { border: 1px solid var(--hair); background: var(--glass); border-radius: 2px; padding: 14px 16px; display: grid; gap: 10px; }
+.kyc-sh { display: flex; justify-content: space-between; align-items: center; gap: 12px; } .kyc-sh b { font-weight: 400; font-size: 14px; margin-right: 10px; }
+.kyc-tag { font-family: var(--caps); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); white-space: nowrap; } .kyc-tag.req { color: var(--ink2); }
+.kyc-pick { position: relative; cursor: pointer; flex: none; } .kyc-file { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.kyc-doc { display: grid; grid-template-columns: minmax(0, 1fr) 150px 150px auto; gap: 12px; align-items: end; padding-top: 10px; border-top: 1px solid var(--hair); } .kyc-doc.up { grid-template-columns: minmax(0, 1fr) auto; } .kyc-doc.error .s { color: var(--neg); }
+.kyc-dn { display: grid; gap: 2px; min-width: 0; align-self: center; } .kyc-dn .n { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13.5px; } .kyc-dn .s { font-size: 12px; color: var(--dim); } .kyc-dd { display: grid; gap: 4px; } html.kyc .kyc-dd input { padding: 8px 10px; font-size: 13px; }
+.kyc-q { border: 1px solid var(--hair); background: var(--glass); border-radius: 2px; padding: 16px; display: grid; gap: 12px; } .kyc-qt { display: grid; grid-template-columns: 26px 1fr; gap: 6px; } .kyc-qt p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink); } .kyc-qt .caps { padding-top: 4px; }
+.kyc-note { margin: 0; font-size: 12.5px; color: var(--dim); line-height: 1.6; }
+.kyc-comment { border: 1px solid var(--neg); border-radius: 2px; padding: 12px 14px; display: grid; gap: 6px; } .kyc-comment p { margin: 0; font-size: 13.5px; white-space: pre-wrap; } .kyc-comment .caps { color: var(--neg); }
+.kyc-sum { margin-top: 22px; border: 1px solid var(--neg); border-radius: 2px; padding: 14px 16px; display: grid; gap: 8px; } .kyc-sum[hidden] { display: none; } .kyc-sum p { margin: 0; font-size: 13.5px; }
+.kyc-sl { display: grid; gap: 2px; text-align: left; background: none; border: 0; border-top: 1px solid var(--hair); padding: 8px 0 0; color: var(--ink2); } .kyc-sl b { font-weight: 400; color: var(--ink); } .kyc-sl span { font-size: 12.5px; color: var(--dim); } .kyc-sl:hover b { text-decoration: underline; }
+.kyc-nav { display: flex; align-items: center; gap: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--hair); } .kyc-nav .sp { flex: 1; } .kyc-nav .btn { padding: 12px 16px; }
+.kyc-receipt .body { padding: 28px 30px; display: grid; gap: 10px; } .kyc-receipt h1 { margin: 4px 0 0; } .kyc-receipt .sub { margin: 0; } .kyc-rl { margin: 0; font-size: 15px; color: var(--ink2); } .kyc-rl b, .kyc-valid b { font-weight: 500; color: var(--ink); } .kyc-rl .ref { font-variant-numeric: tabular-nums; letter-spacing: .04em; } .kyc-valid { margin: 0; font-size: 15px; } .kyc-acts { margin-top: 8px; }
+.kyc-copy { display: grid; gap: 18px; } .kyc-copy section { border: 1px solid var(--hair); background: var(--glass); border-radius: 2px; } .kyc-copy h3 { margin: 0; padding: 12px 18px 10px; font-family: var(--caps); font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); border-bottom: 1px solid var(--hair); }
+.kyc-kv { display: grid; grid-template-columns: minmax(140px, 36%) 1fr; gap: 7px 18px; padding: 14px 18px; font-size: 13px; } .kyc-kv .k { color: var(--dim); } .kyc-kv .v { color: var(--ink); overflow-wrap: anywhere; white-space: pre-wrap; } .kyc-kv .rowh { font-family: var(--caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); padding-top: 8px; } .kyc-kv.q { grid-template-columns: 1fr minmax(90px, 30%); }
+@media (max-width: 900px) {
+  .kyc-wrap { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 18px 16px 48px; } .kyc-index { display: none; }
+  .kyc-step { display: grid; gap: 10px; padding: 12px 16px; position: sticky; top: 60px; z-index: 4; background: var(--veil); border-bottom: 1px solid var(--hair); } .kyc-st { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .kyc-dots { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; } .kyc-dots button { height: 14px; padding: 0; background: none; border: 0; border-top: 2px solid var(--hair2); } .kyc-dots button.done { border-top-color: var(--ink2); } .kyc-dots button.on { border-top-color: var(--ink); border-top-width: 3px; } .kyc-dots button.note, .kyc-dots button.cm:not(.done) { border-top-color: var(--neg); }
+  .kyc-top { padding: 0 16px; } .kyc-top .who > span:first-child { display: none; }
+}
+@media (max-width: 640px) {
+  .kyc-grid, .kyc-grid.g3 { grid-template-columns: minmax(0, 1fr); } .kyc-doc { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .kyc-doc .kyc-dn { grid-column: 1 / -1; } .kyc-doc > .q { justify-self: start; }
+  html.kyc input[type="text"], html.kyc input[type="email"], html.kyc input[type="tel"], html.kyc input[type="number"], html.kyc input[type="date"], html.kyc select, html.kyc textarea { font-size: 16px; }
+  .kyc-sh { flex-wrap: wrap; } .kyc-nav { flex-wrap: wrap; } .kyc-nav .primary { flex: 1 1 100%; order: 3; padding: 14px 18px; } .kyc-receipt .body { padding: 22px 18px; } .kyc-kv, .kyc-kv.q { grid-template-columns: minmax(0, 1fr); gap: 2px 0; } .kyc-kv .v { margin-bottom: 8px; } .kyc-yn button { min-width: 88px; padding: 12px 16px; }
+}
+@media print {
+  html.kyc body { background: #fff; color: #000; } .kyc-top, .kyc-step, .kyc-index, .kyc-nav, .kyc-acts, .kyc-sum { display: none !important; } .kyc-wrap { display: block; max-width: none; padding: 0; }
+  .kyc-receipt, .kyc-copy section { box-shadow: none; border-color: #bbb; background: none; break-inside: avoid; margin-bottom: 12px; } html.kyc .kyc-kv .k, html.kyc .caps, html.kyc .kyc-copy h3, html.kyc .sub, html.kyc .kyc-note { color: #444; } html.kyc .kyc-kv .v, html.kyc h1, html.kyc .kyc-rl, html.kyc .kyc-rl b { color: #000; }
+}

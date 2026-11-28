@@ -1,0 +1,159 @@
+/* XYNTAX PROSHIP — Financials, Performance, Reports styles (builder B). Tokens from vertu.css; monochrome throughout. */
+.psf { min-width: 0; }
+.psf-top { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.psf-strip { display: flex; flex-wrap: wrap; gap: 6px; }
+.psf-strip button { border: 1px solid var(--pt-hair); background: transparent; color: var(--pt-dim); font: 400 11.5px/1 var(--font); letter-spacing: .04em; padding: 7px 12px; border-radius: 0; cursor: pointer; }
+.psf-strip button.on { color: var(--pt-ink); border-color: var(--pt-ink); }
+.psf-period { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; } .psf-period .seg button { padding: 6px 10px; } .psf-custom { display: inline-flex; align-items: center; gap: 6px; } .psf-custom input { width: 140px; }
+.psf-kpis { margin-bottom: 14px; }
+.psf-actions { margin: 0 0 14px; }
+.psf-panel h3 { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-dim); font-weight: 400; margin: 0 0 10px; }
+.psf table.sh-t tr.warn td { color: var(--pt-ink); } .psf table.sh-t tr.warn td:first-child { box-shadow: inset 2px 0 0 var(--pt-ink2); }
+.psf table.sh-t td .row.nowrap { gap: 4px; } .psf table.sh-t td .row.nowrap button.quiet { padding: 2px 8px; font-size: 11px; }
+.psf .trunc { display: inline-block; max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: bottom; }
+.psf-balance { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 11.5px; margin: -4px 0 10px; color: var(--pt-ink); } .psf-balance .sh-dim { font-size: 11px; }
+.psf-kv > div { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--pt-hair); font-size: 12.5px; } .psf-kv .k { color: var(--pt-dim); } .psf-kv .v { font-variant-numeric: tabular-nums; }
+/* charts: one ink, two weights */
+.psf-chart { width: 100%; height: 150px; display: block; overflow: visible; }
+.psf-chart .base { stroke: var(--pt-hair2); stroke-width: 1; } .psf-chart rect.pos { fill: var(--pt-ink); opacity: .8; } .psf-chart rect.neg { fill: var(--pt-ink); opacity: .32; }
+.psf-chart text { fill: var(--pt-dim); font: 300 9.5px var(--font); } .psf-chart polyline { fill: none; stroke: var(--pt-ink); stroke-width: 1.6; vector-effect: non-scaling-stroke; } .psf-chart polyline.dashed { stroke-dasharray: 4 4; opacity: .6; }
+.psf-chart circle.pt { fill: var(--pt-ink); } .psf-chart circle.pt.dashed { fill: var(--pt-ground, #000); stroke: var(--pt-ink); stroke-width: 1.2; }
+.psf-legend { display: flex; gap: 16px; font-size: 11px; color: var(--pt-dim); margin-top: 6px; } .psf-legend i { display: inline-block; width: 18px; height: 0; border-top: 1.6px solid var(--pt-ink); margin-right: 6px; vertical-align: middle; } .psf-legend .dashed i { border-top-style: dashed; opacity: .6; }
+.psf-hbars .hb { display: grid; grid-template-columns: minmax(80px, 1fr) 2fr max-content; gap: 10px; align-items: center; font-size: 12px; padding: 4px 0; } .psf-hbars .bar { height: 6px; background: var(--pt-glass2); } .psf-hbars .bar i { display: block; height: 100%; background: var(--pt-ink); opacity: .7; } .psf-hbars .v { font-variant-numeric: tabular-nums; }
+/* report cards */
+.psf-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; }
+.psf-card { text-align: left; border: 1px solid var(--pt-hair); background: transparent; color: var(--pt-ink); padding: 12px 14px; border-radius: 0; cursor: pointer; display: grid; gap: 4px; font: inherit; }
+.psf-card b { font-weight: 500; font-size: 13px; } .psf-card span { color: var(--pt-dim); font-size: 11px; line-height: 1.45; } .psf-card.on { border-color: var(--pt-ink); box-shadow: inset 0 0 0 1px var(--pt-ink); }
+.psf-ropts { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: end; } .psf-f { display: grid; gap: 4px; font-size: 11px; color: var(--pt-dim); } .psf-f input, .psf-f select { min-width: 180px; }
+.psf-apply { display: grid; gap: 2px; max-height: 50vh; overflow: auto; border: 1px solid var(--pt-hair); padding: 6px 8px; } .psf-apply label.row { display: grid; grid-template-columns: 18px 1fr max-content; gap: 8px; align-items: center; font-size: 12px; padding: 4px 0; border-bottom: 1px solid var(--pt-hair); cursor: pointer; } .psf-apply .a { font-variant-numeric: tabular-nums; } .psf-apply input[type="checkbox"] { accent-color: var(--pt-ink); }
+/* the preview overlay: a frosted sheet with the printed page inside */
+.psf-overlay { position: fixed; inset: 0; z-index: 1200; background: var(--pt-veil, rgba(0,0,0,.55)); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.psf-ovcard { width: min(960px, 100%); height: min(92vh, 1200px); background: var(--pt-ground, #0e0f11); border: 1px solid var(--pt-hair); display: grid; grid-template-rows: max-content 1fr; }
+.psf-ovhead { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--pt-hair); } .psf-ovhead b { font-weight: 500; font-size: 13px; letter-spacing: .02em; } .psf-ovbtns { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.psf-frame { width: 100%; height: 100%; border: 0; background: #fff; }
+/* the "From the fixture" panel on the sales form (accounting) */
+.fxpanel { border: 1px solid var(--pt-hair); padding: 12px 14px; display: grid; gap: 10px; background: var(--pt-glass, transparent); }
+.fxhead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: start; } .fxhead b { font-weight: 500; } .fxhead .dim { font-size: 11.5px; margin-top: 2px; line-height: 1.5; } .fxhead select { max-width: 320px; }
+.fxnav { gap: 10px; align-items: center; } .fxnav button.quiet { padding: 2px 8px; }
+.fxpick { display: grid; grid-template-columns: 1fr 1fr max-content; gap: 10px; align-items: end; } .fxpick label { display: grid; gap: 4px; font-size: 11px; color: var(--pt-dim); } .fxpick input { width: 100%; box-sizing: border-box; } .fxdays b { font-size: 20px; font-weight: 300; letter-spacing: -.01em; } .fxdays .dim { font-size: 11px; }
+.fxlines { display: grid; border-top: 1px solid var(--pt-hair); } .fxl { display: grid; grid-template-columns: 1fr max-content; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--pt-hair); font-size: 12px; } .fxl .d { color: var(--pt-ink); } .fxl.neg .d, .fxl.neg .a { color: var(--pt-dim); } .fxl .a { font-variant-numeric: tabular-nums; white-space: nowrap; } .fxl.tot { font-weight: 500; border-bottom: 0; } .fxl.tot .d { color: var(--pt-dim); font-weight: 300; font-size: 11px; align-self: center; }
+:root[data-theme="light"] .psf-ovcard { background: #f6f6f4; } :root[data-theme="light"] .psf-chart circle.pt.dashed { fill: #f6f6f4; }
+@media (max-width: 760px) {
+  .psf-top { flex-direction: column; align-items: stretch; } .psf-period .seg { display: flex; flex-wrap: wrap; } .psf-strip { overflow-x: auto; flex-wrap: nowrap; margin: 0 -16px; padding: 0 16px; } .psf-strip button { white-space: nowrap; }
+  .psf-cards { grid-template-columns: 1fr; } .psf-ropts { flex-direction: column; align-items: stretch; } .psf-f input, .psf-f select { min-width: 0; width: 100%; box-sizing: border-box; }
+  .psf-overlay { padding: 0; } .psf-ovcard { width: 100%; height: 100%; border: 0; } .psf-ovhead { flex-direction: column; align-items: stretch; padding: 10px 16px; } .psf-ovbtns { justify-content: flex-start; }
+  .psf-hbars .hb { grid-template-columns: 1fr max-content; } .psf-hbars .bar { grid-column: 1 / -1; }
+  .fxpick { grid-template-columns: 1fr; } .fxl { grid-template-columns: 1fr; gap: 2px; } .fxl .a { justify-self: end; }
+  .psf .sh-grid2 { grid-template-columns: 1fr; }
+  body[data-app] .psf-kpis .sh-kpi .v { font-size: 16px; white-space: normal; overflow: visible; text-overflow: clip; word-break: break-word; line-height: 1.2; }
+}
+/* ---------- 4.13 · fleet pages: the selection bar, sortable tables with totals, rankings */
+.psf-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 14px; }
+.psf-picklbl { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); }
+.psf-picksel { min-width: 240px; max-width: 100%; } .psf-pickn { font-size: 11.5px; }
+.psf-note { font-size: 11.5px; margin: -6px 0 12px; }
+.psf-grid table.sh-t th.sortable { cursor: pointer; user-select: none; white-space: nowrap; } .psf-grid table.sh-t th.sortable:hover { color: var(--pt-ink); }
+.psf-grid table.sh-t th.on { color: var(--pt-ink); } .psf-sortmark { font-size: 8px; margin-left: 5px; vertical-align: middle; opacity: .8; }
+.psf-grid table.sh-t tfoot td { border-top: 1px solid var(--pt-ink2); font-weight: 500; color: var(--pt-ink); padding-top: 9px; }
+.psf-totals-strip { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 11.5px; padding: 8px 0 0; color: var(--pt-ink); } .psf-totals-strip b { font-weight: 500; color: var(--pt-dim); }
+.psf-more { margin: 8px 0 0; }
+.psf-rank { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--pt-hair); font-size: 12.5px; } .psf-rank.click { cursor: pointer; } .psf-rank.click:hover span:first-child { color: var(--pt-ink); text-decoration: underline; text-underline-offset: 3px; }
+.psf table.sh-t tr.click { cursor: pointer; } .psf table.sh-t tr.click:hover td { background: var(--pt-glass2); }
+@media (max-width: 760px) {
+  .psf-top { margin-top: 12px; }
+  .psf-pick { align-items: stretch; } .psf-picksel { width: 100%; min-width: 0; }
+  .psf-grid { overflow-x: auto; -webkit-overflow-scrolling: touch; } .psf-grid table.sh-t { min-width: 720px; }
+}
+/* ---------- 4.13 · the searchable select (ui.js searchify) and the facet search box — used by ACCOUNTING too; kept here so the
+   builder owning this file could ship it without touching vertu.css */
+.pickwrap { position: relative; min-width: 0; }
+.pickwrap select.pickhidden { position: absolute; left: 0; top: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; margin: 0; padding: 0; border: 0; }
+.pickwrap .pickin { width: 100%; box-sizing: border-box; }
+.picklist { position: absolute; left: 0; right: 0; top: 100%; z-index: 40; max-height: 280px; overflow: auto; background: var(--pt-ground, #141416); border: 1px solid var(--pt-hair2, #333); box-shadow: 0 12px 30px rgba(0, 0, 0, .35); margin-top: 2px; }
+.picklist .pickopt { padding: 8px 12px; font-size: 12.5px; cursor: pointer; color: var(--pt-ink); border-bottom: 1px solid var(--pt-hair); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.picklist .pickopt.hi, .picklist .pickopt:hover { background: var(--pt-glass2, rgba(255, 255, 255, .06)); } .picklist .pickopt.cur { color: var(--pt-ink); font-weight: 500; }
+.picklist .pickempty { padding: 8px 12px; font-size: 11.5px; color: var(--pt-faint); }
+:root[data-theme="light"] .picklist { background: #fff; border-color: #d6d9de; box-shadow: 0 12px 30px rgba(0, 0, 0, .12); }
+.facets .fq { width: 100%; box-sizing: border-box; margin: 4px 0 6px; padding: 5px 8px; font-size: 11.5px; }
+#sheet .form .f .pickwrap { width: 100%; }
+/* 4.13 · the Financials/Performance/Reports action rows use the same caps text-button style as the shell's toolbars (PSUI.toolbar) */
+body[data-app="proship"] .psf-actions { gap: 14px 18px; align-items: center; }
+body[data-app="proship"] .psf-actions > button { white-space: nowrap; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; background: none; border: 0; color: var(--pt-dim); padding: 6px 0; border-radius: 0; box-shadow: none; }
+body[data-app="proship"] .psf-actions > button:hover { color: var(--pt-ink); background: none; }
+body[data-app="proship"] .psf-actions > button.primary { color: var(--pt-ink); position: relative; }
+body[data-app="proship"] .psf-actions > button.primary::after { content: ""; position: absolute; left: 0; right: 0; bottom: 1px; height: 1px; background: linear-gradient(90deg, var(--pt-blue), rgba(var(--pt-blue-rgb), 0)); }
+:root[data-theme="light"] body[data-app="proship"] .psf-actions > button { color: #5b6470; } :root[data-theme="light"] body[data-app="proship"] .psf-actions > button:hover, :root[data-theme="light"] body[data-app="proship"] .psf-actions > button.primary { color: #14171c; }
+/* 4.14 · voyage accounting pages: sub-navigation, status words, chips, crumbs */
+body[data-app="proship"] .psf-subnav { margin: 0; } body[data-app="proship"] .ps-tools .psf-subnav, body[data-app="proship"] .ps-tools .psf-periodseg { margin: 0; }
+body[data-app="proship"] .psf-top .psf-subnav + .psf-period { margin-top: 2px; }
+body[data-app="proship"] .psf-status { display: inline-block; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--pt-dim); white-space: nowrap; }
+body[data-app="proship"] .psf-status.pos { color: var(--pt-ink); } body[data-app="proship"] .psf-status.warnc { color: #e07070; } body[data-app="proship"] .psf-status.warn2 { color: var(--pt-ink2); }
+body[data-app="proship"] .psf-chip { display: inline-block; font-family: var(--font-caps); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--pt-dim); border: 1px solid var(--pt-hair2); padding: 2px 7px; margin-left: 8px; vertical-align: middle; }
+body[data-app="proship"] .psf-crumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 6px; margin: 0 0 14px; font-size: 13px; } body[data-app="proship"] .psf-crumbs > button.quiet { padding: 2px 0; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; background: none; border: 0; }
+body[data-app="proship"] .psf-note { font-size: 11.5px; margin: 8px 0 0; }
+body[data-app="proship"] .sh-kpi.warn2 .v { color: var(--pt-ink2); }
+body[data-app="proship"] .psf-panel h4 { margin: 16px 0 6px; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-faint); font-weight: 400; }
+:root[data-theme="light"] body[data-app="proship"] .psf-status { color: #5b6470; } :root[data-theme="light"] body[data-app="proship"] .psf-status.pos { color: #14171c; }
+@media (max-width: 760px) { body[data-app="proship"] .psf-subnav { overflow-x: auto; white-space: nowrap; margin: 0; padding: 0; } body[data-app="proship"] .psf-crumbs > b { font-size: 14px; } }
+/* 4.15 · long money values (rates per day) wrap inside the tile instead of being cut with an ellipsis */
+body[data-app="proship"] .psf-kpis .sh-kpi .v.wrap, body[data-app="proship"] .psf .sh-kpis .sh-kpi .v.wrap { white-space: normal; text-overflow: clip; overflow: visible; line-height: 1.15; overflow-wrap: anywhere; font-size: 19px; }
+
+/* ---- 4.19 · B: the owners' net (stacked month chart), Invoices & bills, allocation rows, bunkers per day ---- */
+body[data-app="proship"] .psf-stackwrap { width: 100%; }
+body[data-app="proship"] .psf-chart.psf-stack { height: 190px; }
+body[data-app="proship"] .psf-stack rect.s1 { fill: var(--pt-ink); opacity: .82; } body[data-app="proship"] .psf-stack rect.s2 { fill: var(--pt-ink); opacity: .36; } body[data-app="proship"] .psf-stack rect.s3 { fill: var(--pt-ink); opacity: .16; }
+body[data-app="proship"] .psf-stack line.netmark { stroke: var(--pt-ink); stroke-width: 2; opacity: .95; }
+body[data-app="proship"] .psf-stack polyline.cumnet { stroke: var(--pt-ink); stroke-width: 1.4; stroke-dasharray: 4 4; opacity: .7; } body[data-app="proship"] .psf-stack polyline.cumrem { stroke: var(--pt-ink); stroke-width: 1.8; opacity: .95; }
+body[data-app="proship"] .psf-stacklegend { flex-wrap: wrap; gap: 10px 16px; }
+body[data-app="proship"] .psf-stacklegend i.sw { width: 12px; height: 10px; border: 0; background: var(--pt-ink); vertical-align: -1px; margin-right: 5px; display: inline-block; }
+body[data-app="proship"] .psf-stacklegend i.sw.s1 { opacity: .82; } body[data-app="proship"] .psf-stacklegend i.sw.s2 { opacity: .36; } body[data-app="proship"] .psf-stacklegend i.sw.s3 { opacity: .16; } body[data-app="proship"] .psf-stacklegend i.sw.net { height: 2px; width: 14px; opacity: .95; }
+body[data-app="proship"] .psf-stacklegend i.ln { display: inline-block; width: 18px; height: 0; border-top: 1.8px solid var(--pt-ink); margin-right: 5px; vertical-align: 3px; } body[data-app="proship"] .psf-stacklegend i.ln.cumnet { border-top-style: dashed; opacity: .7; }
+body[data-app="proship"] .psf-kinds { display: inline-flex; flex-wrap: wrap; gap: 2px 10px; font-size: 11.5px; color: var(--pt-ink2); white-space: nowrap; }
+body[data-app="proship"] .psf-status.psf-pill-accrued, body[data-app="proship"] .psf-status.psf-pill-on-account, body[data-app="proship"] .psf-status.psf-pill-pending-approval { border-bottom: 1px dotted currentColor; }
+body[data-app="proship"] .psf-kpis-tight { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin: 6px 0 12px; }
+body[data-app="proship"] .psf-kpis-tight .sh-kpi .v { font-size: 17px; white-space: nowrap; }
+body[data-app="proship"] .psf-bunkerday .psf-kpis-tight { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1100px) { body[data-app="proship"] .psf-bunkerday .psf-kpis-tight { grid-template-columns: repeat(3, minmax(0, 1fr)); } } @media (max-width: 760px) { body[data-app="proship"] .psf-bunkerday .psf-kpis-tight { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+body[data-app="proship"] .psf-vdocs .sh-t td { font-size: 12.5px; }
+/* allocation rows in the receipt / payment / expense sheets */
+#sheet .psf-alloc { display: flex; flex-direction: column; gap: 6px; }
+#sheet .psf-allocv { padding: 8px 0 2px; border-top: 1px solid var(--pt-hair); font-size: 12px; } #sheet .psf-allocv:first-child { border-top: 0; padding-top: 0; }
+#sheet .psf-allocrow { display: grid; grid-template-columns: minmax(0, 1fr) max-content 150px max-content; gap: 10px; align-items: center; font-size: 12.5px; padding: 3px 0; }
+#sheet .psf-allocrow .l { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } #sheet .psf-allocrow .o { color: var(--pt-faint); font-size: 11.5px; white-space: nowrap; }
+#sheet .psf-allocrow.onacct { color: var(--pt-ink2); } #sheet .psf-allocrow select.psf-allocwhere { display: inline-block; width: auto; max-width: 260px; margin-left: 6px; font-size: 12px; padding: 4px 8px; }
+#sheet .psf-allocrow input.psf-allocamt { text-align: right; width: 150px; padding: 5px 8px; }
+#sheet .psf-split .psf-allocrow { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 150px max-content; } #sheet .psf-split select { width: 100%; }
+#sheet .psf-allocadd { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding-top: 6px; } #sheet .psf-allocadd select.psf-allocvsl { width: auto; max-width: 240px; padding: 4px 8px; font-size: 12px; }
+#sheet .psf-allocfoot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 12.5px; padding: 8px 0 0; border-top: 1px solid var(--pt-hair); margin-top: 4px; }
+@media (max-width: 760px) { #sheet .psf-allocrow, #sheet .psf-split .psf-allocrow { grid-template-columns: 1fr 1fr; } #sheet .psf-allocrow .l { grid-column: 1 / -1; white-space: normal; } #sheet .psf-allocrow input.psf-allocamt { width: 100%; } #sheet .psf-allocrow select.psf-allocwhere { max-width: 100%; margin: 4px 0 0; display: block; } }
+/* bunkers per day */
+body[data-app="proship"] .psf-daybars { display: flex; align-items: flex-end; gap: 2px; height: 72px; margin: 4px 0 14px; padding-bottom: 2px; border-bottom: 1px solid var(--pt-hair2); overflow-x: auto; }
+body[data-app="proship"] .psf-daybars .db { flex: 1 0 6px; max-width: 18px; height: 100%; display: flex; align-items: flex-end; } body[data-app="proship"] .psf-daybars .db i { display: block; width: 100%; background: var(--pt-ink); opacity: .78; }
+body[data-app="proship"] .psf-daybars .db.port i { opacity: .32; } body[data-app="proship"] .psf-daybars .db.interp i { opacity: .45; }
+body[data-app="proship"] .psf-kpis-mixed .sh-kpi .v { font-size: 15px; white-space: normal; line-height: 1.35; }
+body[data-app="proship"] .psf-grid td .psf-kinds { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; max-width: 260px; }
+/* 4.19 · the two owners' tabs inside the Owners page */
+body[data-app="proship"] .psf-ownerstabs { margin: 0 0 var(--ps-block, 18px); padding: 0; border: 0; background: none; }
+/* 4.20 · the statement import preview (Excel / CSV / MT940 / CAMT) and the lines-to-book panel */
+#sheet .psf-stmt .sh-kpis { margin-bottom: 10px; }
+#sheet .psf-stmtwarn { font-size: 12px; margin: 2px 0; }
+#sheet .psf-stmtlines { max-height: 300px; overflow: auto; border: 1px solid var(--pt-hair); margin-top: 8px; }
+#sheet .psf-stmtlines table { width: 100%; }
+#sheet .psf-stmtcols { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 14px; }
+#sheet .psf-stmtcol { display: flex; flex-direction: column; gap: 4px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--pt-faint); }
+#sheet .psf-stmtcol select { font: inherit; text-transform: none; letter-spacing: 0; }
+body[data-app="proship"] .psf-panel .sh-t select { max-width: 180px; font-size: 12px; }
+/* 4.31.11 · utilisation: the day breakdown behind the two rates — employed (ink), commercial off-hire (dim), technical off-hire (hatched) */
+.psf-ubar { display: flex; height: 8px; border: 1px solid var(--pt-hair); background: transparent; overflow: hidden; margin: 2px 0 10px; }
+.psf-ubar i { display: block; height: 100%; } .psf-ubar i.emp { background: var(--pt-ink); } .psf-ubar i.comm { background: var(--pt-dim); } .psf-ubar i.tech { background: repeating-linear-gradient(135deg, var(--pt-dim) 0 2px, transparent 2px 5px); }
+.psf-uline { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; font-variant-numeric: tabular-nums; } .psf-uline b { font-weight: 500; } .psf-uline .sw { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; border: 1px solid var(--pt-hair); } .psf-uline .sw.emp { background: var(--pt-ink); } .psf-uline .sw.comm { background: var(--pt-dim); } .psf-uline .sw.tech { background: repeating-linear-gradient(135deg, var(--pt-dim) 0 2px, transparent 2px 5px); }
+.psf-unote { font-size: 12px; margin-top: 8px; line-height: 1.4; }
+/* 4.31.14 · the owners' Statement of accounts: one filter row (period · owner · vessel · voyage / charter · charterer), the reconciliation line */
+body[data-app="proship"] .psf-soafilters, .psf-soafilters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 14px; margin: 0 0 var(--ps-block, 18px); }
+.psf-soaf { display: inline-flex; flex-direction: column; gap: 3px; min-width: 0; } .psf-soaf > span { font-family: var(--font-caps); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--pt-dim); }
+.psf-soaf select { max-width: 280px; min-width: 150px; }
+.psf-soarecon { border-top: 1px solid var(--pt-hair); border-bottom: 1px solid var(--pt-hair); padding: 8px 0; margin: 0 0 var(--ps-block, 18px); font-size: 12.5px; line-height: 1.55; color: var(--pt-ink); font-variant-numeric: tabular-nums; }
+.psf-soarecon .sh-dim { font-size: 11.5px; } .psf-panel .psf-soarecon { margin: 4px 0 0; border-bottom: 0; }
+.psf-soasub { font-size: 11.5px; margin: -4px 0 8px; }
+/* 4.32 · on the phone the filters stack full width (the app-scoped rule above would otherwise keep them right-aligned and the period row wider than the page) */
+@media (max-width: 720px) { body[data-app="proship"] .psf-soafilters, .psf-soafilters { flex-direction: column; align-items: stretch; } body[data-app="proship"] .psf-soaf select, .psf-soaf select { max-width: none; width: 100%; } body[data-app="proship"] .psf-soafilters .sh-seg.psf-soaperiod, .psf-soaperiod { display: flex; flex-wrap: nowrap; max-width: 100%; overflow-x: auto; scrollbar-width: none; } }

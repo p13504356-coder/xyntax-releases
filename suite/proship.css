@@ -1,0 +1,862 @@
+/* XYNTAX PROSHIP — styles for the app, its tabs and the map (loaded after vertu.css; tokens from vertu.css apply) */
+
+/* ---------- HOME GRID with ten apps: five across on the desktop, a wide SETTINGS strip under three columns on the phone */
+@media (min-width: 761px) { body[data-app="home"] .sh-tiles { grid-template-columns: repeat(5, minmax(150px, 196px)); max-width: calc(5 * 196px + 4 * 20px); } body[data-app="home"] .sh-tile { min-height: 176px; padding: 20px 14px 18px; } }
+@media (min-width: 761px) and (max-width: 1100px) { body[data-app="home"] .sh-tiles { grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: 100%; } body[data-app="home"] .sh-tile { min-height: 150px; padding: 16px 10px; } body[data-app="home"] .sh-tile .sh-name { font-size: 10px; } }
+@media (min-width: 1700px) { body[data-app="home"] .sh-tiles { grid-template-columns: repeat(5, minmax(190px, 230px)); max-width: calc(5 * 230px + 4 * 24px); } body[data-app="home"] .sh-tile { min-height: 200px; } }
+@media (max-width: 760px) { body[data-app="home"] .sh-tile[data-app="settings"] { grid-column: 1 / -1; aspect-ratio: auto; flex-direction: row; justify-content: flex-start; gap: 14px; min-height: 0; padding: 12px 16px; } body[data-app="home"] .sh-tile[data-app="settings"] .sh-i { margin: 0; width: 26px; height: 26px; } body[data-app="home"] .sh-tile[data-app="settings"] .sh-sum { margin-left: auto; text-align: right; } }
+
+/* ---------- side pane: vessel list */
+body[data-app="proship"] .ps-vlist { padding: 2px 0 12px; }
+body[data-app="proship"] .sh-app .ps-vrow, body[data-app="proship"] .ps-vrow { font-family: var(--font); text-transform: none; letter-spacing: 0; display: grid; grid-template-columns: 10px minmax(0, 1fr); grid-template-areas: "dot nm" "dot d" "dot d2"; column-gap: 10px; align-items: center; width: 100%; text-align: left; padding: 9px 14px 9px 18px; background: none; border: 0; border-radius: 0; color: var(--pt-ink); font: inherit; cursor: pointer; }
+body[data-app="proship"] .ps-vrow:hover, body[data-app="proship"] .ps-vrow.on { background: var(--pt-sel); }
+body[data-app="proship"] .sh-app .ps-vrow .nm, body[data-app="proship"] .ps-vrow .nm { grid-area: nm; text-transform: none; letter-spacing: 0; font-family: var(--font); font-size: 13.5px; font-weight: 400; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body[data-app="proship"] .ps-vrow .d, body[data-app="proship"] .ps-vrow .d2 { font-size: 11px; color: var(--pt-dim); font-weight: 300; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } body[data-app="proship"] .ps-vrow .d { grid-area: d; } body[data-app="proship"] .ps-vrow .d2 { grid-area: d2; color: var(--pt-faint); }
+body[data-app="proship"] .ps-vrow .dot, body[data-app="proship"] .dot { grid-area: dot; width: 7px; height: 7px; border-radius: 50%; background: var(--pt-faint); display: inline-block; flex: none; }
+/* 4.31 · the accounting analysis signals keep their own two-column grid inside PROSHIP (the .dot above took grid-area "dot" and broke the text into one word per line) */
+body[data-app="proship"] .signal .dot { grid-area: auto; width: 8px; height: 8px; display: block; margin-top: 4px; }
+body[data-app="proship"] .dot.ok { background: var(--pt-ink); } body[data-app="proship"] .dot.warn { background: var(--pt-dim); box-shadow: 0 0 0 1px var(--pt-dim) inset; } body[data-app="proship"] .dot.neg { background: var(--pt-neg); } body[data-app="proship"] .dot.dim { background: transparent; border: 1px solid var(--pt-faint); }
+body[data-app="proship"] .ps-vrow .dot { align-self: center; }
+
+/* ---------- vessel strip under the search bar */
+body[data-app="proship"] .ps-strip { margin: 14px 22px 0; padding: 12px 16px; border: 1px solid var(--pt-hair); background: var(--pt-glass2); display: flex; flex-direction: column; gap: 6px; }
+body[data-app="proship"] .ps-strip-main { display: flex; align-items: center; gap: 10px; font-size: 14px; } body[data-app="proship"] .ps-strip-main b { font-weight: 500; letter-spacing: .02em; }
+body[data-app="proship"] .ps-strip-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; font-size: 12px; color: var(--pt-ink2); font-weight: 300; }
+body[data-app="proship"] .ps-strip-sub .quiet { padding: 0; font-size: 11px; color: var(--pt-dim); } body[data-app="proship"] .ps-strip-sub .quiet:hover { color: var(--pt-ink); background: none; }
+
+/* ---------- pills, segments, kv, notes, more button */
+body[data-app="proship"] .ps-pill { display: inline-block; font-family: var(--font-caps); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; padding: 3px 8px 2px; border: 1px solid var(--pt-hair); color: var(--pt-dim); white-space: nowrap; line-height: 1.3; }
+body[data-app="proship"] .ps-pill.ok { color: var(--pt-ink); border-color: var(--pt-ink2); } body[data-app="proship"] .ps-pill.ok2 { color: var(--pt-ink2); } body[data-app="proship"] .ps-pill.warn { color: var(--pt-ink2); border-style: dashed; } body[data-app="proship"] .ps-pill.neg { color: var(--pt-neg); border-color: var(--pt-neg); } body[data-app="proship"] .ps-pill.dim { color: var(--pt-faint); }
+body[data-app="proship"] .ps-seg { margin: 0 0 18px; flex-wrap: wrap; }
+body[data-app="proship"] .ps-kv { display: grid; grid-template-columns: max-content minmax(0, 1fr); } body[data-app="proship"] .ps-kv > :nth-child(odd) { white-space: nowrap; }
+body[data-app="proship"] .ps-notes { white-space: pre-wrap; font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--pt-ink2); }
+body[data-app="proship"] .ps-more { padding: 0 6px; font-size: 14px; line-height: 1; color: var(--pt-dim); } body[data-app="proship"] .ps-more:hover { color: var(--pt-ink); background: none; }
+body[data-app="proship"] table.ps-t td .quiet { padding: 2px 8px; font-size: 11px; }
+body[data-app="proship"] .sh-kpi.click { cursor: pointer; } body[data-app="proship"] .sh-kpi .v.neg { color: var(--pt-neg); } body[data-app="proship"] .sh-kpi .v.warn { color: var(--pt-ink2); }
+body[data-app="proship"] .ps-kpis { grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); } body[data-app="proship"] .ps-kpis .sh-kpi .v { font-size: 21px; }
+@media (max-width: 1250px) { body[data-app="proship"] .ps-kpis { grid-template-columns: repeat(auto-fit, minmax(156px, 1fr)); } body[data-app="proship"] .ps-kpis .sh-kpi .v { font-size: 19px; } }
+body[data-app="proship"] .ps-pend { display: inline-block; font-size: 11px; padding: 2px 8px; border: 1px solid var(--pt-hair); color: var(--pt-ink2); font-weight: 300; }
+body[data-app="proship"] .ps-pend.neg { border-color: var(--pt-neg); color: var(--pt-neg); } body[data-app="proship"] .ps-pend.warn { border-style: dashed; } body[data-app="proship"] .ps-pend.ok { color: var(--pt-faint); border-style: dotted; }
+
+/* ---------- fleet cards (overview) */
+body[data-app="proship"] .ps-cardpanel > h3 { margin-bottom: 12px; }
+body[data-app="proship"] .ps-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+body[data-app="proship"] .ps-card { border: 1px solid var(--pt-hair); background: var(--pt-glass); padding: 16px 18px 14px; display: flex; flex-direction: column; gap: 9px; cursor: pointer; min-width: 0; transition: border-color .15s; }
+body[data-app="proship"] .ps-card:hover, body[data-app="proship"] .ps-card.on { border-color: var(--pt-ink2); }
+body[data-app="proship"] .ps-card-h { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 14.5px; } body[data-app="proship"] .ps-card-h b { font-weight: 500; letter-spacing: .02em; } body[data-app="proship"] .ps-card-h .sh-dim { font-size: 11.5px; margin-left: auto; }
+body[data-app="proship"] .ps-card-emp, body[data-app="proship"] .ps-card-pos { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; font-size: 12.5px; font-weight: 300; color: var(--pt-ink2); } body[data-app="proship"] .ps-card-emp .sh-dim, body[data-app="proship"] .ps-card-pos .sh-dim { font-size: 11.5px; }
+body[data-app="proship"] .ps-card-fin { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12.5px; font-variant-numeric: tabular-nums; padding-top: 8px; border-top: 1px solid var(--pt-hair); } body[data-app="proship"] .ps-card-fin > .sh-dim { margin-left: auto; font-size: 11px; }
+body[data-app="proship"] .ps-card-pend { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+/* ---------- the map */
+body[data-app="proship"] .ps-mapbox { position: relative; height: 340px; margin: 0 0 18px; border: 1px solid var(--pt-hair); background: #0e1216; overflow: hidden; }
+body[data-app="proship"] .ps-mapbox.fleet { height: 300px; margin-bottom: 22px; } body[data-app="proship"] .ps-mapbox.tall { height: 520px; }
+body[data-app="proship"] .ps-map { width: 100%; height: 100%; background: #0e1216; font: inherit; }
+:root[data-theme="light"] body[data-app="proship"] .ps-mapbox, :root[data-theme="light"] body[data-app="proship"] .ps-map { background: #dfe6ec; }
+body[data-app="proship"] .ps-map.dark .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.72) contrast(.92) saturate(.15); }
+body[data-app="proship"] .ps-map .leaflet-control-attribution { background: rgba(0, 0, 0, .35); color: var(--pt-faint); font: 300 9.5px var(--font); padding: 1px 6px; } body[data-app="proship"] .ps-map .leaflet-control-attribution a { color: var(--pt-dim); }
+:root[data-theme="light"] body[data-app="proship"] .ps-map .leaflet-control-attribution { background: rgba(255, 255, 255, .6); }
+body[data-app="proship"] .ps-map .leaflet-bar { border: 1px solid var(--pt-hair); border-radius: 0; box-shadow: none; } body[data-app="proship"] .ps-map .leaflet-bar a { background: var(--pt-ground); color: var(--pt-ink); border-bottom-color: var(--pt-hair); width: 28px; height: 28px; line-height: 28px; font-weight: 300; } body[data-app="proship"] .ps-map .leaflet-bar a:hover { background: var(--pt-glass2); }
+body[data-app="proship"] .ps-mapnote { position: absolute; left: 12px; bottom: 12px; z-index: 500; font-size: 11px; color: var(--pt-dim); background: rgba(0, 0, 0, .45); padding: 4px 10px; border: 1px solid var(--pt-hair); pointer-events: none; } :root[data-theme="light"] body[data-app="proship"] .ps-mapnote { background: rgba(255, 255, 255, .75); }
+body[data-app="proship"] .ps-nomap { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--pt-dim); font-size: 12px; }
+.ps-shipicon { background: none !important; border: 0 !important; overflow: visible; }
+.ps-shipicon .ps-ship { width: 26px; height: 26px; display: block; fill: #0e1216; stroke: #f0f2f5; stroke-width: 1.6; stroke-linejoin: round; transform-origin: 50% 50%; filter: drop-shadow(0 0 2px rgba(0, 0, 0, .6)); }
+:root[data-theme="light"] .ps-shipicon .ps-ship { fill: #f6f8fa; stroke: #1c1f24; filter: drop-shadow(0 0 2px rgba(255, 255, 255, .8)); }
+.ps-shipicon.sel .ps-ship { stroke-width: 2.4; } .ps-shipicon.idle .ps-ship, .ps-shipicon.drydock .ps-ship { stroke-dasharray: 2 2; } .ps-shipicon.laid-up .ps-ship { opacity: .6; }
+.ps-shipicon .ps-shiplbl { position: absolute; left: 50%; top: 100%; transform: translateX(-50%); white-space: nowrap; font: 300 10.5px var(--font); letter-spacing: .04em; color: #f0f2f5; text-shadow: 0 0 3px #000, 0 0 3px #000; pointer-events: none; margin-top: 1px; }
+:root[data-theme="light"] .ps-shipicon .ps-shiplbl { color: #1c1f24; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
+.leaflet-tooltip.ps-tip { background: var(--pt-ground); color: var(--pt-ink); border: 1px solid var(--pt-hair); border-radius: 0; box-shadow: none; font: 300 11.5px/1.45 var(--font); padding: 6px 10px; } .leaflet-tooltip.ps-tip .dim { color: var(--pt-dim); } .leaflet-tooltip.ps-tip::before { display: none; }
+body[data-app="proship"] .ps-maplist { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 18px; } body[data-app="proship"] .ps-maplist .ps-vrow { padding: 8px 10px; border-bottom: 1px solid var(--pt-hair); }
+
+/* ---------- strategy horizons */
+body[data-app="proship"] .ps-horizons { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 18px; }
+body[data-app="proship"] .ps-hcard { border: 1px solid var(--pt-hair); background: var(--pt-glass); padding: 16px 18px 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; min-width: 0; } body[data-app="proship"] .ps-hcard:hover { border-color: var(--pt-ink2); } body[data-app="proship"] .ps-hcard.empty { border-style: dashed; }
+body[data-app="proship"] .ps-hh { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--pt-dim); } body[data-app="proship"] .ps-hh .sh-dim { font-family: var(--font); letter-spacing: 0; text-transform: none; font-size: 11px; }
+body[data-app="proship"] .ps-htarget { font: 300 20px/1.2 var(--font); color: var(--pt-ink); margin: 4px 0 6px; } body[data-app="proship"] .ps-htarget .sh-dim { font-size: 12px; }
+body[data-app="proship"] .ps-hline { font-size: 12.5px; font-weight: 300; color: var(--pt-ink2); line-height: 1.5; } body[data-app="proship"] .ps-hline b { font-weight: 400; color: var(--pt-dim); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-right: 4px; }
+body[data-app="proship"] .ps-hnotes { white-space: pre-wrap; font-size: 12px; font-weight: 300; color: var(--pt-ink2); border-top: 1px solid var(--pt-hair); padding-top: 8px; margin-top: 4px; line-height: 1.55; }
+body[data-app="proship"] .ps-estimate .sh-kpis { margin-bottom: 0; }
+body[data-app="proship"] .ps-docs .sh-tw { margin-bottom: 0; }
+
+/* ---------- phone */
+@media (max-width: 760px) {
+  body[data-app="proship"] .sh-h1 .sub { white-space: normal; min-width: 0; max-width: 100%; } body[data-app="proship"] .sh-filters { max-width: calc(100vw - 32px); }
+  body[data-app="proship"] .ps-strip { margin: 12px 16px 0; padding: 10px 12px; } body[data-app="proship"] .ps-strip-main { font-size: 13px; flex-wrap: wrap; } body[data-app="proship"] .ps-strip-main .sh-dim { flex-basis: 100%; font-size: 11px; }
+  body[data-app="proship"] .ps-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body[data-app="proship"] .ps-cards { grid-template-columns: 1fr; gap: 10px; } body[data-app="proship"] .ps-card { padding: 12px 14px 10px; } body[data-app="proship"] .ps-card-h .sh-dim { margin-left: 0; flex-basis: 100%; }
+  body[data-app="proship"] .ps-mapbox { height: 260px; margin: 0 0 14px; } body[data-app="proship"] .ps-mapbox.fleet { height: 220px; } body[data-app="proship"] .ps-mapbox.tall { height: 380px; }
+  body[data-app="proship"] .ps-horizons { grid-template-columns: 1fr; gap: 10px; }
+  body[data-app="proship"] .ps-seg { gap: 14px; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; padding-bottom: 2px; } body[data-app="proship"] .ps-seg button { white-space: nowrap; }
+  body[data-app="proship"] .ps-kv { grid-template-columns: 1fr; gap: 2px 0; } body[data-app="proship"] .ps-kv > :nth-child(even) { margin-bottom: 8px; }
+  body[data-app="proship"] .ps-maplist { grid-template-columns: 1fr; }
+  body[data-app="proship"] .ps-vrow { padding: 10px 14px 10px 16px; }
+}
+
+/* ---------- 4.13 · LAYOUT PARITY with DOCUMENTS: the same three columns (menu · page · details), the same search bar and header */
+body[data-app="proship"] .ps-pagehead { margin: 0 0 6px; }
+body[data-app="proship"] .ps-pagehead .vt-head { margin: 0 0 12px; }
+body[data-app="proship"] .ps-pagehead .nt-sub { color: var(--pt-dim); font-size: 12.5px; font-weight: 300; }
+body[data-app="proship"] .ps-tools { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; margin-bottom: 18px; }
+body[data-app="proship"] .ps-tools-l { display: flex; align-items: center; gap: 18px; min-width: 0; }
+body[data-app="proship"] .ps-tools-l:empty { display: none; }
+body[data-app="proship"] .ps-tools-r { margin-left: auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+body[data-app="proship"] .ps-tools-r button { white-space: nowrap; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; background: none; border: 0; color: var(--pt-dim); padding: 6px 0; border-radius: 0; }
+body[data-app="proship"] .ps-tools-r button:hover { color: var(--pt-ink); background: none; }
+body[data-app="proship"] .ps-tools-r button.primary { color: var(--pt-ink); position: relative; }
+body[data-app="proship"] .ps-tools-r button.primary::after { content: ""; position: absolute; left: 0; right: 0; bottom: 1px; height: 1px; background: linear-gradient(90deg, var(--pt-blue), rgba(var(--pt-blue-rgb), 0)); }
+body[data-app="proship"] .ps-tools .sh-seg.ps-seg { margin: 0; }
+body[data-app="proship"] .sh-main > .nt-quick + .ps-vhead { margin-top: 18px; }
+body[data-app="proship"] .sh-main > .nt-quick + .ps-pagehead { margin-top: 22px; }
+body[data-app="proship"] .ps-vhead + .ps-pagehead { margin-top: 18px; }
+
+/* the vessel header: identity · employment · position · actions */
+body[data-app="proship"] .ps-vhead { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0; border: 1px solid var(--pt-hair); background: var(--pt-glass2); margin: 0 0 18px; }
+body[data-app="proship"] .ps-vhead > div { padding: 16px 20px; min-width: 0; border-right: 1px solid var(--pt-hair); }
+body[data-app="proship"] .ps-vhead > div:last-child { border-right: 0; }
+body[data-app="proship"] .ps-vhead-name { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+body[data-app="proship"] .ps-vhead-name h3 { margin: 0; font: 300 20px/1.2 var(--font); letter-spacing: 0; text-transform: none; color: var(--pt-ink); }
+body[data-app="proship"] .ps-vhead-meta { margin-top: 6px; color: var(--pt-dim); font-size: 12px; font-weight: 300; line-height: 1.5; }
+body[data-app="proship"] .ps-vhead .k { display: block; font-family: var(--font-caps); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); margin-bottom: 6px; }
+body[data-app="proship"] .ps-vhead .v { display: block; color: var(--pt-ink); font-size: 13px; font-weight: 300; line-height: 1.45; }
+body[data-app="proship"] .ps-vhead .d { display: block; color: var(--pt-dim); font-size: 11.5px; margin-top: 3px; }
+body[data-app="proship"] .ps-vhead-acts { grid-column: 1 / -1; border-top: 1px solid var(--pt-hair); display: flex; gap: 18px; flex-wrap: wrap; padding: 8px 20px !important; }
+body[data-app="proship"] .ps-vhead-acts button { white-space: nowrap; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; background: none; border: 0; color: var(--pt-dim); padding: 6px 0; }
+body[data-app="proship"] .ps-vhead-acts button:hover { color: var(--pt-ink); background: none; }
+
+/* the side pane: lists, quick filters, find-a-vessel, the vessel in view */
+body[data-app="proship"] .ps-find { padding: 6px 14px 10px; }
+body[data-app="proship"] .ps-find input { width: 100%; box-sizing: border-box; background: var(--pt-field); border: 1px solid var(--pt-hair); color: var(--pt-ink); font: 300 13px var(--font); padding: 8px 12px; }
+body[data-app="proship"] .ps-findres .ps-vrow { padding: 7px 10px 7px 12px; }
+body[data-app="proship"] .ps-viewing { margin: 4px 14px 14px; padding: 10px 12px; border: 1px solid var(--pt-hair2); background: var(--pt-sel); display: flex; align-items: center; gap: 8px; font-size: 12px; }
+body[data-app="proship"] .ps-viewing b { font-weight: 400; color: var(--pt-ink); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+body[data-app="proship"] .ps-viewing .quiet { padding: 0 4px; color: var(--pt-dim); }
+body[data-app="proship"] .ps-vrow .ps-lmenu { grid-area: dot; justify-self: start; opacity: 0; color: var(--pt-dim); font-size: 14px; margin-left: -12px; }
+body[data-app="proship"] .ps-vrow:hover .ps-lmenu { opacity: 1; }
+
+/* the details pane */
+body[data-app="proship"] .ps-pane .ph { display: flex; align-items: flex-start; gap: 10px; }
+body[data-app="proship"] .ps-pane .ph > div { flex: 1; min-width: 0; }
+body[data-app="proship"] .ps-pane .ps-kv { display: grid; grid-template-columns: 1fr; gap: 6px; }
+body[data-app="proship"] .ps-pane .ps-kv > div { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; }
+body[data-app="proship"] .ps-pane .ps-kv .k { color: var(--pt-dim); white-space: nowrap; }
+body[data-app="proship"] .ps-pane .ps-kv .v { color: var(--pt-ink); text-align: right; min-width: 0; overflow-wrap: anywhere; }
+body[data-app="proship"] .ps-pendlist { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+body[data-app="proship"] .ps-pendlist .ps-pend { border: 0; cursor: pointer; text-align: left; font: inherit; }
+body[data-app="proship"] .ps-pendlist .ps-pend b { font-weight: 400; color: var(--pt-ink); }
+body[data-app="proship"] .ps-paneacts { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+body[data-app="proship"] .ps-paneacts button, body[data-app="proship"] .ps-pane section .row button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; background: none; border: 0; padding: 4px 0; color: var(--pt-dim); }
+body[data-app="proship"] .ps-paneacts button:hover, body[data-app="proship"] .ps-pane section .row button:hover { color: var(--pt-ink); background: none; }
+
+/* the vessel picker and the selection bar */
+body[data-app="proship"] .ps-picker { display: inline-flex; align-items: center; gap: 8px; background: var(--pt-field); border: 1px solid var(--pt-hair2); color: var(--pt-ink); font: 300 12.5px var(--font); letter-spacing: 0; text-transform: none; padding: 7px 12px; border-radius: 0; }
+body[data-app="proship"] .ps-picker.on { border-color: var(--pt-ink); }
+body[data-app="proship"] .ps-picker .pt-ic, body[data-app="proship"] .ps-picker svg { width: 14px; height: 14px; }
+body[data-app="proship"] .ps-picker .n { color: var(--pt-dim); font-variant-numeric: tabular-nums; }
+body[data-app="proship"] .ps-picker .car { color: var(--pt-faint); font-size: 10px; }
+body[data-app="proship"] .ps-tools-r .ps-picker { font-family: var(--font); font-size: 12.5px; letter-spacing: 0; text-transform: none; padding: 7px 12px; }
+body[data-app="proship"] .ps-tools-r .ps-picker::after { display: none; }
+body[data-app="proship"] .ps-selbar { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; padding: 10px 16px; margin: 0 0 12px; border: 1px solid var(--pt-ink); background: var(--pt-sel); font-size: 12.5px; }
+body[data-app="proship"] .ps-selbar b { font-weight: 400; color: var(--pt-ink); }
+body[data-app="proship"] .ps-selbar button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; background: none; border: 0; padding: 4px 0; color: var(--pt-dim); }
+body[data-app="proship"] .ps-selbar button:hover { color: var(--pt-ink); background: none; }
+.ps-pickbody { display: flex; flex-direction: column; gap: 6px; }
+.ps-pickbody .ps-pickq { width: 100%; box-sizing: border-box; }
+.ps-picklist { max-height: 44vh; overflow: auto; border: 1px solid var(--pt-hair); }
+.ps-pickrow { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 4px 10px; align-items: center; padding: 7px 12px; border-bottom: 1px solid var(--pt-hair); cursor: pointer; font-size: 13px; }
+.ps-pickrow b { font-weight: 400; } .ps-pickrow .sh-dim { grid-column: 2; font-size: 11.5px; }
+.ps-pickrow input { margin: 0; accent-color: var(--pt-ink); }
+
+/* tables: sortable headers, selection column, windowed rows, the table footer */
+body[data-app="proship"] .psu-tw { position: relative; outline: none; }
+body[data-app="proship"] .psu-tw:focus-visible { box-shadow: inset 0 0 0 1px var(--pt-hair2); }
+body[data-app="proship"] table.psu-t th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+body[data-app="proship"] table.psu-t th.sortable:hover { color: var(--pt-ink); }
+body[data-app="proship"] table.psu-t th.on { color: var(--pt-ink); }
+body[data-app="proship"] table.psu-t th .dir { display: inline-block; width: 10px; margin-left: 4px; font-size: 7px; vertical-align: middle; }
+body[data-app="proship"] table.psu-t th.sel, body[data-app="proship"] table.psu-t td.sel { width: 26px; padding-right: 0; }
+body[data-app="proship"] table.psu-t th.more, body[data-app="proship"] table.psu-t td.more { width: 26px; padding: 0 4px; text-align: right; }
+body[data-app="proship"] .psu-cols { padding: 0 4px; color: var(--pt-faint); }
+body[data-app="proship"] .psu-cb { accent-color: var(--pt-ink); margin: 0; width: 14px; height: 14px; cursor: pointer; }
+body[data-app="proship"] table.psu-t tr.selected td { background: var(--pt-sel); }
+body[data-app="proship"] table.psu-t tr.cur td { box-shadow: inset 2px 0 0 var(--pt-ink); }
+body[data-app="proship"] .psu-tw.virtual table.psu-t thead th { position: sticky; top: 0; z-index: 2; background: var(--pt-ground); }
+body[data-app="proship"] .psu-tw.virtual table.psu-t td { height: 44px; box-sizing: border-box; padding-top: 0; padding-bottom: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
+body[data-app="proship"] .psu-tw.compact.virtual table.psu-t td { height: 36px; }
+body[data-app="proship"] table.psu-t tr.psu-sp td { padding: 0; border: 0; height: auto; }
+body[data-app="proship"] .psu-empty { padding: 22px 10px !important; }
+body[data-app="proship"] .ps-tablefoot { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 10px 0 0; font-size: 11.5px; }
+body[data-app="proship"] .ps-tablefoot .quiet { padding: 0 2px; font-size: 11.5px; color: var(--pt-dim); text-transform: none; letter-spacing: 0; }
+body[data-app="proship"] .ps-cell-name { display: inline-flex; align-items: center; gap: 8px; }
+body[data-app="proship"] .ps-cell-name b { font-weight: 400; color: var(--pt-ink); }
+body[data-app="proship"] .ps-pend.warn, body[data-app="proship"] .warnc { color: var(--pt-ink); }
+
+/* overview: alerts, charts, mix bars, performers, vessel file */
+body[data-app="proship"] .ps-charts { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin: 0 0 16px; }
+body[data-app="proship"] .ps-charts.two { grid-template-columns: 1fr 1fr; }
+body[data-app="proship"] .ps-charts > .sh-panel { margin: 0; min-width: 0; }
+body[data-app="proship"] .psu-chart svg { width: 100%; height: 190px; display: block; }
+body[data-app="proship"] .psu-chart .grid { stroke: var(--pt-hair); stroke-width: 1; }
+body[data-app="proship"] .psu-chart .ax { fill: var(--pt-faint); font: 300 10px var(--font); }
+body[data-app="proship"] .psu-chart .bar.s0 { fill: var(--pt-ink); opacity: .85; } body[data-app="proship"] .psu-chart .bar.s1 { fill: var(--pt-dim); opacity: .6; } body[data-app="proship"] .psu-chart .bar.neg { opacity: .45; }
+body[data-app="proship"] .psu-chart .ln { fill: none; stroke: var(--pt-ink); stroke-width: 1.4; } body[data-app="proship"] .psu-chart .ln.s1 { stroke: var(--pt-dim); stroke-dasharray: 4 4; }
+body[data-app="proship"] .psu-chart .dot { fill: var(--pt-ink); } body[data-app="proship"] .psu-chart .dot.s1 { fill: var(--pt-dim); }
+body[data-app="proship"] .psu-legend { display: flex; gap: 16px; margin-top: 6px; font-size: 11px; color: var(--pt-dim); }
+body[data-app="proship"] .psu-legend i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; background: var(--pt-ink); vertical-align: -1px; } body[data-app="proship"] .psu-legend .s1 i { background: var(--pt-dim); opacity: .6; }
+body[data-app="proship"] .ps-bars { display: flex; flex-direction: column; gap: 6px; }
+body[data-app="proship"] .ps-bar { display: grid; grid-template-columns: 96px minmax(0, 1fr) 34px; align-items: center; gap: 10px; background: none; border: 0; padding: 3px 0; text-align: left; font: 300 12px var(--font); color: var(--pt-ink2); letter-spacing: 0; text-transform: none; border-radius: 0; }
+body[data-app="proship"] .ps-bar:hover { background: none; color: var(--pt-ink); }
+body[data-app="proship"] .ps-bar .l { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+body[data-app="proship"] .ps-bar .b { height: 8px; background: var(--pt-hair); } body[data-app="proship"] .ps-bar .b i { display: block; height: 100%; background: var(--pt-ink); opacity: .8; }
+body[data-app="proship"] .ps-bar .n { text-align: right; color: var(--pt-dim); font-variant-numeric: tabular-nums; }
+body[data-app="proship"] .ps-mappanel > h3 { display: flex; align-items: center; gap: 10px; }
+body[data-app="proship"] .ps-alerts .ps-pend { white-space: normal; }
+body[data-app="proship"] .ps-vfile { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin: 0 0 16px; }
+body[data-app="proship"] .ps-vfile > .sh-panel { margin: 0; min-width: 0; }
+body[data-app="proship"] .ps-vfile .ps-mapbox { height: 260px; }
+body[data-app="proship"] .ps-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+body[data-app="proship"] .ps-links button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; background: none; border: 0; padding: 4px 0; color: var(--pt-dim); }
+body[data-app="proship"] .ps-links button:hover { color: var(--pt-ink); background: none; }
+body[data-app="proship"] .ps-impprev { max-height: 46vh; overflow: auto; }
+body[data-app="proship"] .ps-impprev .neg { color: var(--pt-ink); text-decoration: underline dotted; }
+
+/* clusters on the map */
+.ps-cluster { display: flex; align-items: center; justify-content: center; }
+.ps-cluster .ps-clustern { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(240, 242, 245, .92); color: #15181d; font: 400 12px var(--font); border: 1px solid rgba(21, 24, 29, .5); box-shadow: 0 0 0 4px rgba(240, 242, 245, .25); }
+:root[data-theme="light"] .ps-cluster .ps-clustern { background: rgba(28, 31, 36, .92); color: #f7f8fa; box-shadow: 0 0 0 4px rgba(28, 31, 36, .18); }
+
+/* the phone: one column, full-width cards for table rows, the picker and header stacked */
+@media (max-width: 760px) {
+  body[data-app="proship"] .ps-vhead { grid-template-columns: 1fr; }
+  body[data-app="proship"] .ps-vhead > div { border-right: 0; border-bottom: 1px solid var(--pt-hair); padding: 12px 16px; }
+  body[data-app="proship"] .ps-vhead-acts { border-top: 0; gap: 14px; padding: 8px 16px !important; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; }
+  body[data-app="proship"] .ps-tools { gap: 8px 14px; }
+  body[data-app="proship"] .ps-tools-r { margin-left: 0; flex-basis: 100%; gap: 14px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  body[data-app="proship"] .ps-tools-r .ps-picker { flex: 0 0 auto; }
+  body[data-app="proship"] .ps-charts, body[data-app="proship"] .ps-charts.two, body[data-app="proship"] .ps-vfile { grid-template-columns: 1fr; }
+  body[data-app="proship"] .psu-cards { display: flex; flex-direction: column; gap: 8px; }
+  body[data-app="proship"] .psu-cardtools { display: flex; align-items: center; gap: 12px; font-size: 11.5px; padding: 2px 0 4px; }
+  body[data-app="proship"] .psu-cardtools .quiet { margin-left: auto; font-size: 11.5px; text-transform: none; letter-spacing: 0; padding: 2px 0; }
+  body[data-app="proship"] .psu-cardtools .quiet + .quiet { margin-left: 0; }
+  body[data-app="proship"] .psu-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 12px 14px; border: 1px solid var(--pt-hair); background: var(--pt-glass2); }
+  body[data-app="proship"] .psu-card.click { cursor: pointer; } body[data-app="proship"] .psu-card.selected { border-color: var(--pt-ink); }
+  body[data-app="proship"] .psu-card .psu-cb { grid-row: 1 / span 2; }
+  body[data-app="proship"] .psu-cmain { min-width: 0; }
+  body[data-app="proship"] .psu-ct { font-size: 14px; color: var(--pt-ink); font-weight: 300; }
+  body[data-app="proship"] .psu-cs { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 11.5px; color: var(--pt-dim); }
+  body[data-app="proship"] .psu-cs i { font-style: normal; color: var(--pt-faint); }
+  body[data-app="proship"] .psu-cr { text-align: right; color: var(--pt-ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  body[data-app="proship"] .psu-more { width: 100%; text-align: center; padding: 10px; }
+  body[data-app="proship"] .ps-selbar { gap: 10px 14px; padding: 10px 12px; }
+  body[data-app="proship"] .ps-find { padding: 6px 16px 10px; }
+}
+
+/* 4.13 · chips wrap on the desktop; the fleet table scrolls sideways with a sticky vessel column and a visible, thin scrollbar; "Wide" folds the details pane */
+@media (min-width: 761px) {
+  body[data-app="proship"] .sh-chips { flex-wrap: wrap; row-gap: 4px; align-items: center; overflow: visible; }
+  body[data-app="proship"] .psu-tw { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--pt-hair2) transparent; }
+  body[data-app="proship"] .psu-tw::-webkit-scrollbar { height: 8px; } body[data-app="proship"] .psu-tw::-webkit-scrollbar-thumb { background: var(--pt-hair2); }
+  body[data-app="proship"] .psu-tw.sticky1 table.psu-t th:nth-child(1), body[data-app="proship"] .psu-tw.sticky1 table.psu-t td:nth-child(1), body[data-app="proship"] .psu-tw.sticky1 table.psu-t th:nth-child(2), body[data-app="proship"] .psu-tw.sticky1 table.psu-t td:nth-child(2) { position: sticky; z-index: 1; background: var(--pt-ground); }
+  body[data-app="proship"] .psu-tw.sticky1 table.psu-t th:nth-child(1), body[data-app="proship"] .psu-tw.sticky1 table.psu-t td:nth-child(1) { left: 0; }
+  body[data-app="proship"] .psu-tw.sticky1 table.psu-t th:nth-child(2), body[data-app="proship"] .psu-tw.sticky1 table.psu-t td:nth-child(2) { left: 26px; box-shadow: 1px 0 0 var(--pt-hair); }
+  body[data-app="proship"] .psu-tw.sticky1.virtual table.psu-t thead th:nth-child(1), body[data-app="proship"] .psu-tw.sticky1.virtual table.psu-t thead th:nth-child(2) { z-index: 3; }
+  body[data-app="proship"] .psu-tw.sticky1 table.psu-t tr.click:hover td { background: var(--pt-sel); }
+  body[data-app] .sh-app.ps-app.wide { grid-template-columns: 272px minmax(0, 1fr); }
+  body[data-app] .sh-app.ps-app.wide > .sh-pane { display: none; }
+}
+body[data-app="proship"] .ps-pendlist .ps-pend, body[data-app="proship"] .sh-app .ps-pendlist .ps-pend { font-family: var(--font); font-size: 12px; letter-spacing: 0; text-transform: none; line-height: 1.45; padding: 4px 8px; }
+/* the search bar sits exactly where DOCUMENTS puts it (desktop: 14 px into the page gutter, like Documents, Wealth, Calendar, Accounting) */
+@media (min-width: 761px) { body[data-app="proship"] .sh-main > .nt-quick:first-child { margin: 20px -14px 0; } body[data-app="proship"] .sh-main > .nt-quick + .ps-pagehead { margin-top: 24px; } body[data-app="proship"] .sh-main > .nt-quick + .ps-vhead { margin-top: 24px; } }
+@media (max-width: 760px) { body[data-app="proship"] .sh-main > .nt-quick:first-child { margin: 18px -4px 0; } body[data-app="proship"] .sh-main > .nt-quick + .ps-pagehead, body[data-app="proship"] .sh-main > .nt-quick + .ps-vhead { margin-top: 20px; } }
+/* phone cards never bleed out of a panel; a long right-hand value is clipped with an ellipsis instead of pushing the card wider */
+@media (max-width: 760px) {
+  body[data-app="proship"] .psu-tw.cards, body[data-app="proship"] .sh-panel .psu-tw.cards { margin: 0; padding: 0; overflow: visible; width: auto; }
+  body[data-app="proship"] .psu-card { grid-template-columns: auto minmax(0, 1fr) minmax(0, auto); max-width: 100%; box-sizing: border-box; }
+  body[data-app="proship"] .psu-card .psu-cr { max-width: 46%; overflow: hidden; text-overflow: ellipsis; font-size: 13px; }
+  body[data-app="proship"] .psu-card .psu-cr .money-dual { display: inline; }
+}
+/* a table wider than its column shows a fade at the right edge so the sideways scroll is obvious */
+body[data-app="proship"] .psu-tw.scrollx { background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) calc(100% - 28px), var(--pt-ground)); }
+/* 4.32.3 · …and keeps ⤢ and ⋯ in view: the last header cell sticks to the right edge of what is visible, and the ⤢ is no longer
+   hover-only there (a narrow table keeps the quiet, hover-to-see control) */
+body[data-app="proship"] .psu-tw.scrollx table.psu-t th.more { position: sticky; right: 0; z-index: 4; background: var(--pt-ground); box-shadow: -1px 0 0 var(--pt-hair); }
+body[data-app="proship"] .psu-tw.scrollx .psu-x { opacity: .8; }
+
+/* ---------- 4.14 · the commercial file */
+body[data-app="proship"] .ps-cf-grid { align-items: start; }
+body[data-app="proship"] .ps-cf-acts { margin-top: 12px; gap: 8px 14px; flex-wrap: wrap; }
+body[data-app="proship"] .ps-timeline { position: relative; padding: 22px 0 6px; overflow: hidden; }
+body[data-app="proship"] .ps-tl-axis { position: relative; height: 16px; border-bottom: 1px solid var(--pt-hair); margin-bottom: 6px; }
+body[data-app="proship"] .ps-tl-tick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--pt-hair); } body[data-app="proship"] .ps-tl-tick.q { background: var(--pt-hair2); }
+body[data-app="proship"] .ps-tl-tick span { position: absolute; top: -18px; left: 3px; font-family: var(--font-caps); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--pt-faint); white-space: nowrap; }
+body[data-app="proship"] .ps-tl-row { position: relative; height: 26px; }
+body[data-app="proship"] .ps-tl-bar { position: absolute; top: 3px; height: 20px; border: 1px solid var(--pt-ink2); background: var(--pt-glass2); color: var(--pt-ink); font: 300 11px/18px var(--font); padding: 0 8px; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-radius: 0; cursor: pointer; box-shadow: none; }
+body[data-app="proship"] .ps-tl-bar.k-voyage { border-style: dashed; } body[data-app="proship"] .ps-tl-bar.subs { opacity: .6; border-style: dotted; } body[data-app="proship"] .ps-tl-bar.est { background: repeating-linear-gradient(135deg, var(--pt-glass2) 0 6px, transparent 6px 12px); } body[data-app="proship"] .ps-tl-bar.done { opacity: .55; }
+body[data-app="proship"] .ps-tl-bar:hover { background: var(--pt-sel); color: var(--pt-ink); }
+body[data-app="proship"] .ps-tl-off { position: absolute; top: 3px; height: 20px; background: var(--pt-ink2); opacity: .75; pointer-events: auto; }
+body[data-app="proship"] .ps-tl-today { position: absolute; top: 18px; bottom: 0; width: 1px; background: var(--pt-blue); } body[data-app="proship"] .ps-tl-today span { position: absolute; top: -16px; left: -16px; font-family: var(--font-caps); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--pt-blue); }
+body[data-app="proship"] .ps-tl-empty { padding: 10px 0; }
+body[data-app="proship"] button.ps-step { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; padding: 4px 0; color: var(--pt-ink2); border: 0; background: none; border-bottom: 1px solid var(--pt-hair2); border-radius: 0; white-space: nowrap; } body[data-app="proship"] button.ps-step:hover { color: var(--pt-ink); border-bottom-color: var(--pt-ink); background: none; }
+body[data-app="proship"] .ps-opencell { display: flex; flex-wrap: wrap; gap: 4px; }
+body[data-app="proship"] .ps-openchip { font: 300 11px/1.2 var(--font); padding: 3px 7px; border: 1px solid var(--pt-hair2); background: none; color: var(--pt-ink); border-radius: 0; white-space: nowrap; } body[data-app="proship"] .ps-openchip:hover { background: var(--pt-sel); } body[data-app="proship"] .ps-openchip.more { color: var(--pt-dim); border-style: dashed; }
+/* ---------- 4.14 · operations: the procedure, the board, port calls, noon reports, bunkers */
+body[data-app="proship"] .ps-chk { accent-color: var(--pt-ink); width: 15px; height: 15px; margin: 0; cursor: pointer; }
+body[data-app="proship"] .ps-auto { display: inline-block; margin-left: 8px; font-family: var(--font-caps); font-size: 8.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--pt-faint); border: 1px solid var(--pt-hair); padding: 1px 5px; vertical-align: middle; }
+body[data-app="proship"] .ps-proc h3 { flex-wrap: wrap; }
+body[data-app="proship"] .ps-progress { height: 2px; background: var(--pt-hair); margin: 2px 0 12px; } body[data-app="proship"] .ps-progress i { display: block; height: 100%; background: var(--pt-ink); }
+body[data-app="proship"] .ps-stage { border-top: 1px solid var(--pt-hair); } body[data-app="proship"] .ps-stage:last-child { border-bottom: 1px solid var(--pt-hair); }
+body[data-app="proship"] .ps-stage summary { display: flex; align-items: center; gap: 12px; padding: 10px 0; cursor: pointer; list-style: none; } body[data-app="proship"] .ps-stage summary::-webkit-details-marker { display: none; }
+body[data-app="proship"] .ps-stage summary::before { content: "▸"; color: var(--pt-faint); font-size: 10px; width: 10px; } body[data-app="proship"] .ps-stage[open] summary::before { content: "▾"; }
+body[data-app="proship"] .ps-stage-n { font-family: var(--font-caps); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-ink2); } body[data-app="proship"] .ps-stage-c { color: var(--pt-faint); font-size: 11px; margin-left: auto; }
+body[data-app="proship"] .ps-stage.complete .ps-stage-n { color: var(--pt-dim); } body[data-app="proship"] .ps-stage.has-overdue .ps-stage-n { color: var(--pt-ink); }
+body[data-app="proship"] .ps-stage-sub { font: 300 11.5px/1.4 var(--font); color: var(--pt-dim); padding: 8px 0 4px 24px; display: flex; gap: 12px; align-items: center; }
+body[data-app="proship"] .ps-item { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto auto 30px; gap: 10px; align-items: center; padding: 7px 0 7px 2px; border-top: 1px solid var(--pt-hair); font-size: 12.5px; }
+body[data-app="proship"] .ps-item.s-done .ps-item-t > span:first-child { color: var(--pt-dim); text-decoration: line-through; text-decoration-color: var(--pt-hair2); } body[data-app="proship"] .ps-item.s-na { opacity: .55; }
+body[data-app="proship"] .ps-item-d { color: var(--pt-faint); font-size: 11px; white-space: nowrap; font-variant-numeric: tabular-nums; } body[data-app="proship"] .ps-item.s-overdue .ps-item-d { color: #e07070; }
+body[data-app="proship"] .ps-voyhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 6px 0 8px; } body[data-app="proship"] .ps-voyhead h3 { display: flex; gap: 10px; align-items: center; font: 400 14px/1.3 var(--font); color: var(--pt-ink); margin: 0; }
+body[data-app="proship"] .ps-vstrip { display: flex; align-items: center; gap: 0; overflow-x: auto; padding: 4px 0 14px; }
+body[data-app="proship"] .ps-vstop { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 120px; background: none; border: 0; border-radius: 0; padding: 4px 8px 4px 0; text-align: left; color: var(--pt-ink); box-shadow: none; }
+body[data-app="proship"] .ps-vstop i { display: block; width: 9px; height: 9px; border: 1px solid var(--pt-ink2); border-radius: 50%; margin-bottom: 4px; } body[data-app="proship"] .ps-vstop.done i { background: var(--pt-ink2); } body[data-app="proship"] .ps-vstop.now i { background: var(--pt-blue); border-color: var(--pt-blue); box-shadow: 0 0 0 3px rgba(var(--pt-blue-rgb), .25); }
+body[data-app="proship"] .ps-vstop b, body[data-app="proship"] .ps-vstop span { font-family: var(--font); letter-spacing: 0; text-transform: none; } body[data-app="proship"] .ps-vstop b { font-weight: 400; font-size: 12.5px; white-space: nowrap; } body[data-app="proship"] .ps-vstop span { font-size: 10.5px; color: var(--pt-faint); white-space: nowrap; }
+body[data-app="proship"] .ps-vleg { flex: 1 1 40px; height: 1px; background: var(--pt-hair2); margin: 0 6px 22px 0; min-width: 24px; } body[data-app="proship"] .ps-vleg.done { background: var(--pt-ink2); }
+body[data-app="proship"] .ps-pc { border-left: 2px solid var(--pt-hair2); } body[data-app="proship"] .ps-pc.inport { border-left-color: var(--pt-blue); } body[data-app="proship"] .ps-pc.sailed { border-left-color: var(--pt-hair); }
+body[data-app="proship"] .ps-pc h3 { flex-wrap: wrap; } body[data-app="proship"] .ps-pc-name { font-size: 15px; }
+body[data-app="proship"] .ps-pc-steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; margin: 6px 0 12px; }
+body[data-app="proship"] .ps-pc-step { position: relative; padding: 10px 8px 0 0; } body[data-app="proship"] .ps-pc-step i { display: block; height: 2px; background: var(--pt-hair); margin-bottom: 8px; } body[data-app="proship"] .ps-pc-step.on i { background: var(--pt-ink2); }
+body[data-app="proship"] .ps-pc-step .l { display: block; font-family: var(--font-caps); font-size: 8.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--pt-faint); } body[data-app="proship"] .ps-pc-step .t { display: block; font-size: 11px; line-height: 1.3; color: var(--pt-ink2); white-space: normal; font-variant-numeric: tabular-nums; } body[data-app="proship"] .ps-pc-step.on .t { color: var(--pt-ink); }
+body[data-app="proship"] .ps-pc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; } body[data-app="proship"] .ps-pc-acts { margin-top: 10px; gap: 6px 14px; flex-wrap: wrap; }
+body[data-app="proship"] .ps-ltprev { color: var(--pt-ink2); font-size: 12px; }
+body[data-app="proship"] .ps-tplbody { margin-top: 4px; }
+:root[data-theme="light"] body[data-app="proship"] .ps-tl-bar { background: #eef0f3; border-color: #9aa3ad; } :root[data-theme="light"] body[data-app="proship"] .ps-tl-off { background: #3a4049; } :root[data-theme="light"] body[data-app="proship"] .ps-item.s-overdue .ps-item-d { color: #b23b3b; }
+@media (max-width: 760px) {
+  body[data-app="proship"] .ps-cf-grid { grid-template-columns: 1fr; }
+  body[data-app="proship"] .ps-tl-bar { font-size: 10px; padding: 0 5px; }
+  body[data-app="proship"] .ps-item { grid-template-columns: 22px minmax(0, 1fr) 30px; } body[data-app="proship"] .ps-item-d { grid-column: 2; } body[data-app="proship"] .ps-item .ps-pill { grid-column: 2; justify-self: start; }
+  body[data-app="proship"] .ps-pc-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } body[data-app="proship"] .ps-pc-grid { grid-template-columns: 1fr; }
+  body[data-app="proship"] .ps-vstop { min-width: 100px; }
+}
+
+/* ---------- 4.15 · the voyage plan on the map, estimated positions, legend and controls */
+.ps-shipicon.est .ps-ship { stroke-dasharray: 2.2 1.6; fill-opacity: .35; } .ps-shipicon.est .ps-shiplbl i { font-style: normal; color: var(--pt-dim); font-size: 9.5px; letter-spacing: .08em; }
+.leaflet-tooltip.ps-tip.ps-tip-perm { background: rgba(14, 18, 22, .78); border-color: rgba(240, 242, 245, .25); font-size: 10.5px; padding: 3px 7px; pointer-events: none; }
+:root[data-theme="light"] .leaflet-tooltip.ps-tip.ps-tip-perm { background: rgba(246, 248, 250, .85); border-color: rgba(28, 31, 36, .25); }
+.leaflet-tooltip.ps-tip.ps-tip-perm::before { display: none; }
+.leaflet-tooltip.ps-tip b { font-weight: 400; color: var(--pt-ink); }
+body[data-app="proship"] .ps-maplegend { position: absolute; right: 12px; bottom: 12px; z-index: 500; display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; font-size: 10.5px; color: var(--pt-dim); background: rgba(14, 18, 22, .62); padding: 5px 10px; border: 1px solid var(--pt-hair); pointer-events: none; max-width: calc(100% - 24px); }
+:root[data-theme="light"] body[data-app="proship"] .ps-maplegend { background: rgba(246, 248, 250, .82); }
+body[data-app="proship"] .ps-maplegend .li { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+body[data-app="proship"] .ps-maplegend .li i { display: inline-block; width: 18px; height: 0; border-top: 2px solid var(--pt-ink); }
+body[data-app="proship"] .ps-maplegend .li.dashed i { border-top-style: dashed; border-top-width: 1.5px; }
+body[data-app="proship"] .ps-maplegend .li.track i { border-top-width: 1px; opacity: .6; }
+body[data-app="proship"] .ps-maplegend .li.port i { width: 8px; height: 8px; border: 1.4px solid var(--pt-ink); border-radius: 50%; }
+body[data-app="proship"] .ps-maplegend .li.ship i, body[data-app="proship"] .ps-maplegend .li.est i { width: 0; height: 0; border: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 11px solid var(--pt-ink); }
+body[data-app="proship"] .ps-maplegend .li.est i { opacity: .45; }
+body[data-app="proship"] .ps-mapctl { position: absolute; right: 12px; top: 12px; z-index: 500; display: flex; gap: 2px; }
+body[data-app="proship"] .ps-mapctl button { font-family: var(--font-caps); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--pt-dim); background: rgba(14, 18, 22, .72); border: 1px solid var(--pt-hair); padding: 5px 9px; border-radius: 0; }
+body[data-app="proship"] .ps-mapctl button:hover { color: var(--pt-ink); background: rgba(14, 18, 22, .9); }
+:root[data-theme="light"] body[data-app="proship"] .ps-mapctl button { background: rgba(246, 248, 250, .85); } :root[data-theme="light"] body[data-app="proship"] .ps-mapctl button:hover { background: #fff; }
+body[data-app="proship"] .ps-mapbox .ps-mapnote { max-width: calc(100% - 24px); }
+body[data-app="proship"] .ps-minimap { height: 150px; margin: 0 0 10px; } body[data-app="proship"] .ps-minimap .leaflet-control-container { display: none; }
+body[data-app="proship"] .ps-plancap { font-size: 12px; color: var(--pt-dim); margin: -8px 0 16px; } body[data-app="proship"] .ps-plancap b { font-weight: 400; color: var(--pt-ink); }
+body[data-app="proship"] .ps-vfile .ps-plancap { margin: 6px 0 4px; }
+/* the vessel's pages in the header, with badges */
+body[data-app="proship"] .ps-vhead-nav { grid-column: 1 / -1; border-top: 1px solid var(--pt-hair); display: flex; gap: 22px; flex-wrap: wrap; padding: 0 20px; }
+body[data-app="proship"] .ps-vhead-nav button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-faint); background: none; border: 0; border-radius: 0; padding: 11px 0 9px; position: relative; display: inline-flex; align-items: center; gap: 6px; }
+body[data-app="proship"] .ps-vhead-nav button:hover { color: var(--pt-ink); background: none; }
+body[data-app="proship"] .ps-vhead-nav button.on { color: var(--pt-ink); } body[data-app="proship"] .ps-vhead-nav button.on::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, var(--pt-blue), rgba(var(--pt-blue-rgb), 0)); }
+body[data-app="proship"] .ps-vhead-nav button .n { font-family: var(--font); font-size: 10px; letter-spacing: 0; min-width: 16px; height: 16px; padding: 0 4px; border: 1px solid var(--pt-hair2); border-radius: 9px; display: inline-flex; align-items: center; justify-content: center; color: var(--pt-ink); }
+/* the side pane: the Vessels label is the same caps label as LISTS */
+body[data-app="proship"] .ps-navgrp { padding-top: 0; } body[data-app="proship"] .ps-navgrp .grp { padding-top: 18px !important; }
+/* one baseline for every segment and period chooser in a toolbar */
+body[data-app="proship"] .ps-tools .sh-seg, body[data-app="proship"] .ps-tools-r .sh-seg { margin: 0; display: inline-flex; align-items: center; gap: 18px; border: 0; background: none; }
+body[data-app="proship"] .ps-tools-r .sh-seg button { padding: 6px 0; color: var(--pt-faint); } body[data-app="proship"] .ps-tools-r .sh-seg button.on { color: var(--pt-ink); }
+body[data-app="proship"] .ps-tools-r .sh-seg button.on::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, var(--pt-blue), rgba(var(--pt-blue-rgb), 0)); }
+body[data-app="proship"] .ps-tools .sh-seg button .n, body[data-app="proship"] .ps-tools .sh-seg button .cnt { font-family: var(--font); font-size: 10px; letter-spacing: 0; color: var(--pt-faint); margin-left: 5px; }
+body[data-app="proship"] .ps-tools .sh-seg button.empty { color: var(--pt-faint); opacity: .55; }
+body[data-app="proship"] .ps-tools .ps-range { display: inline-flex; align-items: center; gap: 6px; } body[data-app="proship"] .ps-tools .ps-range input { width: 132px; padding: 5px 8px; font-size: 11.5px; }
+@media (max-width: 760px) {
+  body[data-app="proship"] .ps-maplegend { right: 8px; bottom: 8px; gap: 8px; font-size: 10px; } body[data-app="proship"] .ps-mapctl { right: 8px; top: 8px; }
+  body[data-app="proship"] .ps-vhead-nav { gap: 16px; padding: 0 16px; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: none; } body[data-app="proship"] .ps-vhead-nav button { padding: 10px 0 8px; }
+  body[data-app="proship"] .ps-tools-r .sh-seg { gap: 14px; }
+}
+/* the report centre's view switch lives in the toolbar now: same segment as everywhere (overrides the module's own tab styling) */
+body[data-app="proship"] .ps-tools .sh-seg.psr-views { margin: 0; display: inline-flex; overflow: visible; white-space: nowrap; }
+body[data-app="proship"] .ps-tools .sh-seg.psr-views button { padding: 6px 0; flex: none; }
+@media (max-width: 760px) { body[data-app="proship"] .ps-tools .sh-seg.psr-views, body[data-app="proship"] .ps-tools .sh-seg.psf-subnav, body[data-app="proship"] .ps-tools .sh-seg.psf-periodseg { overflow-x: auto; scrollbar-width: none; max-width: 100%; } }
+body[data-app="proship"] .ps-minimap .ps-mapnote, body[data-app="proship"] .ps-minimap .leaflet-tooltip.ps-tip-perm, body[data-app="proship"] .ps-minimap .ps-shiplbl, body[data-app="proship"] .ps-minimap .ps-trackdot, body[data-app="proship"] .ps-minimap .ps-wx, body[data-app="proship"] .ps-minimap .ps-bport, body[data-app="proship"] .ps-minimap .ps-bcrit, body[data-app="proship"] .ps-minimap .ps-mapinfo { display: none !important; }
+body[data-app="proship"] .ps-vhead-nav { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 18px; } body[data-app="proship"] .ps-vhead-nav::-webkit-scrollbar { display: none; } body[data-app="proship"] .ps-vhead-nav button { flex: 0 0 auto; }
+body[data-app="proship"] .ps-tools-l { flex-wrap: wrap; gap: 10px 0; }
+body[data-app="proship"] .ps-tools-l > .sh-seg.after { margin-left: 18px; padding-left: 18px; border-left: 1px solid var(--pt-hair2); }
+body[data-app="proship"] .ps-tools-l > .ps-range.after { margin-left: 12px; }
+@media (max-width: 760px) { body[data-app="proship"] .ps-tools-l { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } body[data-app="proship"] .ps-tools-l > .sh-seg.after { margin-left: 14px; padding-left: 14px; } }
+body[data-app="proship"] .ps-tools.wrapped .ps-tools-l > .sh-seg.after { margin-left: 0; padding-left: 0; border-left: 0; }
+body[data-app="proship"] .ps-tools.wrapped .ps-tools-l { gap: 8px 0; }
+body[data-app="proship"] .ps-tools.right-below .ps-tools-r { margin-left: 0; }
+body[data-app="proship"] .ps-vhead-nav { height: 36px; overflow-y: hidden; align-items: stretch; }
+body[data-app="proship"] .sh-kpi .v.wrap { white-space: normal; text-overflow: clip; overflow: visible; line-height: 1.15; overflow-wrap: anywhere; font-size: 19px; }
+body[data-app="proship"] .ps-refstrip { position: sticky; top: 0; z-index: 30; margin: 0 0 8px; height: 18px; display: flex; align-items: center; background: var(--pt-glass2); border: 1px solid var(--pt-hair); overflow: hidden; }
+body[data-app="proship"] .ps-refstrip .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--pt-sel); transition: width .25s linear; }
+body[data-app="proship"] .ps-refstrip .lbl { position: relative; font-size: 10.5px; color: var(--pt-dim); padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ============================================================================================================================
+   4.17 · ONE RHYTHM FOR EVERY PROSHIP PAGE — the tokens below are the only spacing and heading values the pages use; they repeat
+   DOCUMENTS / NOTES (title 24/300 with the subtitle 5 px under it, crumbs 9.5 caps, head → toolbar 14, panels 20/22/18) and set the
+   block rhythm to 18 px everywhere (it was 0 / 14 / 16 / 18 / 26 / 38 depending on the page).
+   ============================================================================================================================ */
+body[data-app="proship"] {
+  --ps-g1: 6px; --ps-g2: 10px; --ps-g3: 14px; --ps-g4: 18px; --ps-g5: 24px;
+  --ps-block: var(--ps-g4);            /* between top-level blocks: KPI rows, panels, grids, maps */
+  --ps-gutter: var(--ps-g4);           /* between columns of a grid of panels */
+  --ps-card-gap: var(--ps-g3);         /* between cards (fleet cards, horizons, report cards) */
+  --ps-pad-panel: 20px 22px 18px;      /* = .sh-panel everywhere in the suite */
+  --ps-pad-card: 16px 18px 14px;
+  --ps-pad-head: 16px 20px;            /* the vessel header cells */
+  --ps-h2: 300 24px/1.2 var(--font);   /* the page title */
+  --ps-sub-size: 12.5px;               /* the subtitle, 5 px under the title */
+  --ps-h3-size: 9.5px;                 /* panel headings: caps */
+  --ps-head-gap: 14px;                 /* page head → toolbar (DOCUMENTS) */
+  --ps-search-gap: 24px;               /* search bar → first block */
+}
+@media (max-width: 760px) { body[data-app="proship"] { --ps-g4: 14px; --ps-block: 14px; --ps-gutter: 14px; --ps-card-gap: 10px; --ps-pad-card: 12px 14px 10px; --ps-pad-head: 12px 16px; --ps-h2: 300 22px/1.2 var(--font); --ps-head-gap: 10px; --ps-search-gap: 20px; } }
+
+/* the search bar → the first block, whatever it is (vessel header, page head, a module's box) */
+body[data-app="proship"] .sh-main > .nt-quick + *, body[data-app="proship"] .sh-main > .nt-quick + .ps-vhead, body[data-app="proship"] .sh-main > .nt-quick + .ps-pagehead, body[data-app="proship"] .sh-main > .nt-quick + .psf { margin-top: var(--ps-search-gap); }
+body[data-app="proship"] .sh-main > .ps-refstrip + .nt-quick { margin-top: 12px; }
+body[data-app="proship"] .psf > .ps-pagehead:first-child { margin-top: 0; }
+body[data-app="proship"] .ps-vhead { margin: 0 0 var(--ps-block); }
+body[data-app="proship"] .ps-vhead + .ps-pagehead, body[data-app="proship"] .ps-vhead + .psf { margin-top: var(--ps-block); }
+
+/* the page head */
+body[data-app="proship"] .ps-pagehead { margin: 0 0 var(--ps-block); }
+body[data-app="proship"] .ps-pagehead .vt-head { margin: 0; }
+body[data-app="proship"] .ps-pagehead .vt-head .vt-crumbs { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; min-height: 14px; }
+body[data-app="proship"] .ps-pagehead .vt-head .vt-crumbs > span:not(.sep) { color: var(--pt-faint); }
+body[data-app="proship"] .ps-titlerow { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px 24px; }
+body[data-app="proship"] .ps-titlerow > .nt-hd { flex: 1 1 240px; min-width: 0; }
+body[data-app="proship"] .ps-pagehead .vt-head h2 { font: var(--ps-h2); margin: 0; overflow-wrap: anywhere; }
+body[data-app="proship"] .ps-pagehead .nt-sub { display: block; margin-top: 5px; font-size: var(--ps-sub-size); line-height: 1.45; color: var(--pt-dim); font-weight: 300; max-width: 72ch; }
+/* the page's actions: caps text buttons on the title line (the band's NEW style), the primary one in ink with the blue hairline */
+body[data-app="proship"] .ps-acts { margin-left: auto; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px 18px; padding-top: 6px; flex: 0 0 auto; max-width: 100%; }
+body[data-app="proship"] .ps-acts.empty { display: none; }
+body[data-app="proship"] .ps-acts > button, body[data-app="proship"] .sh-app .ps-acts > button.primary, body[data-app="proship"] .ps-acts > .ps-picker { white-space: nowrap; }
+body[data-app="proship"] .sh-app .ps-acts > button:not(.ps-picker), body[data-app="proship"] .sh-app .ps-acts > button.primary, body[data-app="proship"] .sh-app .ps-tools-r > button.primary { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; background: none; border: 0; box-shadow: none; border-radius: 0; color: var(--pt-dim); padding: 6px 0; position: relative; }
+body[data-app="proship"] .sh-app .ps-acts > button:hover, body[data-app="proship"] .sh-app .ps-acts > button.primary:hover { color: var(--pt-ink); background: none; }
+body[data-app="proship"] .sh-app .ps-acts > button.primary, body[data-app="proship"] .sh-app .ps-tools-r > button.primary { color: var(--pt-ink); }
+body[data-app="proship"] .sh-app .ps-acts > button.primary::after { content: ""; position: absolute; left: 0; right: 0; bottom: 1px; height: 1px; background: linear-gradient(90deg, var(--pt-blue), rgba(var(--pt-blue-rgb), 0)); }
+:root[data-theme="light"] body[data-app="proship"] .sh-app .ps-acts > button.primary, :root[data-theme="light"] body[data-app="proship"] .sh-app .ps-tools-r > button.primary, :root[data-theme="light"] body[data-app="proship"] .sh-app .psf-actions > button.primary { background: none; border: 0; color: var(--pt-ink); }
+body[data-app="proship"] .ps-acts > .ps-picker { margin-right: 4px; }
+
+/* the toolbar row: segments only — the sub-page segment on the left, a period / view segment on the right; one row when it fits */
+body[data-app="proship"] .ps-pagehead .ps-tools { margin: var(--ps-head-gap) 0 0; display: flex; align-items: center; gap: 10px 24px; flex-wrap: wrap; min-height: 26px; }
+body[data-app="proship"] .ps-pagehead .ps-tools.empty { display: none; }
+body[data-app="proship"] .ps-tools-rs { margin-left: auto; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+body[data-app="proship"] .ps-tools-rs:empty { display: none; }
+body[data-app="proship"] .ps-tools.right-below .ps-tools-rs { margin-left: 0; }
+body[data-app="proship"] .ps-tools-rs .sh-seg { margin: 0; display: inline-flex; align-items: center; gap: 18px; border: 0; background: none; }
+body[data-app="proship"] .ps-tools-rs .sh-seg button { padding: 6px 0; color: var(--pt-faint); } body[data-app="proship"] .ps-tools-rs .sh-seg button.on { color: var(--pt-ink); }
+
+/* blocks and grids: one rhythm */
+body[data-app="proship"] .sh-main .sh-kpis, body[data-app="proship"] .psf .sh-kpis { margin-bottom: var(--ps-block); }
+body[data-app="proship"] .sh-main > .sh-panel, body[data-app="proship"] .psf > .sh-panel, body[data-app="proship"] .sh-main .sh-grid2 > .sh-panel, body[data-app="proship"] .sh-main .ps-cf-grid > .sh-panel { margin-bottom: var(--ps-block); }
+body[data-app="proship"] .ps-charts, body[data-app="proship"] .ps-charts.two, body[data-app="proship"] .ps-vfile { gap: var(--ps-gutter); margin: 0 0 var(--ps-block); }
+body[data-app="proship"] .sh-main .sh-grid2, body[data-app="proship"] .sh-main .ps-cf-grid { column-gap: var(--ps-gutter); row-gap: 0; }
+body[data-app="proship"] .ps-cards, body[data-app="proship"] .ps-horizons { gap: var(--ps-card-gap); }
+body[data-app="proship"] .ps-card, body[data-app="proship"] .ps-hcard { padding: var(--ps-pad-card); }
+body[data-app="proship"] .ps-mapbox { margin: 0 0 var(--ps-block); } body[data-app="proship"] .sh-panel > .ps-mapbox:last-child, body[data-app="proship"] .sh-panel > .ps-mapbox.fleet:last-child { margin-bottom: 0; }
+body[data-app="proship"] .sh-panel > .psu-tw:last-child, body[data-app="proship"] .sh-panel > .sh-tw:last-child { margin-bottom: 0; }
+body[data-app="proship"] .sh-panel > h3 { font-size: var(--ps-h3-size); }
+body[data-app="proship"] .ps-selbar { margin: 0 0 var(--ps-g3); }
+body[data-app="proship"] .sh-main > .sh-visnote, body[data-app="proship"] .psf > .sh-visnote { margin-top: var(--ps-g2); }
+
+/* the vessel header: its page links row keeps its own (zero) vertical padding — the cell padding pushed the links below the clip */
+body[data-app="proship"] .ps-vhead > div { padding: var(--ps-pad-head); }
+body[data-app="proship"] .ps-vhead > .ps-vhead-nav { padding: 0 20px; height: 38px; align-items: stretch; }
+body[data-app="proship"] .ps-vhead > .ps-vhead-nav button { display: inline-flex; align-items: center; gap: 6px; padding: 0; height: 100%; }
+body[data-app="proship"] .ps-vhead > .ps-vhead-acts { padding: 8px 20px !important; }
+@media (max-width: 760px) { body[data-app="proship"] .ps-vhead > .ps-vhead-nav { padding: 0 16px; } body[data-app="proship"] .ps-vhead > .ps-vhead-acts { padding: 8px 16px !important; } }
+
+/* KPI tiles: values and notes are sentence case even when the tile is a button (the suite's plain-button rule capitalised them) */
+body[data-app="proship"] .sh-kpi.click, body[data-app="proship"] .sh-app button.sh-kpi { font-family: var(--font); letter-spacing: 0; text-transform: none; text-align: left; }
+body[data-app="proship"] .sh-kpi .v, body[data-app="proship"] .sh-kpi .d { text-transform: none; letter-spacing: 0; font-family: var(--font); }
+body[data-app="proship"] .sh-kpi .d { font-size: 11px; color: var(--pt-faint); margin-top: 6px; line-height: 1.4; }
+body[data-app="proship"] .sh-kpi .v .sh-dim { font-size: 12px; }
+@media (min-width: 761px) {
+  body[data-app="proship"] .ps-kpis.cols1 { grid-template-columns: minmax(0, 1fr); } body[data-app="proship"] .ps-kpis.cols2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body[data-app="proship"] .ps-kpis.cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } body[data-app="proship"] .ps-kpis.cols4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  body[data-app="proship"] .ps-kpis.cols5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (min-width: 761px) and (max-width: 1350px) { body[data-app="proship"] .ps-kpis.cols5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { body[data-app="proship"] .ps-kpis.cols1 { grid-template-columns: 1fr; } }
+
+/* the phone: the actions under the title in one scrolling row, segments scroll sideways instead of wrapping into several rows */
+@media (max-width: 760px) {
+  body[data-app="proship"] .ps-titlerow { flex-direction: column; gap: 10px; }
+  body[data-app="proship"] .ps-titlerow > .nt-hd { flex: 0 0 auto; width: 100%; }
+  body[data-app="proship"] .ps-acts { margin-left: 0; padding-top: 0; justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; gap: 16px; }
+  body[data-app="proship"] .ps-acts::-webkit-scrollbar { display: none; }
+  body[data-app="proship"] .ps-pagehead .ps-tools { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 14px; }
+  body[data-app="proship"] .ps-tools-rs { margin-left: 0; flex: 0 0 auto; flex-wrap: nowrap; }
+  body[data-app="proship"] .ps-tools-l { flex: 0 0 auto; }
+}
+
+/* ============================================================================================================================
+   4.17 · WORKFLOW — the Today strip on the Overview, the New chooser, the daily path on the vessel header, filled-in fields,
+   the empty fleet. Same tokens as the pages; monochrome controls.
+   ============================================================================================================================ */
+body[data-app="proship"] .ps-today { margin: 0 0 var(--ps-block); border: 1px solid var(--pt-hair); background: var(--pt-glass2); }
+body[data-app="proship"] .ps-today-h { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 16px 22px 0; }
+body[data-app="proship"] .ps-today-h h3 { margin: 0; font-family: var(--font-caps); font-size: var(--ps-h3-size); font-weight: 400; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-dim); }
+body[data-app="proship"] .ps-today-h .sh-faint { font-size: 11.5px; }
+body[data-app="proship"] .ps-today-g { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding: 6px 0 4px; }
+body[data-app="proship"] .ps-today-g.n5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+body[data-app="proship"] .ps-today-g.n4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+body[data-app="proship"] .sh-app .ps-today-i { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; padding: 10px 22px 14px; margin: 0; border: 0; border-right: 1px solid var(--pt-hair); border-radius: 0; background: none; text-align: left; cursor: pointer; font-family: var(--font); font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--pt-ink); }
+body[data-app="proship"] .sh-app .ps-today-i:last-child { border-right: 0; }
+body[data-app="proship"] .sh-app .ps-today-i:hover:not([disabled]) { background: var(--pt-sel); }
+body[data-app="proship"] .sh-app .ps-today-i[disabled] { cursor: default; }
+body[data-app="proship"] .ps-today-i b { font: 300 26px/1.1 var(--font); color: var(--pt-ink); }
+body[data-app="proship"] .ps-today-i.neg b { font-weight: 400; }
+body[data-app="proship"] .ps-today-i.neg b::after { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 0 4px 6px; vertical-align: middle; background: var(--pt-ink); }
+body[data-app="proship"] .ps-today-i .l { color: var(--pt-ink2, var(--pt-ink)); line-height: 1.35; }
+body[data-app="proship"] .ps-today-i .d { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; color: var(--pt-faint); }
+body[data-app="proship"] .ps-today-i.zero b, body[data-app="proship"] .ps-today-i.zero .l { color: var(--pt-faint); }
+/* the strip follows its own width (the main column narrows with the side and details panes): 6 → 3 → 2 columns */
+body[data-app="proship"] .ps-today { container-type: inline-size; }
+@container (max-width: 860px) { body[data-app="proship"] .ps-today-g, body[data-app="proship"] .ps-today-g.n5, body[data-app="proship"] .ps-today-g.n4 { grid-template-columns: repeat(3, minmax(0, 1fr)); } body[data-app="proship"] .sh-app .ps-today-i { border-bottom: 1px solid var(--pt-hair); } body[data-app="proship"] .sh-app .ps-today-i:nth-child(3n) { border-right: 0; } body[data-app="proship"] .sh-app .ps-today-i:nth-last-child(-n+3):nth-child(3n+1), body[data-app="proship"] .sh-app .ps-today-i:nth-last-child(-n+3):nth-child(3n+1) ~ .ps-today-i { border-bottom: 0; } }
+@container (max-width: 520px) { body[data-app="proship"] .ps-today-g, body[data-app="proship"] .ps-today-g.n5, body[data-app="proship"] .ps-today-g.n4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } body[data-app="proship"] .sh-app .ps-today-i, body[data-app="proship"] .sh-app .ps-today-i:nth-child(3n) { border-right: 1px solid var(--pt-hair); border-bottom: 1px solid var(--pt-hair); } body[data-app="proship"] .sh-app .ps-today-i:nth-child(2n) { border-right: 0; } body[data-app="proship"] .sh-app .ps-today-i:nth-last-child(-n+2):nth-child(2n+1), body[data-app="proship"] .sh-app .ps-today-i:nth-last-child(-n+2):nth-child(2n+1) ~ .ps-today-i { border-bottom: 0; } }
+@media (max-width: 760px) { body[data-app="proship"] .ps-today-h { padding: 12px 16px 0; } body[data-app="proship"] .sh-app .ps-today-i { padding: 10px 16px 12px; } body[data-app="proship"] .ps-today-i b { font-size: 22px; } }
+
+/* the New chooser (and every short pick list PROSHIP opens): a caps title, keyboard focus visible, hints right-aligned */
+#shmenu.ps-qmenu { min-width: 240px; max-height: min(72vh, 560px); overflow-y: auto; }
+#shmenu.ps-qmenu .ps-qhd { padding: 9px 14px 7px; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-faint, #8a90a0); border-bottom: 1px solid var(--pt-hair, rgba(127,127,127,.2)); margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#shmenu.ps-qmenu button { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; width: 100%; }
+#shmenu.ps-qmenu button small { margin-left: auto; font-size: 10.5px; color: var(--pt-faint, #8a90a0); font-variant-numeric: tabular-nums; }
+#shmenu.ps-qmenu button:focus { outline: none; } #shmenu.ps-qmenu button:focus-visible, #shmenu.ps-qmenu button:focus { background: var(--pt-sel, rgba(127,127,127,.14)); color: var(--pt-ink, inherit); }
+@media (max-width: 760px) { #shmenu.ps-qmenu { left: 16px !important; right: 16px; width: auto; max-height: 64vh; } #shmenu.ps-qmenu button { padding-top: 12px; padding-bottom: 12px; } }
+
+/* the daily path on the vessel header: pushed to the right on desktop, in the same scrolling row on the phone */
+body[data-app="proship"] .ps-vhead-acts .ps-vh-day:first-of-type, body[data-app="proship"] .ps-vhead-acts > button:not(.ps-vh-day) + .ps-vh-day { margin-left: auto; }
+body[data-app="proship"] .ps-vhead-acts .ps-vh-new { color: var(--pt-ink); }
+@media (max-width: 760px) { body[data-app="proship"] .ps-vhead-acts > button:not(.ps-vh-day) + .ps-vh-day { margin-left: 10px; } }
+
+/* fields filled from a recap, the charterer's last terms or the vessel's last warranties: marked until touched */
+#sheet .f.ps-filled > input, #sheet .f.ps-filled > select, #sheet .f.ps-filled > textarea, #sheet .f.ps-filled .pickin, #sheet .f.ps-filled > .seg { box-shadow: inset 2px 0 0 var(--pt-ink, currentColor); }
+#sheet .f.ps-filled > label::after { content: " · filled"; color: var(--pt-faint, #8a90a0); text-transform: none; letter-spacing: 0; font-family: var(--font); }
+#sheet .ps-fillnote { font-size: 12px; line-height: 1.45; color: var(--pt-dim, inherit); }
+#sheet .ps-fillnote:empty { display: none; }
+#sheet .ps-recap { display: flex; flex-direction: column; gap: 8px; }
+#sheet .ps-recap textarea { min-height: 92px; width: 100%; }
+#sheet .ps-recap .row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+#sheet .ps-recap .ps-recap-msg { flex: 1 1 260px; }
+#sheet .ps-recap .warnc { margin-top: 4px; }
+
+/* the empty fleet */
+body[data-app="proship"] .ps-empty { max-width: 640px; margin: 48px auto; padding: 0 16px; text-align: center; }
+body[data-app="proship"] .ps-empty h3 { font: var(--ps-h2); color: var(--pt-ink); margin: 0 0 10px; text-transform: none; letter-spacing: 0; }
+body[data-app="proship"] .ps-empty p { margin: 0 auto 18px; max-width: 56ch; line-height: 1.5; }
+body[data-app="proship"] .ps-empty-acts { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 0 0 16px; }
+
+/* 4.17 · the last rhythm gaps the audit found: a filter row sits 10 px over its table (was 0), a map caption 10 px under the map and
+   one block (18) over what follows (was 16), a voyage's stop strip one block over its port-call panels (was 0) */
+body[data-app="proship"] .sh-main > .sh-filters { margin: 0 0 var(--ps-g2); }
+body[data-app="proship"] .sh-main > .ps-plancap { margin: calc(var(--ps-g2) - var(--ps-block)) 0 var(--ps-block); }
+body[data-app="proship"] .sh-main > .ps-voyhead { margin: 0 0 var(--ps-g2); }
+body[data-app="proship"] .sh-main > .ps-vstrip { margin: 0 0 var(--ps-block); padding: 4px 0 2px; }
+body[data-app="proship"] .sh-main > .ps-vstrip + .sh-panel { margin-top: 0; }
+/* an empty toolbar keeps its place in the page head at zero height (not display:none — it stays inside the column for layout audits) */
+body[data-app="proship"] .ps-pagehead .ps-tools.empty { display: flex; height: 0; min-height: 0; margin: 0; padding: 0; overflow: hidden; visibility: hidden; border: 0; }
+
+/* 4.17 coordinator · medium desktop widths (both side panes open, ~520 px of page): the sub-page tabs stay on ONE line and scroll
+   sideways like on the phone, instead of wrapping onto a second or third row; a right-edge fade says there is more */
+@media (min-width: 761px) {
+  body[data-app="proship"] .ps-tools { flex-wrap: nowrap; }
+  body[data-app="proship"] .ps-tools > .ps-tools-l { flex: 1 1 auto; min-width: 0; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; white-space: nowrap; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); padding-right: 24px; }
+  body[data-app="proship"] .ps-tools > .ps-tools-l::-webkit-scrollbar { display: none; }
+  body[data-app="proship"] .ps-tools > .ps-tools-l > .sh-seg { flex: 0 0 auto; flex-wrap: nowrap; }
+  body[data-app="proship"] .ps-tools > .ps-tools-l .sh-seg button { flex: 0 0 auto; }
+  body[data-app="proship"] .ps-tools > .ps-tools-r { flex: 0 0 auto; margin-left: 18px; }
+  /* 4.31.7 · the row never wraps at these widths, so the divider before the period choice stays even when the toolbar was marked wrapped (it used to run "DAS 0MONTH" together) */
+  body[data-app="proship"] .ps-tools.wrapped .ps-tools-l > .sh-seg.after { margin-left: 18px; padding-left: 18px; border-left: 1px solid var(--pt-hair2); }
+}
+
+/* ---- 4.18 · exit from management: the checks in the exit sheet, the tenure on her file, historic rows ---- */
+#sheet .ps-exitchecks { display: flex; flex-direction: column; gap: 6px; }
+#sheet .ps-tencard { display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 10px 12px; border: 1px solid var(--pt-hair); font-size: 12px; color: var(--pt-ink2); }
+#sheet .ps-tencard b { font-weight: 500; color: var(--pt-ink); flex-basis: 100%; }
+#sheet .ps-check { font-size: 12px; line-height: 1.4; padding: 7px 10px; border-left: 2px solid var(--pt-hair); color: var(--pt-ink2); }
+#sheet .ps-check.ok { color: var(--pt-faint); }
+#sheet .ps-check.info { border-left-style: dotted; }
+#sheet .ps-check.warn { border-left-style: dashed; border-left-color: var(--pt-ink2); color: var(--pt-ink); }
+#sheet .ps-check.neg { border-left-color: var(--pt-neg); color: var(--pt-neg); }
+body[data-app="proship"] .ps-tenure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--ps-g2) var(--ps-g5); }
+body[data-app="proship"] .ps-tenure .ps-kv, body.phone[data-app="proship"] .ps-tenure .ps-kv { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; font-size: 12.5px; }
+body[data-app="proship"] .ps-tenure .ps-kv > div, body[data-app="proship"] .ps-tenure .ps-kv > :nth-child(odd) { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 6px 0; margin: 0; border-bottom: 1px dotted var(--pt-hair); white-space: normal; min-width: 0; }
+body[data-app="proship"] .ps-tenure .ps-kv > div:last-child { border-bottom: 0; }
+body[data-app="proship"] .ps-tenure .ps-kv .k { color: var(--pt-faint); white-space: nowrap; flex: 0 0 auto; }
+body[data-app="proship"] .ps-tenure .ps-kv .v { text-align: right; min-width: 0; overflow-wrap: anywhere; }
+body[data-app="proship"] .ps-tenure-note { margin-top: var(--ps-g3); padding: 12px 14px; border: 1px solid var(--pt-hair); font-size: 12.5px; line-height: 1.5; white-space: pre-wrap; }
+body[data-app="proship"] .ps-tenure-note b { display: block; font-weight: 500; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--pt-faint); margin-bottom: 6px; }
+body[data-app="proship"] .sh-t tr.exited td { color: var(--pt-faint); }
+body[data-app="proship"] .sh-t tr.exited td b { font-weight: 300; }
+body[data-app="proship"] .ps-vrow.ps-historic { border-top: 1px dotted var(--pt-hair); margin-top: 4px; padding-top: 8px; }
+body[data-app="proship"] .ps-vrow.ps-historic .nm { color: var(--pt-ink2); }
+body[data-app="proship"] .sh-kpi .v.dim { color: var(--pt-ink2); font-weight: 300; }
+
+/* ---- 4.19 · one scope: the bar under every page title, the Showing section in the side pane, segments ---- */
+body[data-app="proship"] .ps-scopebar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 6px 0 0; min-height: 28px; font-size: 12px; color: var(--pt-dim); }
+body[data-app="proship"] .ps-scopebar .k { font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--pt-faint); }
+body[data-app="proship"] .ps-scopebar .d { font-size: 11px; color: var(--pt-faint); }
+body[data-app="proship"] .ps-scopebar .sp { flex: 1 1 auto; }
+body[data-app="proship"] .ps-scopebar .nm { font-size: 13px; color: var(--pt-ink); font-weight: 400; }
+body[data-app="proship"] .ps-scopebtn { display: inline-flex; align-items: center; gap: 8px; background: var(--pt-field); border: 1px solid var(--pt-hair2); color: var(--pt-ink); font: 300 12.5px var(--font); letter-spacing: 0; text-transform: none; padding: 4px 10px 4px 12px; cursor: pointer; }
+body[data-app="proship"] .ps-scopebtn:hover { border-color: var(--pt-ink2); }
+body[data-app="proship"] .ps-scopebtn.on { border-color: var(--pt-ink); }
+body[data-app="proship"] .ps-scopebtn .nm { font-size: 12.5px; }
+body[data-app="proship"] .ps-scopebtn .n { color: var(--pt-dim); font-variant-numeric: tabular-nums; }
+body[data-app="proship"] .ps-scopebtn .car { color: var(--pt-faint); font-size: 10px; }
+body[data-app="proship"] .ps-scopebtn.mini { padding: 2px 8px 2px 10px; font-size: 11.5px; }
+body[data-app="proship"] .ps-scopeclear, body[data-app="proship"] .ps-scopeback { font-size: 11px; color: var(--pt-dim); padding: 2px 6px; }
+body[data-app="proship"] .ps-scopebar.on .ps-scopebtn .nm { font-weight: 400; }
+body[data-app="proship"] .ps-seglink { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline dotted var(--pt-hair2); text-underline-offset: 3px; cursor: pointer; text-transform: none; letter-spacing: 0; }
+body[data-app="proship"] .ps-seglink:hover { text-decoration-color: var(--pt-ink); }
+body[data-app="proship"] .ps-segin input { width: 100%; }
+body[data-app="proship"] .ps-byseg .sh-t td:first-child { font-weight: 400; }
+#shmenu button.on { border-left: 2px solid var(--pt-ink); }
+#shmenu button.off { opacity: 1; color: var(--pt-faint); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; cursor: default; }
+@media (max-width: 760px) {
+  body[data-app="proship"] .ps-scopebar { margin: 4px 0 0; gap: 8px; }
+  body[data-app="proship"] .ps-scopebar .k { display: none; }
+  body[data-app="proship"] .ps-scopebar .sp { display: none; }
+  body[data-app="proship"] .ps-scopebar .d { display: none; }
+}
+/* the position refresh: a 2 px line at the top edge of the main pane and a quiet caption — nothing moves */
+body[data-app="proship"] .sh-main { position: relative; }
+body[data-app="proship"] .ps-refline { position: absolute; left: 0; right: 0; top: 0; height: 2px; z-index: 31; background: var(--pt-hair); pointer-events: none; }
+body[data-app="proship"] .ps-refline .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--pt-ink); transition: width .3s linear; }
+body[data-app="proship"] .ps-refcap { position: absolute; right: 16px; top: 6px; z-index: 31; display: inline-flex; align-items: center; gap: 10px; padding: 3px 8px 3px 10px; background: var(--pt-glass2); border: 1px solid var(--pt-hair); font-size: 10.5px; color: var(--pt-dim); letter-spacing: .02em; }
+body[data-app="proship"] .ps-refcap button { font-size: 10px; padding: 0 4px; color: var(--pt-dim); }
+body[data-app="proship"] .ps-refcap.done { color: var(--pt-faint); }
+/* a fix older than a day: hollow marker, dimmed label — "last heard", never "updated" */
+
+body[data-app="proship"] .ps-stale { color: var(--pt-dim); }
+body[data-app="proship"] .st-posrow { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 4px 16px; font-size: 12.5px; padding: 5px 0; border-bottom: 1px dotted var(--pt-hair); }
+body[data-app="proship"] .st-posrow .d { color: var(--pt-dim); font-variant-numeric: tabular-nums; }
+
+/* 4.24 · discharge scenarios on the voyage page: the plan row reads as the baseline, the adopted scenario is marked */
+.ps-planrow td { background: var(--pt-glass2, rgba(255,255,255,.04)); }
+tr.on td:first-child { box-shadow: inset 2px 0 0 var(--pt-ink, #eceef1); }
+
+/* ---------- 4.30 · the map: cyan vessel icons, the fading track, the corridor, weather and bunker marks, the info strip ---------- */
+:root { --ps-cyan: #4fd1e0; --ps-cyan-fill: #2fb3c4; --ps-cyan-soft: rgba(79, 209, 224, .22); }
+:root[data-theme="light"] { --ps-cyan-fill: #3fbccd; --ps-cyan-soft: rgba(47, 179, 196, .22); }
+.ps-shipicon .ps-ship { width: 28px; height: 28px; fill: var(--ps-cyan-fill); stroke: #0e1216; stroke-width: 1.3; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .7)); transition: transform .4s ease; }
+:root[data-theme="light"] .ps-shipicon .ps-ship { fill: var(--ps-cyan-fill); stroke: #10151a; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35)); }
+.ps-shipicon .ps-ship .keel { stroke: rgba(14, 18, 22, .55); stroke-width: 1; } .ps-shipicon .ps-ship .brg { fill: #0e1216; stroke: none; opacity: .75; }
+.ps-shipicon.live .ps-ship { filter: drop-shadow(0 0 5px rgba(79, 209, 224, .65)) drop-shadow(0 1px 2px rgba(0, 0, 0, .7)); }
+.ps-shipicon.sel .ps-ship { stroke: #f0f2f5; stroke-width: 1.8; filter: drop-shadow(0 0 7px rgba(79, 209, 224, .85)); } :root[data-theme="light"] .ps-shipicon.sel .ps-ship { stroke: #10151a; stroke-width: 2; }
+.ps-shipicon.est .ps-ship { fill: var(--ps-cyan-soft); stroke: var(--ps-cyan); stroke-width: 1.4; stroke-dasharray: 2.6 1.8; } .ps-shipicon.est .ps-ship .brg { fill: var(--ps-cyan); } .ps-shipicon.est .ps-ship .keel { stroke: var(--ps-cyan); opacity: .7; }
+.ps-shipicon.stale .ps-ship { fill: rgba(79, 209, 224, .35); stroke: var(--ps-cyan); stroke-width: 1.2; stroke-dasharray: 3 2; opacity: .9; filter: none; } .ps-shipicon.stale .ps-ship .brg { fill: var(--ps-cyan); opacity: .6; } .ps-shipicon.stale .ps-shiplbl { opacity: .8; }
+.ps-shipicon.idle .ps-ship, .ps-shipicon.drydock .ps-ship { fill-opacity: .55; } .ps-shipicon.laid-up .ps-ship { opacity: .55; }
+/* the label sits to the right of the hull, as in the customer portal */
+.ps-shipicon .ps-shiplbl { left: 100%; top: 50%; transform: translateY(-50%); margin: 0 0 0 6px; padding: 1px 6px; border-radius: 2px; background: rgba(14, 18, 22, .72); color: #eef1f4; text-shadow: none; font-size: 10.5px; letter-spacing: .05em; border: 1px solid rgba(79, 209, 224, .18); }
+:root[data-theme="light"] .ps-shipicon .ps-shiplbl { background: rgba(246, 248, 250, .82); color: #1c1f24; border-color: rgba(47, 179, 196, .3); }
+.ps-shipicon .ps-shiplbl i.late { font-style: normal; color: var(--warn, #c9a06a); margin-left: 4px; font-size: 9.5px; } .ps-shipicon.risk .ps-shiplbl { border-color: rgba(224, 118, 110, .6); }
+.leaflet-tooltip.ps-tip .late { color: var(--warn, #c9a06a); } .leaflet-tooltip.ps-tip .early { color: var(--ps-cyan); } .leaflet-tooltip.ps-tip b { font-weight: 500; }
+.ps-wx { background: none !important; border: 0 !important; display: flex; align-items: center; justify-content: center; gap: 3px; font: 400 10.5px var(--font); color: #eef1f4; pointer-events: auto; }
+.ps-wx b { font-weight: 500; background: rgba(14, 18, 22, .72); padding: 1px 5px 1px 6px; border: 1px solid rgba(240, 242, 245, .22); border-radius: 2px; } .ps-wx small { display: none; }
+.ps-wx i { display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 9px solid rgba(240, 242, 245, .75); transform-origin: 50% 35%; }
+.ps-wx.rough b { border-color: rgba(201, 160, 106, .7); } .ps-wx.severe b { background: rgba(110, 50, 44, .85); border-color: rgba(224, 118, 110, .9); } .ps-wx.worst b { box-shadow: 0 0 0 2px rgba(79, 209, 224, .25); }
+:root[data-theme="light"] .ps-wx { color: #1c1f24; } :root[data-theme="light"] .ps-wx b { background: rgba(246, 248, 250, .9); border-color: rgba(28, 31, 36, .3); } :root[data-theme="light"] .ps-wx i { border-top-color: rgba(28, 31, 36, .7); } :root[data-theme="light"] .ps-wx.severe b { color: #fff; }
+.ps-bport { background: none !important; border: 0 !important; overflow: visible; } .ps-bport i { display: block; width: 9px; height: 9px; margin: 1px; border: 1.4px solid #f0f2f5; background: rgba(14, 18, 22, .7); transform: rotate(45deg); }
+.ps-bport.own i { background: var(--ps-cyan); border-color: #0e1216; } .ps-bport span { position: absolute; left: 14px; top: -2px; white-space: nowrap; font: 300 10px var(--font); color: #d7dde3; text-shadow: 0 0 3px #000, 0 0 3px #000; }
+:root[data-theme="light"] .ps-bport i { border-color: #1c1f24; background: rgba(246, 248, 250, .8); } :root[data-theme="light"] .ps-bport span { color: #1c1f24; text-shadow: 0 0 3px #fff, 0 0 3px #fff; }
+.ps-bcrit { background: none !important; border: 0 !important; overflow: visible; } .ps-bcrit i { display: block; width: 12px; height: 12px; margin: 1px; border-radius: 50%; border: 2px solid var(--warn, #c9a06a); background: rgba(14, 18, 22, .8); box-shadow: 0 0 0 4px rgba(201, 160, 106, .2); }
+.ps-bcrit.neg i { border-color: var(--pt-neg, #e0766e); box-shadow: 0 0 0 4px rgba(224, 118, 110, .25); } .ps-bcrit span { position: absolute; left: -40px; top: 16px; width: 100px; text-align: center; white-space: nowrap; font: 400 10px var(--font); color: var(--warn, #c9a06a); text-shadow: 0 0 3px #000, 0 0 3px #000; }
+:root[data-theme="light"] .ps-bcrit span { text-shadow: 0 0 3px #fff, 0 0 3px #fff; color: #9a6a00; }
+body[data-app="proship"] .ps-mapinfo { position: absolute; left: 12px; top: 12px; z-index: 500; max-width: min(420px, calc(100% - 140px)); font: 300 11px/1.5 var(--font); color: var(--pt-ink); background: rgba(14, 18, 22, .74); border: 1px solid var(--pt-hair); border-left: 2px solid var(--ps-cyan); padding: 6px 10px 7px; pointer-events: none; backdrop-filter: blur(3px); }
+:root[data-theme="light"] body[data-app="proship"] .ps-mapinfo { background: rgba(246, 248, 250, .88); }
+body[data-app="proship"] .ps-mapinfo b { font-weight: 500; } body[data-app="proship"] .ps-mapinfo .dim { color: var(--pt-dim); } body[data-app="proship"] .ps-mapinfo .l2 { font-size: 11.5px; } body[data-app="proship"] .ps-mapinfo .late .slip { color: var(--warn, #c9a06a); } body[data-app="proship"] .ps-mapinfo .early .slip { color: var(--ps-cyan); }
+body[data-app="proship"] .ps-mapinfo .wx.severe { color: var(--pt-neg, #e0766e); } body[data-app="proship"] .ps-mapinfo .wx.rough { color: var(--warn, #c9a06a); } body[data-app="proship"] .ps-mapinfo .l5.warn { color: var(--warn, #c9a06a); } body[data-app="proship"] .ps-mapinfo .l5.neg { color: var(--pt-neg, #e0766e); } body[data-app="proship"] .ps-mapinfo .l4 .slip { color: var(--warn, #c9a06a); }
+body[data-app="proship"] .ps-map .leaflet-bottom.leaflet-left .leaflet-control-zoom { margin-left: 12px; margin-bottom: 12px; } body[data-app="proship"] .ps-mapbox .ps-mapnote { left: 52px; bottom: 44px; max-width: 42%; }
+body[data-app="proship"] .ps-mapctl { gap: 0; background: rgba(14, 18, 22, .6); border: 1px solid var(--pt-hair); } body[data-app="proship"] .ps-mapctl button { background: transparent; border: 0; border-left: 1px solid var(--pt-hair); } body[data-app="proship"] .ps-mapctl button:first-child { border-left: 0; }
+body[data-app="proship"] .ps-mapctl button.on { color: var(--pt-ink); box-shadow: inset 0 -2px 0 var(--pt-ink); } :root[data-theme="light"] body[data-app="proship"] .ps-mapctl { background: rgba(246, 248, 250, .85); } :root[data-theme="light"] body[data-app="proship"] .ps-mapctl button.on { color: var(--pt-ink); box-shadow: inset 0 -2px 0 var(--pt-ink); }
+body[data-app="proship"] .ps-maplegend { border: 1px solid var(--pt-hair); padding: 5px 10px; } body[data-app="proship"] .ps-maplegend .li.ship i { border-bottom-color: var(--ps-cyan-fill); } body[data-app="proship"] .ps-maplegend .li.est i { border-bottom-color: var(--ps-cyan); opacity: .6; }
+body[data-app="proship"] .ps-maplegend .li.track i { border-top-color: var(--ps-cyan); opacity: .8; } body[data-app="proship"] .ps-maplegend .li.corridor i { width: 18px; height: 6px; border: 0; background: var(--ps-cyan-soft); border-radius: 3px; }
+body[data-app="proship"] .ps-maplegend .li.wx i { width: 8px; height: 8px; border: 1px solid var(--pt-ink); border-radius: 1px; background: rgba(14, 18, 22, .6); } body[data-app="proship"] .ps-maplegend .li.bport i { width: 7px; height: 7px; border: 1.4px solid var(--pt-ink); transform: rotate(45deg); }
+body[data-app="proship"] .ps-bkplan .ps-bkcrit { margin: 4px 0 10px; padding: 8px 12px; border-left: 2px solid var(--warn, #c9a06a); background: rgba(201, 160, 106, .08); font-size: 12.5px; }
+body[data-app="proship"] .ps-bkplan .ps-own { margin-left: 8px; font-family: var(--font-caps); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--ps-cyan); }
+body[data-app="proship"] .ps-bkplan .warn { color: var(--warn, #c9a06a); }
+@media (max-width: 760px) { body[data-app="proship"] .ps-mapinfo { left: 8px; top: 8px; max-width: calc(100% - 16px); font-size: 10.5px; padding: 5px 8px; } body[data-app="proship"] .ps-mapinfo .l3, body[data-app="proship"] .ps-mapinfo .l4 { display: none; } body[data-app="proship"] .ps-mapctl { top: auto; bottom: 40px; right: 8px; } }
+
+/* ---------- 4.30 · ranked lists on the Overview (top performers / needs attention) ---------- */
+body[data-app="proship"] .ps-rankpanel { padding-bottom: 6px; }
+body[data-app="proship"] .ps-rank { display: flex; flex-direction: column; }
+body[data-app="proship"] .ps-rankrow { position: relative; display: grid; grid-template-columns: 26px minmax(0, 1fr) fit-content(48%); /* 4.31.11 · the figure column never squeezes the name out */ align-items: center; gap: 0 12px; width: 100%; padding: 9px 4px 11px; background: none; border: 0; border-bottom: 1px solid var(--pt-hair); text-align: left; cursor: pointer; font: inherit; text-transform: none; letter-spacing: normal; color: var(--pt-ink); }
+body[data-app="proship"] .ps-rankrow:last-child { border-bottom: 0; } body[data-app="proship"] .ps-rankrow:hover { background: rgba(255, 255, 255, .025); } :root[data-theme="light"] body[data-app="proship"] .ps-rankrow:hover { background: rgba(0, 0, 0, .03); }
+body[data-app="proship"] .ps-rankrow.on .rk-who b { color: var(--pt-ink); font-weight: 500; }
+body[data-app="proship"] .ps-rankrow .rk-no { font-family: var(--font-caps); font-size: 10px; letter-spacing: .12em; color: var(--pt-faint); text-align: right; padding-right: 2px; }
+body[data-app="proship"] .ps-rankrow .rk-who { min-width: 0; display: flex; flex-direction: column; gap: 2px; } body[data-app="proship"] .ps-rankrow .rk-who b { font-weight: 500; font-size: 13.5px; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body[data-app="proship"] .ps-rankrow .rk-emp { font-size: 11.5px; color: var(--pt-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } body[data-app="proship"] .ps-rankrow .rk-emp .rk-k { font-style: normal; font-family: var(--font-caps); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--pt-faint); margin-right: 4px; }
+body[data-app="proship"] .ps-rankrow .rk-fig { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap; min-width: 0; max-width: 100%; overflow: hidden; } body[data-app="proship"] .ps-rankrow .rk-fig .rk-sub { max-width: 100%; overflow: hidden; text-overflow: ellipsis; } body[data-app="proship"] .ps-rankrow .rk-fig b { font-weight: 500; font-size: 13.5px; font-variant-numeric: tabular-nums; } body[data-app="proship"] .ps-rankrow .rk-fig .rk-sub { font-size: 11px; color: var(--pt-dim); max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+body[data-app="proship"] .ps-rankrow .rk-bar { position: absolute; left: 42px; right: 4px; bottom: 5px; height: 2px; background: var(--pt-hair); } body[data-app="proship"] .ps-rankrow .rk-bar::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: var(--w, 0%); background: var(--ps-cyan-fill); opacity: .85; }
+@media (max-width: 760px) { body[data-app="proship"] .ps-rankrow { grid-template-columns: 20px minmax(0, 1fr) fit-content(52%); gap: 0 8px; } body[data-app="proship"] .ps-rankrow .rk-bar { left: 30px; } }
+/* 4.31.6 · the group card (the scope as the subject of every page) — monochrome, the vessel header's grid */
+body[data-app="proship"] .ps-ghead .ps-vhead-name h3 { font-size: 19px; }
+body[data-app="proship"] .ps-gchips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; min-width: 0; }
+body[data-app="proship"] .ps-gchip { display: inline-flex; align-items: center; gap: 7px; max-width: 100%; padding: 4px 10px; border: 1px solid var(--pt-hair2); background: var(--pt-field); color: var(--pt-ink); font: 300 12px/1.3 var(--font); letter-spacing: .02em; text-transform: none; cursor: pointer; border-radius: 0; }
+body[data-app="proship"] .ps-gchip .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+body[data-app="proship"] .ps-gchip .dot { grid-area: auto; }
+body[data-app="proship"] .ps-gchip:hover { border-color: var(--pt-ink2); background: var(--pt-field); }
+body[data-app="proship"] .ps-gchip.more { color: var(--pt-dim); border-style: dashed; }
+body[data-app="proship"] .ps-scopex { font-size: 14px; line-height: 1; color: var(--pt-ink); padding: 2px 6px; border: 1px solid var(--pt-hair2); }
+body[data-app="proship"] .ps-scopex:hover { border-color: var(--pt-ink); }
+body[data-app="proship"] .ps-scopedot { color: var(--pt-faint); }
+body[data-app="proship"] .ps-vhead-acts .ps-vh-back { color: var(--pt-ink); }
+/* ---------- 4.32.2 · the fleet filter: the right pane is the one filter of every page (desktop); the phone's sheet holds the same.
+ * Monochrome: ink checkboxes, hairline rows; the accent stays on the vessel dots. */
+body[data-app="proship"] .ps-filter .ph { align-items: flex-start; }
+body[data-app="proship"] .ps-filter .ph .sub { margin-top: 3px; }
+body[data-app="proship"] .ps-fnames { font-size: 12.5px; color: var(--pt-ink2); margin-top: 6px; overflow-wrap: anywhere; }
+body[data-app="proship"] .ps-facts { display: flex; gap: 18px; margin-top: 12px; }
+body[data-app="proship"] .sh-app .ps-facts button, body[data-app="proship"] .ps-fsheet .ps-facts button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--pt-dim); background: none; border: 0; padding: 0; box-shadow: none; }
+body[data-app="proship"] .sh-app .ps-facts button:hover, body[data-app="proship"] .sh-app .ps-facts button.on, body[data-app="proship"] .ps-fsheet .ps-facts button:hover, body[data-app="proship"] .ps-fsheet .ps-facts button.on { color: var(--pt-ink); background: none; }
+body[data-app="proship"] .ps-facts button.on { text-decoration: underline; text-underline-offset: 4px; }
+body[data-app="proship"] .sh-pane section.ps-fsec, body[data-app="proship"] .ps-fsheet section.ps-fsec { padding: 0; border-bottom: 1px solid var(--pt-hair); }
+body[data-app="proship"] .sh-app button.ps-fsh, body[data-app="proship"] .ps-fsheet button.ps-fsh { display: flex; align-items: center; gap: 8px; width: 100%; min-width: 0; text-align: left; padding: 14px 28px; margin: 0; background: none; border: 0; box-shadow: none; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-dim); cursor: pointer; }
+body[data-app="proship"] .sh-app button.ps-fsh:hover, body[data-app="proship"] .ps-fsheet button.ps-fsh:hover { color: var(--pt-ink); background: none; }
+body[data-app="proship"] .ps-fsh .car { font-size: 8px; width: 10px; flex: none; color: var(--pt-faint); }
+body[data-app="proship"] .ps-fsh .n { color: var(--pt-faint); flex: none; }
+body[data-app="proship"] .ps-fsh .sum { font-family: var(--font); font-size: 11.5px; letter-spacing: 0; text-transform: none; color: var(--pt-ink2); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+body[data-app="proship"] .ps-flist { padding: 0 28px 12px; display: flex; flex-direction: column; }
+body[data-app="proship"] .ps-frow { display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid var(--pt-hair); }
+body[data-app="proship"] .ps-frow:last-child { border-bottom: 0; }
+body[data-app="proship"] .ps-ftg { display: flex; align-items: center; padding: 10px 0 0; cursor: pointer; flex: none; }
+body[data-app="proship"] .ps-fcb { accent-color: var(--pt-ink); margin: 0; width: 14px; height: 14px; cursor: pointer; }
+body[data-app="proship"] .sh-app button.ps-fname, body[data-app="proship"] .ps-fsheet button.ps-fname { flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: 9px; text-align: left; padding: 8px 0; margin: 0; background: none; border: 0; box-shadow: none; border-radius: 0; font-family: var(--font); font-size: 12.5px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--pt-ink2); cursor: pointer; }
+body[data-app="proship"] .sh-app button.ps-fname:hover, body[data-app="proship"] .ps-fsheet button.ps-fname:hover { background: none; }
+body[data-app="proship"] .ps-fname .dot { grid-area: auto; margin-top: 5px; }
+body[data-app="proship"] .ps-fname .tx { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+body[data-app="proship"] .ps-fname b { font-weight: 400; font-size: 12.5px; color: var(--pt-ink2); }
+body[data-app="proship"] .ps-frow.on .ps-fname b, body[data-app="proship"] .ps-frow.part .ps-fname b { color: var(--pt-ink); }
+body[data-app="proship"] .ps-frow.cur .ps-fname b { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--pt-hair2); }
+body[data-app="proship"] .ps-fname .ln { font-size: 11px; color: var(--pt-dim); overflow-wrap: anywhere; }
+body[data-app="proship"] .sh-app button.ps-fname:hover b, body[data-app="proship"] .ps-fsheet button.ps-fname:hover b { text-decoration: underline; text-underline-offset: 3px; }
+body[data-app="proship"] .ps-filter:not([data-scope="all"]) .ps-frow.off .ps-fname { opacity: .6; }
+body[data-app="proship"] .ps-ffind { padding: 0 28px 8px; }
+body[data-app="proship"] .sh-app .ps-ffind input, body[data-app="proship"] .ps-fsheet .ps-ffind input { width: 100%; height: 30px; border: 0; border-bottom: 1px solid var(--pt-hair2); background: transparent; box-shadow: none; padding: 0; font-family: var(--font); font-size: 12.5px; color: var(--pt-ink); }
+body[data-app="proship"] .ps-fmore { font-size: 11.5px; color: var(--pt-dim); padding: 8px 0 0; }
+body[data-app="proship"] .ps-ptbody { padding: 0 28px 16px; }
+body[data-app="proship"] .sh-pane.ps-flash .ps-filter > .ph { animation: psflash .9s ease-out; } @keyframes psflash { from { background: var(--pt-sel); } to { background: transparent; } }
+/* the side's one line under the sections: Showing 3 of 7 · MR2 · Owner One */
+body[data-app="proship"] .sh-app button.ps-showing { display: block; width: 100%; text-align: left; padding: 10px 14px 12px; margin: 4px 0 0; background: none; border: 0; border-top: 1px solid var(--pt-hair); box-shadow: none; border-radius: 0; font-family: var(--font); font-size: 12.5px; letter-spacing: 0; text-transform: none; color: var(--pt-ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
+body[data-app="proship"] .sh-app button.ps-showing:hover { background: var(--pt-sel); }
+body[data-app="proship"] .ps-showing .k { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); margin-right: 6px; }
+body[data-app="proship"] .ps-showing .v { color: var(--pt-ink); }
+body[data-app="proship"] .ps-showing .d { color: var(--pt-dim); }
+/* the phone's sheet: the same filter, full height, on the opaque ground (no blur) */
+body[data-app="proship"] .ps-fsheet { position: fixed; inset: 0; z-index: 97; background: var(--pt-ground); color: var(--pt-ink2); overflow: auto; overscroll-behavior: contain; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); }
+body[data-app="proship"] .ps-fsheet .ph { position: sticky; top: 0; z-index: 2; display: flex; align-items: flex-start; gap: 8px; background: var(--pt-ground); padding: calc(env(safe-area-inset-top, 0px) + 18px) 16px 14px; border-bottom: 1px solid var(--pt-hair); }
+body[data-app="proship"] .ps-fsheet .ph > div { flex: 1; min-width: 0; }
+body[data-app="proship"] .ps-fsheet .ph h2 { margin: 0; font: 300 22px/1.2 var(--font); color: var(--pt-ink); }
+body[data-app="proship"] .ps-fsheet .ph .sub { color: var(--pt-dim); font-size: 12px; margin-top: 3px; }
+body[data-app="proship"] .ps-fsheet button.ps-fdone, body[data-app="proship"] .sh-pane button.ps-fdone { flex: none; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-ink); background: none; border: 1px solid var(--pt-hair2); padding: 8px 12px; }
+body[data-app="proship"] .ps-fsheet button.ps-fsh { padding: 14px 16px; }
+body[data-app="proship"] .ps-fsheet .ps-flist { padding: 0 16px 10px; } body[data-app="proship"] .ps-fsheet .ps-ffind { padding: 0 16px 8px; }
+body[data-app="proship"] .ps-fsheet .ps-frow { gap: 12px; } body[data-app="proship"] .ps-fsheet .ps-fcb { width: 18px; height: 18px; } body[data-app="proship"] .ps-fsheet .ps-ftg { padding-top: 11px; }
+body[data-app="proship"] .ps-fsheet button.ps-fname { padding: 10px 0; font-size: 14px; } body[data-app="proship"] .ps-fsheet .ps-fname b { font-size: 14px; } body[data-app="proship"] .ps-fsheet .ps-fname .ln { font-size: 12px; }
+@media (max-width: 760px) { body[data-app="proship"] .ps-gchips { gap: 5px; margin-top: 8px; } body[data-app="proship"] .ps-gchip { padding: 4px 8px; font-size: 11.5px; } body[data-app="proship"] .ps-ghead .ps-vhead-emp, body[data-app="proship"] .ps-ghead .ps-vhead-pos { padding-top: 10px; padding-bottom: 10px; } }
+/* 4.31.10 · ports picked from the list (chips in order, a type-ahead under the field), the plan line under the cargo ports */
+#sheet .psu-portpick { display: flex; flex-direction: column; gap: 6px; width: 100%; min-width: 0; }
+#sheet .psu-ppchips { display: flex; flex-wrap: wrap; gap: 6px; } #sheet .psu-ppchips:empty { display: none; }
+#sheet .psu-ppchip { display: inline-flex; align-items: center; border: 1px solid var(--pt-hair, rgba(255,255,255,.14)); background: var(--pt-glass2, transparent); max-width: 100%; }
+#sheet .psu-ppchip button { background: none; border: 0; padding: 4px 8px; font-size: 12px; color: var(--pt-ink, inherit); min-height: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+#sheet .psu-ppchip .psu-ppx { padding: 4px 8px 4px 2px; color: var(--pt-dim, inherit); }
+#sheet .psu-ppchip.unknown { border-style: dashed; } #sheet .psu-ppchip.unknown .psu-ppname { color: var(--pt-dim, inherit); }
+#sheet .psu-ppchip.legacy { border-style: dotted; }
+/* 4.32.2 · the STS toggle on a port chip (monochrome: outlined off, filled on), the "+ Add … with a position…" offer under an unknown port,
+   the parcel blocks and the broker rows of the fixture form, the extras column of the fixture list */
+#sheet .psu-ppchip .psu-ppsts { padding: 2px 6px; margin: 0 2px; font-size: 10px; letter-spacing: .06em; border: 1px solid var(--pt-hair, rgba(255,255,255,.25)); border-radius: 2px; color: var(--pt-dim, inherit); line-height: 1.2; }
+#sheet .psu-ppchip .psu-ppsts.on { background: var(--pt-ink, #e8e8e8); color: var(--pt-ground, #14161a); border-color: var(--pt-ink, #e8e8e8); }
+#sheet .psu-ppchip.sts { border-style: double; }
+#sheet .psu-ppwarn .linkbtn, #sheet .psu-ppadd { background: none; border: 0; padding: 0; min-height: 0; font: inherit; font-size: 12px; color: var(--pt-ink, inherit); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+#sheet .ps-parcels { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+#sheet .ps-parcel { border: 1px solid var(--pt-hair, rgba(255,255,255,.14)); padding: 8px 10px 10px; }
+#sheet .ps-parcel-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; } #sheet .ps-parcel-head b { font-weight: 500; font-size: 12.5px; }
+#sheet .ps-parcel-head button { min-height: 0; padding: 2px 8px; }
+#sheet .ps-parcel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; } #sheet .ps-parcel-grid .f.wide { grid-column: 1 / -1; }
+#sheet .ps-parcel-grid .f label { display: block; font-size: 11px; color: var(--pt-dim, inherit); margin-bottom: 3px; }
+#sheet .ps-qtyunit { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px; } #sheet .ps-qtyunit select { min-width: 96px; }
+#sheet .ps-parcel-add { align-items: center; gap: 10px; flex-wrap: wrap; } #sheet .ps-parcel-add .sh-dim { font-size: 11.5px; }
+#sheet .ps-brokers { display: flex; flex-direction: column; gap: 6px; width: 100%; } #sheet .ps-broker { display: grid; grid-template-columns: minmax(0, 1fr) 90px auto auto; gap: 6px; align-items: center; }
+#sheet .ps-brokers .ps-brokers-total:empty { display: none; }
+/* 4.34.7 · a charter's further hire rates: rate, "for", days, remove */
+#sheet .ps-ratesteps { display: flex; flex-direction: column; gap: 6px; width: 100%; } #sheet .ps-ratestep { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 120px) auto auto; gap: 6px; align-items: center; }
+.ps-raterows { display: flex; flex-direction: column; gap: 8px; } .ps-raterow .sh-dim { font-size: 12px; } .ps-raterow.now > div:first-child { font-weight: 600; }
+body[data-app="proship"] .ps-extras { display: flex; flex-direction: column; gap: 1px; align-items: flex-end; font-variant-numeric: tabular-nums; white-space: nowrap; } body[data-app="proship"] .ps-extras .ps-num { color: var(--pt-ink, inherit); }
+@media (max-width: 760px) { #sheet .ps-parcel-grid { grid-template-columns: 1fr; } #sheet .ps-broker { grid-template-columns: minmax(0, 1fr) 70px auto auto; } }
+#sheet .psu-ppin { width: 100%; }
+#sheet .psu-pplist { border: 1px solid var(--pt-hair, rgba(255,255,255,.14)); background: var(--pt-ground, #14161a); max-height: 280px; overflow-y: auto; }
+#sheet .psu-ppitem { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n ll" "c ll" "x x"; column-gap: 12px; padding: 7px 10px; cursor: pointer; border-bottom: 1px solid var(--pt-hair, rgba(255,255,255,.08)); font-size: 12.5px; }
+#sheet .psu-ppitem:last-child { border-bottom: 0; }
+#sheet .psu-ppitem b { grid-area: n; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#sheet .psu-ppitem .psu-ppcc { grid-area: c; color: var(--pt-dim, inherit); font-size: 11px; } #sheet .psu-ppitem > span:nth-of-type(3) { grid-area: x; }
+#sheet .psu-ppitem .psu-ppll { grid-area: ll; color: var(--pt-dim, inherit); font-size: 11px; font-variant-numeric: tabular-nums; align-self: center; white-space: nowrap; }
+#sheet .psu-ppitem.on, #sheet .psu-ppitem:hover { background: var(--pt-glass2, rgba(255,255,255,.06)); }
+#sheet .psu-ppitem.psu-ppmsg, #sheet .psu-ppitem.psu-ppgeo { display: block; color: var(--pt-dim, inherit); font-size: 12px; } #sheet .psu-ppitem.psu-ppmsg { cursor: default; }
+#sheet .psu-ppnote:empty { display: none; } #sheet .psu-ppwarn { color: var(--pt-ink, inherit); } #sheet .psu-pplegacy { color: var(--pt-dim, inherit); font-size: 11px; }
+#sheet .ps-planline { font-variant-numeric: tabular-nums; color: var(--pt-ink, inherit); font-size: 12.5px; } #sheet .ps-planline .sh-dim { font-size: 11px; }
+#sheet .ps-planline:empty { display: none; }
+body.phone #sheet .psu-ppitem { padding: 10px 10px; } body.phone #sheet .psu-ppitem .psu-ppll { font-size: 10.5px; }
+/* 4.31.11 · off-hire kind in the tables: technical / commercial, "(inferred) — confirm" on rows recorded before kinds; the Operations off-hire bar */
+body[data-app="proship"] .ps-ohkind { white-space: nowrap; } body[data-app="proship"] .ps-ohkind.inferred { color: var(--pt-dim); } body[data-app="proship"] .ps-ohconfirm { padding: 1px 7px; font-size: 11px; line-height: 1.4; }
+body[data-app="proship"] .ps-ohbar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 0 0 10px; font-size: 12.5px; }
+body[data-app="proship"] .ps-rankrow .rk-fig .rk-util { white-space: normal; text-align: right; line-height: 1.25; max-width: 15em; } /* 4.31.11 · "x % total · y % commercial" wraps in a narrow pane rather than being cut */
+/* 4.31.15 · fixture status, one vocabulary with the portal: chips and the timeline bars (filled = delivered / commenced, dashed = fixed, dotted = on subs, grey = completed) */
+body[data-app="proship"] .ps-fxs { display: inline-block; font-family: var(--font-caps); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; padding: 3px 8px 2px; border: 1px solid var(--pt-hair2); color: var(--pt-dim); white-space: nowrap; line-height: 1.3; vertical-align: middle; }
+body[data-app="proship"] .ps-fxs .w { letter-spacing: .06em; text-transform: none; font-family: var(--font); font-size: 10.5px; }
+body[data-app="proship"] .ps-fxs.s-live { color: var(--pt-ink); border-color: var(--pt-ink2); background: var(--pt-glass2); }
+body[data-app="proship"] .ps-fxs.s-fixed { color: var(--pt-ink); border-style: dashed; border-color: var(--pt-ink2); }
+body[data-app="proship"] .ps-fxs.s-subs { color: var(--pt-ink2); border-style: dotted; border-color: var(--pt-ink2); }
+body[data-app="proship"] .ps-fxs.s-done, body[data-app="proship"] .ps-fxs.s-cancel { color: var(--pt-faint); }
+body[data-app="proship"] .ps-fxs.s-cancel { text-decoration: line-through; }
+body[data-app="proship"] .ps-tl-bar.s-live { background: var(--pt-glass2); border-style: solid; opacity: 1; }
+body[data-app="proship"] .ps-tl-bar.s-live.est { background: linear-gradient(90deg, var(--pt-glass2), var(--pt-glass2)); }
+body[data-app="proship"] .ps-tl-bar.s-fixed { background: transparent; border-style: dashed; opacity: 1; }
+body[data-app="proship"] .ps-tl-bar.s-subs { background: transparent; border-style: dotted; opacity: .75; }
+body[data-app="proship"] .ps-tl-bar.s-done { background: transparent; border-color: var(--pt-hair2); color: var(--pt-faint); opacity: 1; border-style: solid; }
+body[data-app="proship"] .ps-tl-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; font-family: var(--font-caps); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--pt-faint); }
+body[data-app="proship"] .ps-tl-legend span { display: inline-flex; align-items: center; gap: 6px; }
+body[data-app="proship"] .ps-tl-legend i { position: static; display: inline-block; width: 22px; height: 10px; padding: 0; top: auto; }
+body[data-app="proship"] .ps-visbtn { min-width: 76px; } body[data-app="proship"] .ps-visbtn.on { color: var(--pt-ink); border-color: var(--pt-ink2); }
+body[data-app="proship"] .ps-fxwhen { color: var(--pt-ink2); }
+
+/* 4.31.16 · bunker grade entry (noon report, ROB, bunkers on delivery / redelivery, off-hire, stems): one row per grade — name · spec | quantity | unit | (price) | × — instead of stacked blocks */
+.ps-gin-rows { display: grid; gap: 6px; }
+.ps-gin-row { display: grid; grid-template-columns: minmax(0, 1fr) 124px 34px auto; gap: 0 10px; align-items: center; min-height: 34px; }
+.ps-gin.price .ps-gin-row { grid-template-columns: minmax(0, 1fr) 112px 34px 112px auto; }
+.ps-gin-g { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--pt-ink); }
+.ps-gin-g b { font-weight: 500; letter-spacing: .02em; }
+.ps-gin-g small { margin-left: 8px; font-size: 11px; color: var(--pt-dim); }
+.ps-gin-u { font-family: var(--font-caps); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--pt-dim); }
+.ps-gin-x { min-width: 0; padding: 0 6px; }
+body[data-app] #sheet .form .f .ps-gin-row input, .ps-gin-row input { width: 100%; text-align: right; font-variant-numeric: tabular-nums; }
+.ps-gin-tools { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+body[data-app] #sheet .form .f .ps-gin-add, .ps-gin-add { width: auto; max-width: 280px; }
+.ps-gin-paste { margin-top: 8px; }
+.ps-gin-note { margin-top: 4px; }
+@media (max-width: 760px) { .ps-gin-row { grid-template-columns: minmax(0, 1fr) 92px 30px auto; } .ps-gin.price .ps-gin-row { grid-template-columns: minmax(0, 1fr) 80px 30px 80px auto; } .ps-gin-g small { display: block; margin: 0; white-space: normal; } }
+
+/* 4.34.10 · the employment timeline: the management marker and the zoom (the chart grows wider inside its own box) */
+body[data-app="proship"] .ps-tl-wrap { position: relative; } body[data-app="proship"] .ps-tl-scroll { overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; }
+body[data-app="proship"] .ps-tl-scroll .ps-timeline { min-width: 100%; box-sizing: border-box; }
+body[data-app="proship"] .ps-tl-zoom { position: absolute; right: 0; top: -34px; }
+body[data-app="proship"] .ps-tl-tick span { display: none; } body[data-app="proship"] .ps-tl-tick.q span, body[data-app="proship"] .ps-tl-scroll.zoomed-months .ps-tl-tick span { display: block; }
+body[data-app="proship"] .ps-tl-mgmt { position: absolute; top: 18px; bottom: 0; width: 0; border-left: 1px dashed var(--pt-ink); z-index: 1; } body[data-app="proship"] .ps-tl-mgmt i { position: absolute; top: -4px; left: -4.5px; width: 8px; height: 8px; background: var(--pt-ink); transform: rotate(45deg); }
+body[data-app="proship"] .ps-tl-mgmt span { position: absolute; bottom: 2px; left: 6px; font-family: var(--font-caps); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--pt-dim, var(--pt-ink2)); white-space: nowrap; } body[data-app="proship"] .ps-tl-mgmt.out span { left: auto; right: 6px; }
+body[data-app="proship"] .ps-tl-shade { position: absolute; top: 38px; bottom: 0; background: repeating-linear-gradient(135deg, var(--pt-hair) 0 1px, transparent 1px 7px); opacity: .55; }
+body[data-app="proship"] .ps-tl-mgmt-k { display: inline-block; width: 8px; height: 8px; background: var(--pt-ink); transform: rotate(45deg); margin: 0 9px 0 3px; }
+body[data-app="proship"] .tlz { display: inline-flex; align-items: center; gap: 6px; } body[data-app="proship"] .tlz-l { font-family: var(--font-caps); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--pt-ink2); min-width: 74px; text-align: center; }
+body[data-app="proship"] .tlz-b { width: 26px; height: 26px; border: 1px solid var(--pt-hair2); background: transparent; color: var(--pt-ink); font: 400 14px/1 var(--font); cursor: pointer; padding: 0; } body[data-app="proship"] .tlz-b:hover:not(:disabled) { border-color: var(--pt-ink); } body[data-app="proship"] .tlz-b:disabled { opacity: .35; cursor: default; } body[data-app="proship"] .tlz-b:focus-visible { outline: 1px solid var(--pt-ink); outline-offset: 1px; }
+body[data-app="proship"] .ps-tl-legend i.ps-tl-mgmt-k { width: 8px; height: 8px; min-width: 0; border: 0; background: var(--pt-ink); opacity: 1; position: static; display: inline-block; vertical-align: middle; }
+body[data-app="proship"] .ps-timeline.has-mgmt { padding-bottom: 24px; }
+/* 4.34.12 · a zoomed chart is dragged sideways */
+body[data-app="proship"] .ps-tl-scroll.zoomed { cursor: grab; touch-action: pan-y; overscroll-behavior-x: contain; } body[data-app="proship"] .ps-tl-scroll.dragging { cursor: grabbing; user-select: none; } body[data-app="proship"] .ps-tl-scroll.dragging .ps-tl-bar { pointer-events: none; }

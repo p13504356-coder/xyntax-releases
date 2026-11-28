@@ -1,0 +1,49 @@
+/* XYNTAX 4.20 · enlarge anything. SUITE.enlarge opens a table or a chart full-window in the suite's own frame: the band with the
+   lockup and the title, Esc/Close, the content below at full width and height. The ⤢ control (.sh-xbtn) sits top-right of what it
+   enlarges: faint on the desktop until the pointer is near, always visible on the phone, a 44 px touch target. Monochrome. */
+
+.sh-enlarge { position: fixed; inset: 0; z-index: 18; display: flex; flex-direction: column; background: var(--pt-ground, var(--bg, #0b0c0f)); color: var(--pt-ink, var(--text)); animation: shx-in 160ms ease both; }
+body[data-app] .sh-enlarge { background: var(--pt-sky, var(--pt-ground)); }
+@keyframes shx-in { from { opacity: 0; } to { opacity: 1; } }
+.sh-enlarge-head { flex: 0 0 auto; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 24px; background: var(--pt-band, var(--panel)); border-bottom: 1px solid var(--pt-hair, var(--line)); }
+.sh-enlarge-brand { display: inline-flex; align-items: center; gap: 12px; min-width: 0; }
+.sh-enlarge-brand .sh-divider { color: var(--pt-faint, var(--faint)); font-weight: 300; }
+.sh-enlarge-title { font-family: var(--font-caps, var(--font)); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-ink2, var(--text2)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sh-enlarge-acts { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.sh-enlarge-acts .sh-enlarge-close { font-family: var(--font-caps, var(--font)); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.sh-enlarge-body { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 18px 24px 28px; }
+.sh-enlarge-body > .sh-enlarged { max-height: none; }
+.sh-enlarge-body .psu-tw, .sh-enlarge-body .sh-tw { max-height: none; overflow: visible; }
+.sh-enlarge-body .psu-tw table { min-width: 100%; }
+.sh-enlarge-body .psu-tw.virtual { max-height: none; }
+.sh-enlarge-body .psu-chart svg, body[data-app] .sh-enlarge-body .psu-chart svg { width: 100%; height: auto; max-height: calc(100vh - 160px); }
+.sh-enlarge-body canvas { width: 100%; display: block; }
+.sh-enlarge-body .sh-xbtn, .sh-enlarge-body .psu-x { display: none; }
+body.sh-enlarging { overflow: hidden; }
+
+/* the control */
+.sh-xbtn { -webkit-appearance: none; appearance: none; font: 400 13px/1 var(--font); color: var(--pt-ink2, var(--text2)); background: transparent; border: 1px solid transparent; border-radius: 3px; cursor: pointer; padding: 0; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; opacity: .35; transition: opacity 120ms ease, border-color 120ms ease; }
+.sh-xhost { position: relative; }
+.sh-xhost > .sh-xbtn { position: absolute; top: 4px; right: 4px; z-index: 3; }
+.sh-xhost:hover > .sh-xbtn, .sh-xbtn:focus-visible, .psu-tw:hover .psu-x, .psu-cardtools .psu-x { opacity: 1; }
+.sh-xbtn:hover { border-color: var(--pt-hair2, var(--line2)); color: var(--pt-ink, var(--text)); }
+th.more .psu-x { margin-right: 2px; }
+table.psu-t th.more, table.psu-t td.more { width: 1%; white-space: nowrap; }
+table.psu-t th.more { text-align: right; }
+.psu-cardtools .psu-x { margin-left: auto; }
+/* the canvas charts of ACCOUNTING: the host is made relative by SUITE.enlargeable; leave room for the control above the plot */
+.sh-xhost > canvas + .sh-xbtn { top: 2px; right: 2px; }
+/* 4.32.3 · a plain table wrapper (.sh-tw) carries the control only while it is wider than its box (SUITE.enlargeWide sets sh-xwide);
+   it sits at the top-right of what is visible on an opaque plate, follows the sideways scroll, and does not wait for a hover */
+.sh-tw.sh-xhost > .sh-xbtn { display: none; }
+.sh-tw.sh-xhost.sh-xwide > .sh-xbtn { display: inline-flex; opacity: .8; background: var(--pt-ground, var(--bg, #0b0c0f)); border-color: var(--pt-hair, var(--line)); top: 3px; right: 3px; }
+.sh-tw.sh-xhost.sh-xwide > .sh-xbtn:hover { opacity: 1; }
+
+@media (max-width: 760px) {
+  .sh-enlarge-head { height: 52px; padding: 0 16px; padding-top: env(safe-area-inset-top, 0px); }
+  .sh-enlarge-title { letter-spacing: .16em; font-size: 11px; }
+  .sh-enlarge-body { padding: 12px 16px 32px; }
+  .sh-xbtn, body[data-app] .psu-cardtools .quiet.psu-x, body[data-app] .sh-xhost > .sh-xbtn { opacity: .8; width: 44px; height: 44px; min-width: 44px; min-height: 44px; padding: 0; font-size: 15px; }
+  .sh-xhost > .sh-xbtn { top: 0; right: 0; }
+  th.more .psu-x { width: 32px; height: 32px; }
+}

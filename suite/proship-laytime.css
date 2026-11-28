@@ -1,0 +1,39 @@
+/* XYNTAX PROSHIP — LAYTIME (4.30). The statement on the voyage page: terms line, one statement of facts per port, the sheet's summary.
+ * Tokens from vertu.css; monochrome throughout, no colour carries meaning (pills and the ⚠ glyph do). */
+.lt-panel { min-width: 0; }
+.lt-panel h3 .sh-faint { font-weight: 400; letter-spacing: 0; text-transform: none; }
+.lt-terms { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; font-size: 12px; color: var(--pt-dim); padding: 6px 0 10px; border-bottom: 1px solid var(--pt-hair); margin-bottom: 10px; }
+.lt-terms b { color: var(--pt-ink); font-weight: 500; }
+.lt-terms .lt-terms-btn { margin-left: auto; }
+.lt-port { margin: 8px 0 14px; }
+.lt-port-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 6px; font-size: 12.5px; }
+.lt-port-head b { font-weight: 500; color: var(--pt-ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--pt-hair2); }
+.lt-port-head .sh-faint { font-size: 11.5px; }
+.lt-grow { flex: 1 1 auto; }
+.lt-port-head button.quiet { padding: 3px 10px; font-size: 11px; }
+.lt-port table.sh-t td, .lt-port .psu-t td { font-variant-numeric: tabular-nums; }
+.lt-port tr.lt-computed td { color: var(--pt-dim); }
+.lt-port table.psu-t th, .lt-port table.psu-t td, .lt-port table.sh-t th, .lt-port table.sh-t td { padding-left: 8px; padding-right: 8px; font-size: 12px; }
+.lt-dt { white-space: nowrap; line-height: 1.25; } .lt-dt i { font-style: normal; display: block; color: var(--pt-dim); font-size: 11px; }
+.lt-port tr.lt-computed td .lt-c { font-style: italic; }
+.lt-ignored { text-decoration: line-through; color: var(--pt-dim); }
+.lt-port-foot { display: flex; justify-content: flex-end; gap: 14px; font-size: 12px; color: var(--pt-dim); padding: 4px 8px 0; border-top: 1px solid var(--pt-hair); }
+.lt-port-foot b { color: var(--pt-ink); font-weight: 500; font-variant-numeric: tabular-nums; min-width: 60px; text-align: right; }
+.lt-summary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px 28px; padding: 10px 0 4px; border-top: 1px solid var(--pt-hair); margin-top: 6px; }
+.lt-kv { font-size: 12.5px; align-content: start; gap: 3px 14px; }
+.lt-kv > span:nth-child(odd) { color: var(--pt-dim); }
+.lt-kv > span:nth-child(even) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+body[data-app="proship"] .lt-sum { grid-template-columns: minmax(0, 1fr) max-content; }
+.lt-kv .lt-kv-h { color: var(--pt-ink); font-weight: 500; margin-top: 6px; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--pt-hair2); }
+.lt-sum > span:nth-child(odd) { text-align: right; }
+.lt-sum > span:nth-child(even) { text-align: right; }
+.lt-sum .lt-due { color: var(--pt-ink); font-weight: 600; border-top: 1px solid var(--pt-ink); padding-top: 4px; margin-top: 2px; }
+.lt-remarks { font-size: 11.5px; margin: 8px 0 4px; line-height: 1.5; }
+.lt-warn { color: var(--pt-ink2); margin-top: 4px; }
+.lt-acts { margin-top: 8px; gap: 8px; flex-wrap: wrap; }
+.lt-acts button[disabled] { opacity: .45; cursor: default; }
+@media (max-width: 760px) {
+  .lt-summary { grid-template-columns: 1fr; }
+  .lt-sum > span:nth-child(odd) { text-align: left; }
+  .lt-terms .lt-terms-btn { margin-left: 0; }
+}

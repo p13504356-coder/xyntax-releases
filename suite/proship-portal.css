@@ -1,0 +1,65 @@
+/* XYNTAX PROSHIP — Portal tab styles (builder C). Loaded after proship.css; tokens from vertu.css apply. */
+.pp-wrap { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 18px; align-items: start; }
+.pp-host { margin: 0 0 14px; padding: 10px 14px; border: 1px solid var(--pt-hair2, var(--pt-hair)); border-left: 2px solid var(--pt-ink2, currentColor); border-radius: 2px; background: var(--pt-glass); font-size: 12.5px; color: var(--pt-dim); line-height: 1.5; }
+.pp-host b { font-weight: 500; color: var(--pt-ink); }
+.pp-list { background: var(--pt-glass); border: 1px solid var(--pt-hair); border-radius: 2px; padding: 6px 0; position: sticky; top: 0; }
+.pp-lh { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 14px 6px; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-faint); }
+.pp-cust { display: block; width: 100%; text-align: left; background: none; border: 0; border-left: 2px solid transparent; border-radius: 0; padding: 10px 14px; color: var(--pt-ink2); cursor: pointer; }
+.pp-cust:hover { background: var(--pt-sel); color: var(--pt-ink); } .pp-cust.on { background: var(--pt-sel); color: var(--pt-ink); border-left-color: var(--pt-ink); }
+.pp-cust .n { display: block; font-size: 14.5px; font-weight: 300; } .pp-cust .d { display: block; margin-top: 3px; font-size: 11.5px; color: var(--pt-dim); }
+.pp-pick { width: 100%; margin: 0 14px 8px; width: calc(100% - 28px); }
+.pp-detail { display: grid; gap: 14px; min-width: 0; }
+.pp-status { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding: 2px 2px 0; font-size: 14px; }
+.pp-status b { font-weight: 400; font-size: 18px; }
+.pp-panel h3 { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.pp-panel h3 .row { display: inline-flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pp-pill { font-family: var(--font-caps); font-size: 9px; letter-spacing: .18em; text-transform: uppercase; border: 1px solid var(--pt-hair2); border-radius: 2px; padding: 2px 7px; color: var(--pt-dim); white-space: nowrap; }
+.pp-pill.ok { color: var(--pt-ink); border-color: var(--pt-ink2); } .pp-pill.warn { color: var(--pt-ink2); border-style: dashed; } .pp-pill.neg { color: var(--pt-neg); border-color: currentColor; }
+.pp-checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 4px 18px; }
+.pp-chk { display: grid; grid-template-columns: auto auto 1fr; gap: 8px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--pt-hair); font-size: 14px; }
+.pp-chk input { accent-color: var(--pt-ink); width: 15px; height: 15px; margin: 0; } .pp-chk .sh-dim { font-size: 11.5px; display: inline-flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pp-vis { display: grid; gap: 0; }
+.pp-visrow { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--pt-hair); }
+.pp-visrow:last-child { border-bottom: 0; } .pp-visrow .l { font-size: 14px; } .pp-visrow .sh-dim { font-size: 12px; }
+.st-tog.off { opacity: .5; pointer-events: none; }
+.pp-docsel select { max-width: 220px; }
+.pp-files { display: grid; gap: 10px; } .pp-sech { display: flex; justify-content: space-between; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-faint); padding: 6px 0 2px; border-bottom: 1px solid var(--pt-hair); }
+.pp-file { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--pt-hair); font-size: 13.5px; }
+.pp-file .n { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .pp-file .sh-dim { font-size: 11.5px; white-space: nowrap; }
+.pp-pw { display: grid; gap: 6px; font-size: 14px; } .pp-pw code { font-size: 16px; letter-spacing: .06em; user-select: all; } .pp-pw .row { display: flex; gap: 10px; }
+.pp-foot { font-size: 12px; line-height: 1.5; padding: 4px 2px 10px; }
+@media (max-width: 760px) {
+  .pp-wrap { grid-template-columns: 1fr; gap: 12px; } .pp-list { position: static; padding: 4px 0 2px; }
+  .pp-checks { grid-template-columns: 1fr; } .pp-chk { grid-template-columns: auto 1fr; } .pp-chk .sh-dim { grid-column: 1 / -1; padding-left: 23px; }
+  .pp-file { grid-template-columns: minmax(0, 1fr) auto; } .pp-file .sh-dim { grid-column: 1 / -1; }
+  .pp-docsel { width: 100%; } .pp-docsel select { max-width: none; flex: 1 1 120px; }
+  .pp-status b { font-size: 16px; }
+}
+
+/* ---------- 4.14 · the report centre (proship-reports.js) */
+body[data-app="proship"] .psr-views { margin: 0 0 14px; } body[data-app="proship"] .psr-views .n { margin-left: 6px; color: var(--pt-faint); letter-spacing: 0; }
+body[data-app="proship"] .psr-panel { margin-bottom: 16px; } body[data-app="proship"] .psr-cards { margin-bottom: 4px; }
+body[data-app="proship"] .psr-gen { margin-top: 10px; gap: 12px; align-items: center; }
+.psr-queue { display: grid; gap: 0; } .psr-qrow { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--pt-hair); } .psr-qrow:last-child { border-bottom: 0; }
+.psr-qmain { min-width: 0; } .psr-qmain b { font-weight: 500; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .psr-qmain .sh-dim { font-size: 11px; margin-top: 2px; }
+.psr-qacts { gap: 6px; } .psr-qacts button { white-space: nowrap; }
+.psr-pill { display: inline-block; padding: 2px 8px; border: 1px solid var(--pt-hair2); font-size: 10.5px; letter-spacing: .04em; white-space: nowrap; } .psr-pill.pos { border-color: var(--pt-ink2); color: var(--pt-ink); } .psr-pill.warnc { color: var(--pt-ink); border-style: dashed; }
+.psr-tolbl { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--pt-dim); } .psr-tolbl select.psr-to { width: auto; max-width: 220px; font-size: 11.5px; padding: 5px 24px 5px 8px; letter-spacing: 0; text-transform: none; font-family: var(--font); }
+@media (max-width: 760px) {
+  .psr-qrow { flex-direction: column; align-items: stretch; } .psr-qacts { flex-wrap: wrap; } .psr-tolbl { width: 100%; } .psr-tolbl select.psr-to { flex: 1; max-width: none; }
+  body[data-app="proship"] .psr-views { overflow-x: auto; white-space: nowrap; }
+}
+body[data-app="proship"] .psr-cards .psf-card { text-transform: none; letter-spacing: 0; font-family: var(--font); font-size: 12px; text-align: left; } body[data-app="proship"] .psr-cards .psf-card b, body[data-app="proship"] .psr-cards .psf-card span { text-transform: none; letter-spacing: 0; }
+body[data-app="proship"] .psr-views { display: flex; flex-wrap: nowrap; overflow-x: auto; } body[data-app="proship"] .psr-views button { flex: 0 0 auto; padding: 15px 18px 13px; }
+/* 4.17 · the customer rows are buttons: sentence case like every list row (the suite's plain-button rule capitalised them) */
+body[data-app="proship"] .sh-app .pp-cust, body[data-app="proship"] .pp-cust { font-family: var(--font); letter-spacing: 0; text-transform: none; font-size: 13px; }
+body[data-app="proship"] .pp-cust .n { font-family: var(--font); text-transform: none; letter-spacing: 0; }
+body[data-app="proship"] .pp-cust .d { text-transform: none; letter-spacing: 0; }
+
+/* 4.30 · the assignment table */
+.pp-vtable td.pp-tick { width: 28px; } .pp-vtable td.pp-tick input { accent-color: var(--pt-ink); width: 15px; height: 15px; margin: 0; }
+.pp-vtable tbody tr { cursor: pointer; } .pp-vtable tbody tr.on td b { color: var(--pt-ink); font-weight: 500; } .pp-vtable tbody tr:not(.on) td { color: var(--pt-dim); } .pp-vtable tbody tr:not(.on) td b { color: var(--pt-ink2, var(--pt-ink)); font-weight: 400; }
+.pp-vtable td .sh-dim { font-size: 11px; }
+/* 4.31.10 · the live switch and the "Portal kept current" line on the status block */
+body[data-app="proship"] .pp-liverow { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 13px; } body[data-app="proship"] .pp-liverow .st-tog { flex: none; }
+body[data-app="proship"] .pp-live { margin-top: 6px; font-size: 12.5px; } body[data-app="proship"] .pp-live.warn { color: var(--pt-ink2); }

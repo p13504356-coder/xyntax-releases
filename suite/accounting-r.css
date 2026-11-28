@@ -1,0 +1,120 @@
+/* XYNTAX ACCOUNTING — 4.17 refinements (overrides after vertu.css; builder E).
+   No dead ends (inline "+ New …" creation over a sheet), inline validation, Save and new, the first-run set-up, the Desk "Today"
+   queue, clickable ageing tiles, batch actions in Finance, the Demo data panel. Monochrome, the suite's caps labels, both themes. */
+
+/* ---------- the small creation sheet over a form ("+ New entity…" and the like) */
+body[data-app] #sheet .quick { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(540px, calc(100% - 40px)); max-height: calc(100% - 96px); overflow: auto; background: var(--pt-veil2); border: 1px solid var(--pt-hair2); border-radius: 0; padding: 20px 22px 18px; z-index: 30; box-shadow: 0 24px 70px rgba(0, 0, 0, .55); color: var(--pt-ink); }
+body[data-app] #sheet .quick h4 { margin: 0 0 4px; font: 300 18px/1.25 var(--font); letter-spacing: 0; text-transform: none; color: var(--pt-ink); }
+body[data-app] #sheet .quick .qsub { color: var(--pt-dim); font-size: 12px; font-weight: 300; margin: 0 0 14px; line-height: 1.45; }
+body[data-app] #sheet .quick .qgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 10px; }
+body[data-app] #sheet .quick .qgrid label { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+body[data-app] #sheet .quick .qgrid label.wide { grid-column: 1 / -1; }
+body[data-app] #sheet .quick .qgrid label > span { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-dim); }
+body[data-app] #sheet .quick .qgrid input, body[data-app] #sheet .quick .qgrid select { width: 100%; box-sizing: border-box; background: var(--pt-field); border: 1px solid var(--pt-hair2); color: var(--pt-ink); font-weight: 300; }
+body[data-app] #sheet .quick .qgrid .hint { color: var(--pt-faint); font-size: 11px; }
+body[data-app] #sheet .quick .qfoot { gap: 16px; align-items: center; margin-top: 18px !important; }
+body[data-app] #sheet .quick .qfoot .err { margin-right: auto; color: #e07070; font-size: 12px; }
+body[data-app] #sheet .quick .qfoot button:not(.primary) { background: none; border: 0; color: var(--pt-dim); font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; }
+:root[data-theme="light"] body[data-app] #sheet .quick { box-shadow: 0 24px 70px rgba(16, 20, 28, .18); }
+
+/* ---------- required fields, inline errors, the "nothing to choose yet" hint, the one-time warning */
+body[data-app] #sheet .form .f .reqmark { color: var(--pt-faint); letter-spacing: 0; }
+body[data-app] #sheet .form .f.invalid input, body[data-app] #sheet .form .f.invalid select, body[data-app] #sheet .form .f.invalid textarea, body[data-app] #sheet .form .f.invalid .pickin { border-color: rgba(224, 112, 112, .75); box-shadow: inset 0 0 0 1px rgba(224, 112, 112, .35); }
+body[data-app] #sheet .form .f .ferr { color: #e07070; font-size: 11.5px; font-weight: 400; margin-top: 2px; }
+:root[data-theme="light"] body[data-app] #sheet .form .f .ferr { color: #b3261e; }
+body[data-app] #sheet .form .f .livehint { font-variant-numeric: tabular-nums; margin-top: 2px; min-height: 0; }
+body[data-app] #sheet .form .f .livehint:empty { display: none; }
+body[data-app] #sheet .form .f .livehint.bad { color: #e07070; }
+:root[data-theme="light"] body[data-app] #sheet .form .f .livehint.bad { color: #b3261e; }
+body[data-app] #sheet .form .f .nonehint { color: var(--pt-dim); font-size: 11.5px; }
+body[data-app] .linkbtn { background: none; border: 0; padding: 0; color: var(--pt-ink); font: inherit; text-decoration: underline; text-decoration-color: var(--pt-hair2); text-underline-offset: 3px; cursor: pointer; letter-spacing: 0; text-transform: none; }
+body[data-app] .linkbtn:hover { text-decoration-color: currentColor; }
+body[data-app] #sheet .sfoot .err { line-height: 1.4; }
+body[data-app] #sheet .sfoot button.primary.confirming { outline: 1px solid rgba(224, 180, 112, .7); outline-offset: 2px; }
+body[data-app] #sheet .sfoot button.savenew { white-space: nowrap; }
+
+/* ---------- KPI tiles that open their list */
+body[data-app="accounting"] .kpis > button.kpi { display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; position: relative; text-align: left; font: inherit; color: inherit; text-transform: none; letter-spacing: normal; font-weight: inherit; border-top: 0; border-left: 0; border-radius: 0; cursor: pointer; width: 100%; min-width: 0; margin: 0; transition: background 120ms; }
+body[data-app="accounting"] .kpis > button.kpi:hover { background: var(--pt-glass); }
+body[data-app="accounting"] .kpis > button.kpi:focus-visible { outline: 1px solid var(--pt-ink); outline-offset: -3px; }
+body[data-app="accounting"] .kpis > button.kpi::after { content: "›"; position: absolute; top: 15px; right: 16px; color: var(--pt-faint); font-size: 14px; line-height: 1; letter-spacing: 0; }
+body[data-app="accounting"] .kpis > button.kpi:hover::after { color: var(--pt-ink); }
+body[data-app="accounting"] .kpis > button.kpi .l { display: block; max-width: calc(100% - 18px); text-transform: uppercase; letter-spacing: .22em; }
+body[data-app="accounting"] .kpis > button.kpi .d { text-transform: none; letter-spacing: normal; }
+
+/* ---------- the Desk: Today */
+body[data-app="accounting"] .today { display: flex; flex-direction: column; border-top: 1px solid var(--pt-hair); margin-bottom: 8px; }
+body[data-app="accounting"] .today-i { display: grid; grid-template-columns: minmax(0, 1fr) auto 14px; gap: 14px; align-items: baseline; text-align: left; width: 100%; background: none; border: 0; border-bottom: 1px solid var(--pt-hair); border-radius: 0; padding: 11px 4px; color: var(--pt-ink); font: 300 13.5px/1.35 var(--font); letter-spacing: 0; text-transform: none; cursor: pointer; }
+body[data-app="accounting"] .today-i:hover { background: var(--pt-glass); }
+body[data-app="accounting"] .today-i .d { color: var(--pt-dim); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+body[data-app="accounting"] .today-i .go { color: var(--pt-faint); }
+body[data-app="accounting"] .today-i.neg .t::before, body[data-app="accounting"] .today-i.warnc .t::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 9px; vertical-align: 2px; background: var(--pt-ink); }
+body[data-app="accounting"] .today-i.warnc .t::before { background: none; border: 1px solid var(--pt-ink); width: 5px; height: 5px; }
+body[data-app="accounting"] .today-none { padding: 10px 0 4px; }
+
+/* ---------- Finance: selection bar, the ageing chip */
+body[data-app="accounting"] .selbar { gap: 12px; flex-wrap: wrap; align-items: center; }
+body[data-app="accounting"] .chipline { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; }
+body[data-app="accounting"] .batchlist { max-height: 260px; overflow: auto; }
+
+/* ---------- first run: set up your company */
+body[data-app="accounting"] .fr-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+body[data-app="accounting"] .fr-card { padding: 22px 24px 20px; }
+body[data-app="accounting"] .fr-card h3 { margin-bottom: 14px; }
+body[data-app="accounting"] .fr-card p { margin: 0 0 14px; line-height: 1.55; font-weight: 300; }
+body[data-app="accounting"] .fr-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+body[data-app="accounting"] .fr-f { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+body[data-app="accounting"] .fr-f > span { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--pt-dim); }
+body[data-app="accounting"] .fr-f input, body[data-app="accounting"] .fr-f select { width: 100%; box-sizing: border-box; background: var(--pt-field); border: 1px solid var(--pt-hair2); color: var(--pt-ink); font-weight: 300; }
+body[data-app="accounting"] .fr-f .hint { color: var(--pt-faint); font-size: 11px; }
+body[data-app="accounting"] .fr-f.invalid input, body[data-app="accounting"] .fr-f.invalid select { border-color: rgba(224, 112, 112, .75); }
+body[data-app="accounting"] .fr-sep { grid-column: 1 / -1; margin-top: 8px; padding-top: 14px; border-top: 1px solid var(--pt-hair); font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-dim); }
+body[data-app="accounting"] .fr-actions { margin-top: 20px; justify-content: flex-end; gap: 16px; align-items: center; }
+body[data-app="accounting"] .fr-err { margin-right: auto; color: #e07070; font-size: 12px; }
+:root[data-theme="light"] body[data-app="accounting"] .fr-err { color: #b3261e; }
+body[data-app="accounting"] .fr-note { margin-top: 12px; }
+
+/* ---------- Data → Demo data */
+body[data-app="accounting"] .demo-panel .row { gap: 12px; }
+
+/* ---------- phone */
+@media (max-width: 760px) {
+  body[data-app] #sheet .quick { top: 12px; width: calc(100% - 24px); max-height: calc(100% - 24px); padding: 18px 16px 16px; }
+  body[data-app] #sheet .quick .qgrid { grid-template-columns: 1fr; }
+  body[data-app] #sheet .sfoot { flex-wrap: wrap; row-gap: 8px; }
+  body[data-app] #sheet .sfoot .err { flex-basis: 100%; order: -1; }
+  body[data-app="accounting"] .fr-grid { grid-template-columns: 1fr; gap: 16px; }
+  body[data-app="accounting"] .fr-card { padding: 18px 16px; }
+  body[data-app="accounting"] .fr-form { grid-template-columns: 1fr; }
+  body[data-app="accounting"] .today-i { grid-template-columns: minmax(0, 1fr) 14px; row-gap: 2px; }
+  body[data-app="accounting"] .today-i .d { grid-column: 1; grid-row: 2; white-space: normal; }
+  body[data-app="accounting"] .today-i .go { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  body[data-app="accounting"] .selbar > button { flex: 1 1 auto; }
+}
+
+/* the company set-up keeps the standard three columns, so the search bar has the same width as in every other app (4.12 rule) */
+body[data-app="accounting"] .fr-side > button:not(.quiet) { border: 1px solid var(--pt-hair2); padding: 9px 16px; }
+body[data-app="accounting"] .selbar > button:not(.primary), body[data-app="accounting"] .chipline > button { background: none; border: 0; padding: 6px 2px; color: var(--pt-dim); font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
+body[data-app="accounting"] .selbar > button:not(.primary):hover, body[data-app="accounting"] .chipline > button:hover { color: var(--pt-ink); }
+
+/* ---------- design pass: panel headings read like every other section label (caps, tracked, dim); the Data page's settings
+   panels get one column below ~860 px of page so their forms are not squeezed into 330 px */
+body[data-app="accounting"] #main .panel > h3 { font-family: var(--font-caps); font-size: 9.5px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--pt-dim); margin: 0 0 12px; min-height: 22px; gap: 12px; }
+body[data-app="accounting"] #main .panel > h3 > button, body[data-app="accounting"] #main .panel > h3 .actions button { font-family: var(--font-caps); font-size: 9.5px; letter-spacing: .2em; }
+body[data-app="accounting"] #main .panel { padding: 18px 20px 16px; }
+body[data-app="accounting"] #main .datagrid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 18px; }
+body[data-app="accounting"] #main .panel label { line-height: 1.4; }
+@media (max-width: 760px) { body[data-app="accounting"] #main .panel { padding: 16px 14px 14px; } }
+:root[data-theme="light"] body[data-app="accounting"] #main .panel > h3 { color: #5b6470; }
+
+/* 4.17 · KPI rows never end in a lone tile or a hole: the last tile stretches over what is left of its row (3 columns on a desktop, 2 on a phone) */
+body[data-app="accounting"] #main .kpis > .kpi:last-child:nth-child(3n+1) { grid-column: 1 / -1; }
+body[data-app="accounting"] #main .kpis > .kpi:last-child:nth-child(3n+2) { grid-column: span 2; }
+@media (max-width: 760px) {
+  body[data-app="accounting"] #main .kpis > .kpi:last-child:nth-child(3n+1), body[data-app="accounting"] #main .kpis > .kpi:last-child:nth-child(3n+2) { grid-column: auto; }
+  body[data-app="accounting"] #main .kpis > .kpi:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* 4.17 · the table's expand button (top right) never covers the last column's header: that column keeps room for it */
+body[data-app="accounting"] .twouter table.t thead th:last-child { padding-right: 36px; }
+body[data-app="accounting"] .twouter table.t td.num:last-child { padding-right: 36px; }
